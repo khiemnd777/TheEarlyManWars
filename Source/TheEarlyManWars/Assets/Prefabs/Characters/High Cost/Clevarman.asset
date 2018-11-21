@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Clevarman
   m_EditorClassIdentifier: 
   name: Clevarman
-  speed: 0
+  speed: 5
   attackSpeed: 0
-  attakPower: 0
+  attackPower: 0
   rangeAttack: 0
   hp: 0
   meat: 400

@@ -7,6 +7,6 @@ public class BaseObject : ScriptableObject {
 	public int speed;
 	public int attackSpeed;
 	public int attackPower;
-	public float rangeAttack;
+	public int rangeAttack;
 	public int hp;
 }
