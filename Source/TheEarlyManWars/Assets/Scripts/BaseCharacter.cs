@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="New Character", menuName="Create Character")]
+[CreateAssetMenu (fileName = "New Character", menuName = "Create Character")]
 public class BaseCharacter : BaseObject {
-	public Stat cooldownPurchase;
+	public int meat;
+	public AttackType attackType;
+	public int cooldownPurchase;
 }
