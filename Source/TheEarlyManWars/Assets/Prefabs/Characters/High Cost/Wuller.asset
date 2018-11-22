@@ -16,7 +16,7 @@ MonoBehaviour:
   attackSpeed: 0
   attackPower: 0
   rangeAttack: 0
-  hp: 0
+  hp: 400
   meat: 350
   attackType: 0
   cooldownPurchase: 0

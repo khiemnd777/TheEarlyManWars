@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class MonsterDisplay : ObjectDisplay
 {
-    public override void Awake()
+    public MonsterAttackType attackType;
+
+    public override void Awake ()
     {
-        base.Awake();
-        allies = FindObjectOfType<MonsterDisplayList>();
-        enemies = FindObjectOfType<CharacterDisplayList>();
+        base.Awake ();
+        attackType = ((BaseMonster) baseObject).attackType;
+        allies = FindObjectOfType<MonsterDisplayList> ();
+        enemies = FindObjectOfType<CharacterDisplayList> ();
+    }
+
+    public override void Move ()
+    {
+        if (speed.GetValue () == 0) return;
+        transform.position += -Vector3.right * speed.GetValue () * Time.fixedDeltaTime;
     }
 }
