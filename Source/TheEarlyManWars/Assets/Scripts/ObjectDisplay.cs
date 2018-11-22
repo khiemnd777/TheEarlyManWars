@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ObjectDisplay : MonoBehaviour {
     public BaseObject baseObject;
-
+    public ObjectDisplayList allies;
+    public ObjectDisplayList enemies;
     public Stat speed;
     public Stat attackSpeed;
     public Stat attackPower;
