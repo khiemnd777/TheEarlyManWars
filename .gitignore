@@ -32,3 +32,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Source/TheEarlyManWars/.vscode/launch.json

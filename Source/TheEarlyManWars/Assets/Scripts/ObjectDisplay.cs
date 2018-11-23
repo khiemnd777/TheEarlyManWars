@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -11,9 +13,10 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Stat attackSpeed;
     public Stat attackPower;
     public Stat rangeAttack;
-    public Stat hp;
+    public int hp;
     public int maxHP;
     public Direction direction;
+    float _attackTime = 0f;
 
     public virtual void Awake ()
     {
@@ -23,7 +26,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         attackSpeed.baseValue = baseObject.attackSpeed;
         attackPower.baseValue = baseObject.attackPower;
         rangeAttack.baseValue = baseObject.rangeAttack;
-        maxHP = hp.baseValue = baseObject.hp;
+        maxHP = hp = baseObject.hp;
     }
 
     public virtual void Update ()
@@ -36,38 +39,57 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
+    public abstract void Attack (IEnumerable<ObjectDisplay> enemies);
+
+    void PrepareAttack (IEnumerable<ObjectDisplay> enemies)
+    {
+        if (Time.time < _attackTime) return;
+        var atkSpdVal = attackSpeed.GetValue ();
+        _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
+        Attack(enemies);
+    }
+
     public virtual void Move ()
     {
-        var detected = DetectEnemy ();
-        if (detected != null)
+        var detectedList = DetectEnemies ();
+        if (detectedList.Any ())
         {
+            PrepareAttack (detectedList);
             return;
         }
         var spdVal = speed.GetValue ();
         transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * Time.fixedDeltaTime;
     }
 
-    public virtual ObjectDisplay DetectEnemy ()
+    public virtual void TakeDamage (int damage)
+    {
+        if (hp <= 0)
+        {
+            Debug.Log (name + " being killed!");
+            allies.Remove (this);
+            Destroy (gameObject);
+            return;
+        }
+        hp -= damage;
+    }
+
+    public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
     {
         var atkRangeVal = rangeAttack.GetValue ();
-        Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
+        if (settings.debug)
+        {
+            Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
+        }
         var currentX = transform.position.x;
         var rangeX = currentX + atkRangeVal * (int) direction;
-        ObjectDisplay detectedObj;
         switch (direction)
         {
-            default:
             case Direction.LeftToRight:
-            {
-                detectedObj =  enemies.list.FirstOrDefault (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
-                break;
-            }
+                return enemies.list.Where (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
             case Direction.RightToLeft:
-            {
-                detectedObj =  enemies.list.FirstOrDefault (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
-                break;
-            }
+                return enemies.list.Where (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
+            default:
+                return new List<ObjectDisplay> ();
         }
-        return detectedObj;
     }
 }
