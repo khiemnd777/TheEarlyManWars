@@ -6,15 +6,10 @@ public class CharacterDisplay : ObjectDisplay
 
     public override void Awake ()
     {
+        direction = Direction.LeftToRight;
         base.Awake ();
         attackType = ((BaseCharacter) baseObject).attackType;
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
-    }
-
-    public override void Move ()
-    {
-        if (speed.GetValue () == 0) return;
-        transform.position += Vector3.right * speed.GetValue () * Time.fixedDeltaTime;
     }
 }

@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: Clevarman
   m_EditorClassIdentifier: 
   name: Clevarman
-  speed: 5
+  speed: 3
   attackSpeed: 0
   attackPower: 0
-  rangeAttack: 0
+  rangeAttack: 3
   hp: 400
   meat: 400
   attackType: 1
