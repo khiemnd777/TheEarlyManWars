@@ -5,12 +5,12 @@ using UnityEngine;
 public class CharacterDisplay : ObjectDisplay
 {
     public AttackType attackType;
-    float _attackTime = 0f;
 
     public override void Awake ()
     {
         direction = Direction.LeftToRight;
         base.Awake ();
+        enemyTower = FindObjectOfType<MonsterTower>();
         attackType = ((BaseCharacter) baseObject).attackType;
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
