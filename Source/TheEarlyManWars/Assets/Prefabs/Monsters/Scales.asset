@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Scales
   m_EditorClassIdentifier: 
   name: Scales
-  speed: 2
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
+  speed: 1
+  attackSpeed: 1
+  attackPower: 10
+  rangeAttack: 1
   hp: 300
   attackType: 2

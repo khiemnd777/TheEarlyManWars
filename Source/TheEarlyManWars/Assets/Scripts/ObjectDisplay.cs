@@ -22,6 +22,10 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Awake ()
     {
         settings = FindObjectOfType<Settings> ();
+    }
+
+    public virtual void Start ()
+    {
         name = baseObject.name;
         speed.baseValue = baseObject.speed;
         attackSpeed.baseValue = baseObject.attackSpeed;

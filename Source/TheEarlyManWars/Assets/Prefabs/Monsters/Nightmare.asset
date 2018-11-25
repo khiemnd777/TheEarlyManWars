@@ -14,7 +14,7 @@ MonoBehaviour:
   name: Nightmare
   speed: 3
   attackSpeed: 2
-  attackPower: 20
+  attackPower: 30
   rangeAttack: 2
   hp: 1000
   attackType: 3

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Broken Fang
   speed: 6
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
+  attackSpeed: 5
+  attackPower: 10
+  rangeAttack: 4
   hp: 150
   attackType: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Large Jaw
   speed: 5
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
+  attackSpeed: 4
+  attackPower: 12
+  rangeAttack: 2
   hp: 200
   attackType: 0
