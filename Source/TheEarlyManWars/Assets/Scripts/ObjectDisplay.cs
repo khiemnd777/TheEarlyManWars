@@ -9,6 +9,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public ObjectDisplayList allies;
     public ObjectDisplayList enemies;
     public Tower enemyTower;
+    [System.NonSerialized]
     public Settings settings;
     public Stat speed;
     public Stat attackSpeed;
@@ -76,6 +77,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     bool PrepareAttack ()
     {
+        if(settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
         var atkSpdVal = attackSpeed.GetValue ();
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
@@ -85,19 +87,18 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Move ()
     {
         var spdVal = speed.GetValue ();
-        transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * Time.fixedDeltaTime;
+        transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
     }
 
     public virtual void TakeDamage (int damage)
     {
+        hp -= damage;
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
             allies.Remove (this);
             Destroy (gameObject);
-            return;
         }
-        hp -= damage;
     }
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()

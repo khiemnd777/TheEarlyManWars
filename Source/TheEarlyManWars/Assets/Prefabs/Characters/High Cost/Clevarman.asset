@@ -14,7 +14,7 @@ MonoBehaviour:
   name: Clevarman
   speed: 3
   attackSpeed: 3
-  attackPower: 15
+  attackPower: 30
   rangeAttack: 3
   hp: 400
   meat: 400
