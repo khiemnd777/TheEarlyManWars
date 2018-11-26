@@ -737,7 +737,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444337756}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19fe24a76e77b428685323604374a002, type: 3}
   m_Name: 
@@ -745,7 +745,6 @@ MonoBehaviour:
   delaySpawning: 1
   delayNextWave: 5
   spawningPoint: {fileID: 1650950920}
-  displayList: {fileID: 0}
   waves:
   - monsters:
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
@@ -802,6 +801,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaSpeed: 1
+  deltaMoveStep: 0.5
   deltaAttackTime: 5
   debug: 1
 --- !u!4 &1478212646
