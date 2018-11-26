@@ -23,10 +23,10 @@ public class MonsterSpawner : MonoBehaviour
 
     void Awake ()
     {
+        settings = FindObjectOfType<Settings> ();
         displayList = FindObjectOfType<MonsterDisplayList> ();
         // Clone to a wave list to execute.
         _waves = waves.GetRange (0, waves.Count);
-        settings = FindObjectOfType<Settings> ();
     }
 
     void Update ()
