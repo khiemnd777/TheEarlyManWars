@@ -10,4 +10,5 @@ public class BaseObject : ScriptableObject
 	public int attackPower;
 	public int rangeAttack;
 	public int hp;
+	public MoveType moveType;
 }

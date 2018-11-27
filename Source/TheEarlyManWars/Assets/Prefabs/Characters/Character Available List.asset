@@ -8,14 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62cdf1bb86ca4458814ba2b6e818912, type: 3}
-  m_Name: Thunderlizard
+  m_Script: {fileID: 11500000, guid: 5af9b1121299d4491af87a5cce3d9f63, type: 3}
+  m_Name: Character Available List
   m_EditorClassIdentifier: 
-  name: Thunderlizard
-  speed: 5
-  attackSpeed: 2
-  attackPower: 5
-  rangeAttack: 3
-  hp: 150
-  moveType: 1
-  attackType: 1
+  list:
+  - {fileID: 11400000, guid: 1702594c053d544538def855443c7ebd, type: 2}

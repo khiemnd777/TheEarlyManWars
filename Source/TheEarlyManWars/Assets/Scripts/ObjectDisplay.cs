@@ -77,7 +77,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     bool PrepareAttack ()
     {
-        if(settings.deltaSpeed <= 0) return false;
+        if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
         var atkSpdVal = attackSpeed.GetValue ();
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
@@ -87,7 +87,18 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Move ()
     {
         var spdVal = speed.GetValue ();
-        transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
+        switch (baseObject.moveType)
+        {
+            case MoveType.OnGround:
+                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
+                break;
+            case MoveType.InAir:
+                // Temp
+                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
+                break;
+            default:
+                break;
+        }
     }
 
     public virtual void TakeDamage (int damage)
