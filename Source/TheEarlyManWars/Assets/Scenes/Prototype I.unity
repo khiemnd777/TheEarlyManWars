@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 1007845747}
   - component: {fileID: 1007845746}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Add Character Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawningPoint: {fileID: 1540008014}
+  _availableList: {fileID: 11400000, guid: e7b5d7d31a5fb4b77b9151aea990d728, type: 2}
   _displayPrefab: {fileID: 114994601373003580, guid: 7af46729cd95e460a889d14c25405100,
     type: 2}
 --- !u!4 &1076987758

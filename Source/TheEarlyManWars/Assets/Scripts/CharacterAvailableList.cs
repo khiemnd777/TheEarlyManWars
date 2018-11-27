@@ -8,6 +8,11 @@ public class CharacterAvailableList : ScriptableObject
     [SerializeField]
     CharacterDisplay _displayPrefab;
 
+    public void Add (BaseCharacter baseCharacter)
+    {
+        list.Add (baseCharacter);
+    }
+
     public CharacterDisplay Instance (BaseCharacter baseCharacter, Vector3 spawningPoint)
     {
         var z = Random.Range (-1f, 1f);

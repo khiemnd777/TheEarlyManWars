@@ -3,17 +3,17 @@ using UnityEngine;
 public class CharacterSpawner : MonoBehaviour
 {
     public Transform spawningPoint;
-    [System.NonSerialized]
-    public CharacterDisplayList displayList;
-    [System.NonSerialized]
-    public Settings settings;
+    CharacterDisplayList _displayList;
+    [SerializeField]
+    CharacterAvailableList _availableList;
     [SerializeField]
     CharacterDisplay _displayPrefab;
+    Settings _settings;
 
     void Awake ()
     {
-        settings = FindObjectOfType<Settings> ();
-        displayList = FindObjectOfType<CharacterDisplayList> ();
+        _settings = FindObjectOfType<Settings> ();
+        _displayList = FindObjectOfType<CharacterDisplayList> ();
     }
 
     public void Spawn (BaseCharacter baseCharacter)
