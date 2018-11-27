@@ -5,12 +5,13 @@ using UnityEngine;
 public class CharacterDisplay : ObjectDisplay
 {
     public AttackType attackType;
+    ObjectDisplay _currentEnemy;
 
     public override void Awake ()
     {
         direction = Direction.LeftToRight;
         base.Awake ();
-        enemyTower = FindObjectOfType<MonsterTower>();
+        enemyTower = FindObjectOfType<MonsterTower> ();
         attackType = ((BaseCharacter) baseObject).attackType;
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
@@ -18,18 +19,21 @@ public class CharacterDisplay : ObjectDisplay
 
     public override void Attack (IEnumerable<ObjectDisplay> enemies)
     {
-        var atkPwrVal = attackPower.GetValue();
+        var atkPwrVal = attackPower.GetValue ();
         if (attackType == AttackType.AOEMelee)
         {
             foreach (var enemy in enemies)
             {
-                enemy.TakeDamage(atkPwrVal);
+                enemy.TakeDamage (atkPwrVal);
             }
         }
         else
         {
-            var enemy = enemies.First();
-            enemy.TakeDamage(atkPwrVal);
+            if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
+            {
+                _currentEnemy = enemies.ElementAt (Random.Range (0, enemies.Count ()));
+            }
+            _currentEnemy.TakeDamage (atkPwrVal);
         }
     }
 }
