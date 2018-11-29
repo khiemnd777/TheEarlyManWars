@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Name: Boguman
   m_EditorClassIdentifier: 
   name: Boguman
-  speed: 4
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
+  speed: 6
+  attackSpeed: 5
+  attackPower: 10
+  rangeAttack: 5
   hp: 0
+  moveType: 0
   meat: 10
   attackType: 0
-  cooldownPurchase: 0
+  cooldownPurchase: 2

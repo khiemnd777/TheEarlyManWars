@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayController : MonoBehaviour
+public class PlayUI : MonoBehaviour
 {
     Settings _settings;
 

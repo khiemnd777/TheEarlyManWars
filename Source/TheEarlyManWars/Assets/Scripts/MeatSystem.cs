@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class MeatSystem : MonoBehaviour
 {
-    public int meat;
+    public int meat { get { return Mathf.FloorToInt (_meat); } }
     public float deltaCounter = 1f;
     Settings _settings;
+    [SerializeField]
     float _meat;
 
     void Start ()
@@ -14,17 +15,13 @@ public class MeatSystem : MonoBehaviour
 
     public void Purchase (int meat, System.Action then)
     {
-        if (meat < this.meat) return;
-        this.meat -= meat;
-        if (then != null)
-        {
-            then ();
-        }
+        if (meat > this._meat) return;
+        this._meat -= meat;
+        if (then != null) then ();
     }
 
     void Update ()
     {
-        _meat += Time.deltaTime * deltaCounter * _settings.deltaSpeed;
-        meat = Mathf.FloorToInt (_meat);
+        _meat += Time.deltaTime * deltaCounter * 15 * _settings.deltaSpeed;
     }
 }

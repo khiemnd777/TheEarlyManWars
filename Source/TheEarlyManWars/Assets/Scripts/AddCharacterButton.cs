@@ -5,10 +5,14 @@ using UnityEngine.UI;
 public class AddCharacterButton : MonoBehaviour
 {
     public BaseCharacter baseCharacter;
-    public int meat;
+    int _meat;
     MeatSystem _meatSystem;
     CharacterSpawner _spawner;
     Button _button;
+    [SerializeField]
+    Text _nameText;
+    [SerializeField]
+    Text _meatText;
 
     void Awake ()
     {
@@ -19,12 +23,14 @@ public class AddCharacterButton : MonoBehaviour
 
     void Start ()
     {
-        meat = baseCharacter.meat;
+        _meat = baseCharacter.meat;
+        _nameText.text = baseCharacter.name;
+        _meatText.text = _meat.ToString();
         _button.onClick.AddListener (() => OnClick ());
     }
 
     void OnClick ()
     {
-        _meatSystem.Purchase (meat, () => _spawner.Spawn (baseCharacter));
+        _meatSystem.Purchase (_meat, () => _spawner.Spawn (baseCharacter));
     }
 }
