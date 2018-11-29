@@ -16,7 +16,14 @@ public class CharacterSpawner : MonoBehaviour
         _displayList = FindObjectOfType<CharacterDisplayList> ();
     }
 
-    public CharacterDisplay Instance (BaseCharacter baseCharacter)
+    public void Spawn (BaseCharacter baseCharacter)
+    {
+        var ins = Instance(baseCharacter);
+        if(ins == null) return;
+        _displayList.Add(ins);
+    }
+
+    CharacterDisplay Instance (BaseCharacter baseCharacter)
     {
         if (!_availableList.Exists (baseCharacter)) return null;
         var z = Random.Range (-1f, 1f);
@@ -24,12 +31,5 @@ public class CharacterSpawner : MonoBehaviour
         var instance = Instantiate<CharacterDisplay> (_displayPrefab, spawningPosition, Quaternion.identity);
         instance.baseObject = baseCharacter;
         return instance;
-    }
-
-    public void Spawn (BaseCharacter baseCharacter)
-    {
-        var ins = Instance(baseCharacter);
-        if(ins == null) return;
-        _displayList.Add(ins);
     }
 }
