@@ -7,5 +7,5 @@ public class BaseCharacter : BaseObject
 {
 	public int meat;
 	public AttackType attackType;
-	public int cooldownPurchase;
+	public float cooldownPurchase;
 }

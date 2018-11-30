@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -20,4 +20,4 @@ MonoBehaviour:
   moveType: 0
   meat: 10
   attackType: 0
-  cooldownPurchase: 2
+  cooldownPurchase: 0.5
