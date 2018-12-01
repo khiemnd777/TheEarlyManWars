@@ -17,4 +17,6 @@ MonoBehaviour:
   attackPower: 12
   rangeAttack: 2
   hp: 200
+  moveType: 0
+  gainedMeat: 15
   attackType: 0

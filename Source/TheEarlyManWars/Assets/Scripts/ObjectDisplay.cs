@@ -101,15 +101,21 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage (int damage)
+    public virtual void TakeDamage (int damage, ObjectDisplay damgedBy)
     {
         hp -= damage;
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
+            OnDeath(damgedBy);
             allies.Remove (this);
             Destroy (gameObject);
         }
+    }
+
+    public virtual void OnDeath (ObjectDisplay damagedBy)
+    {
+
     }
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()

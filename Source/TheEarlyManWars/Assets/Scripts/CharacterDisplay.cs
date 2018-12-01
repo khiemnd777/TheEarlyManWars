@@ -24,7 +24,7 @@ public class CharacterDisplay : ObjectDisplay
         {
             foreach (var enemy in enemies)
             {
-                enemy.TakeDamage (atkPwrVal);
+                enemy.TakeDamage (atkPwrVal, this);
             }
         }
         else
@@ -33,7 +33,7 @@ public class CharacterDisplay : ObjectDisplay
             {
                 _currentEnemy = enemies.ElementAt (Random.Range (0, enemies.Count ()));
             }
-            _currentEnemy.TakeDamage (atkPwrVal);
+            _currentEnemy.TakeDamage (atkPwrVal, this);
         }
     }
 }

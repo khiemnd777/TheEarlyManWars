@@ -13,6 +13,19 @@ public class MeatSystem : MonoBehaviour
         _settings = FindObjectOfType<Settings> ();
     }
 
+    public void Gain (int meat)
+    {
+        this._meat += meat;
+    }
+
+    public void Gain (int[] meats)
+    {
+        foreach (var meat in meats)
+        {
+            Gain (meat);
+        }
+    }
+
     public void Purchase (int meat, System.Action then)
     {
         if (meat > this._meat) return;
