@@ -6,19 +6,33 @@ using UnityEngine;
 public abstract class ObjectDisplay : MonoBehaviour
 {
     public BaseObject baseObject;
+    // Animation & Animator
+    [System.NonSerialized]
+    public Animator animator;
+    [System.NonSerialized]
+    public AnimationClip animationAttack;
+    // List of object  display
+    [System.NonSerialized]
     public ObjectDisplayList allies;
+    [System.NonSerialized]
     public ObjectDisplayList enemies;
+    [System.NonSerialized]
     public Tower enemyTower;
+    // Settings
     [System.NonSerialized]
     public Settings settings;
+    // Stats
     public Stat speed;
     public Stat attackSpeed;
     public Stat attackPower;
     public Stat rangeAttack;
     public int hp;
     public int maxHP;
+    [System.NonSerialized]
     public Direction direction;
     float _attackTime = 0f;
+    IEnumerable<ObjectDisplay> _detectedEnemies;
+    Tower _detectedTower;
 
     public virtual void Awake ()
     {
@@ -28,38 +42,27 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Start ()
     {
         name = baseObject.name;
+        if (baseObject.animator != null)
+        {
+            animator = baseObject.animator;
+        }
+        if (baseObject.animationAttack != null)
+        {
+            animationAttack = baseObject.animationAttack;
+        }
         speed.baseValue = baseObject.speed;
         attackSpeed.baseValue = baseObject.attackSpeed;
         attackPower.baseValue = baseObject.attackPower;
         rangeAttack.baseValue = baseObject.rangeAttack;
         maxHP = hp = baseObject.hp;
+        StartCoroutine (ScanEnemies ());
+        StartCoroutine (ScanTower ());
+        StartCoroutine (Go ());
     }
 
     public virtual void Update ()
     {
-        var detectedList = DetectEnemies ();
-        if (detectedList.Any ())
-        {
-            if (PrepareAttack ())
-            {
-                Attack (detectedList);
-            }
-        }
-        else
-        {
-            var detectedEnemyTower = DetectEnemyTower ();
-            if (detectedEnemyTower != null)
-            {
-                if (PrepareAttack ())
-                {
-                    Attack (detectedEnemyTower);
-                }
-            }
-            else
-            {
-                Move ();
-            }
-        }
+
     }
 
     public virtual void FixedUpdate ()
@@ -107,7 +110,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
-            OnDeath(damgedBy);
+            OnDeath (damgedBy);
             allies.Remove (this);
             Destroy (gameObject);
         }
@@ -155,6 +158,75 @@ public abstract class ObjectDisplay : MonoBehaviour
                 return enemyTower.transform.position.x >= rangeX && enemyTower.transform.position.x < currentX ? enemyTower : null;
             default:
                 return null;
+        }
+    }
+
+    // Hit function is used for being flag to determine the fired off of get-hit-time.
+    public void Hit ()
+    {
+
+    }
+
+    IEnumerator Go ()
+    {
+        yield return null;
+        while (gameObject != null && !gameObject.Equals (null))
+        {
+            if (_detectedEnemies.Any ())
+            {
+                if (PrepareAttack ())
+                {
+                    yield return StartCoroutine(AnimateAttack());
+                    Attack (_detectedEnemies);
+                }
+            }
+            else
+            {
+                if (_detectedTower != null)
+                {
+                    if (PrepareAttack ())
+                    {
+                        yield return StartCoroutine(AnimateAttack());
+                        Attack (_detectedTower);
+                    }
+                }
+                else
+                {
+                    Move ();
+                }
+            }
+            yield return null;
+        }
+    }
+
+    IEnumerator AnimateAttack ()
+    {
+        if (animator != null && !animator.Equals (null) && animationAttack != null && !animationAttack.Equals (null))
+        {
+            animator.Play (animationAttack.name, 0);
+            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+            if (hitFn != null)
+            {
+                yield return new WaitForSeconds (hitFn.time);
+            }
+        }
+    }
+
+    IEnumerator ScanEnemies ()
+    {
+        while (gameObject != null && !gameObject.Equals (null))
+        {
+            _detectedEnemies = DetectEnemies ();
+            yield return null;
+        }
+    }
+
+    IEnumerator ScanTower ()
+    {
+        while (gameObject != null && !gameObject.Equals (null))
+        {
+            _detectedTower = DetectEnemyTower ();
+            yield return null;
         }
     }
 }

@@ -11,4 +11,6 @@ public class BaseObject : ScriptableObject
 	public int rangeAttack;
 	public int hp;
 	public MoveType moveType;
+	public Animator animator;
+	public AnimationClip animationAttack;
 }

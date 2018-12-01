@@ -12,9 +12,14 @@ public class CharacterDisplay : ObjectDisplay
         direction = Direction.LeftToRight;
         base.Awake ();
         enemyTower = FindObjectOfType<MonsterTower> ();
-        attackType = ((BaseCharacter) baseObject).attackType;
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
+    }
+
+    public override void Start ()
+    {
+        base.Start ();
+        attackType = ((BaseCharacter) baseObject).attackType;
     }
 
     public override void Attack (IEnumerable<ObjectDisplay> enemies)
