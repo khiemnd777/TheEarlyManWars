@@ -39,6 +39,6 @@ public class MonsterDisplay : ObjectDisplay
 
     public override void OnDeath (ObjectDisplay damagedBy)
     {
-        _meatSystem.Gain(_gainedMeat);
+        _meatSystem.Gain (_gainedMeat);
     }
 }

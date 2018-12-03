@@ -176,7 +176,10 @@ public abstract class ObjectDisplay : MonoBehaviour
             {
                 if (PrepareAttack ())
                 {
-                    yield return StartCoroutine(AnimateAttack());
+                    if (AnimationAttackIsNotNull ())
+                    {
+                        yield return StartCoroutine (AnimateAttack ());
+                    }
                     Attack (_detectedEnemies);
                 }
             }
@@ -186,7 +189,10 @@ public abstract class ObjectDisplay : MonoBehaviour
                 {
                     if (PrepareAttack ())
                     {
-                        yield return StartCoroutine(AnimateAttack());
+                        if (AnimationAttackIsNotNull ())
+                        {
+                            yield return StartCoroutine (AnimateAttack ());
+                        }
                         Attack (_detectedTower);
                     }
                 }
@@ -199,16 +205,18 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    IEnumerator AnimateAttack ()
+    bool AnimationAttackIsNotNull ()
     {
-        if (animator != null && !animator.Equals (null) && animationAttack != null && !animationAttack.Equals (null))
+        return animator != null && !animator.Equals (null) && animationAttack != null && !animationAttack.Equals (null);
+    }
+
+    protected virtual IEnumerator AnimateAttack ()
+    {
+        animator.Play (animationAttack.name, 0);
+        var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+        if (hitFn != null)
         {
-            animator.Play (animationAttack.name, 0);
-            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
-            if (hitFn != null)
-            {
-                yield return new WaitForSeconds (hitFn.time);
-            }
+            yield return new WaitForSeconds (hitFn.time);
         }
     }
 
