@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterDisplay : ObjectDisplay
 {
     public AttackType attackType;
-    ObjectDisplay _currentEnemy;
+    protected ObjectDisplay currentEnemy;
 
     public override void Awake ()
     {
@@ -34,11 +34,12 @@ public class CharacterDisplay : ObjectDisplay
         }
         else
         {
-            if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
+            if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
             {
-                _currentEnemy = enemies.ElementAt (Random.Range (0, enemies.Count ()));
+                currentEnemy = enemies.First();
             }
-            _currentEnemy.TakeDamage (atkPwrVal, this);
+            if(currentEnemy is Object && !currentEnemy.Equals(null))
+                currentEnemy.TakeDamage (atkPwrVal, this);
         }
     }
 }

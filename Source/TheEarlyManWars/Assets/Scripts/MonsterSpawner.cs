@@ -12,8 +12,6 @@ public class MonsterSpawner : MonoBehaviour
     public MonsterDisplayList displayList;
     [System.NonSerialized]
     public Settings settings;
-    [SerializeField]
-    MonsterDisplay _monsterDisplayPrefab;
     List<Wave> _waves;
     Wave _currentWave;
     int _currentMonsterSpawningIndex;
@@ -80,7 +78,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         var z = Random.Range (-1f, 1f);
         var spawningPosition = spawningPoint.position + Vector3.forward * z;
-        var instance = Instantiate<MonsterDisplay> (_monsterDisplayPrefab, spawningPosition, Quaternion.identity);
+        var instance = Instantiate<MonsterDisplay> (baseMonster.displayPrefab, spawningPosition, Quaternion.identity);
         instance.baseObject = baseMonster;
         return instance;
     }

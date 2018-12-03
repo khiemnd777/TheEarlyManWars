@@ -4,5 +4,6 @@ public enum AttackType
     Range,
     Buff,
     AOEMelee,
+    AOERange,
     OnlyAir
 }

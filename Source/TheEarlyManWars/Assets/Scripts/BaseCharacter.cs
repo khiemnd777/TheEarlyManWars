@@ -8,4 +8,5 @@ public class BaseCharacter : BaseObject
 	public int meat;
 	public AttackType attackType;
 	public float cooldownPurchase;
+	public CharacterDisplay displayPrefab;
 }

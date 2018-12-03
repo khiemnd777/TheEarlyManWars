@@ -18,5 +18,9 @@ MonoBehaviour:
   rangeAttack: 2
   hp: 1000
   moveType: 0
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
   gainedMeat: 350
   attackType: 3
+  displayPrefab: {fileID: 114958171200426166, guid: 52294686846794f769befe825e9f1fe0,
+    type: 2}

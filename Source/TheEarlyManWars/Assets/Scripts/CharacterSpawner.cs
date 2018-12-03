@@ -6,8 +6,6 @@ public class CharacterSpawner : MonoBehaviour
     CharacterDisplayList _displayList;
     [SerializeField]
     CharacterAvailableList _availableList;
-    [SerializeField]
-    CharacterDisplay _displayPrefab;
     Settings _settings;
 
     void Awake ()
@@ -28,7 +26,7 @@ public class CharacterSpawner : MonoBehaviour
         if (!_availableList.Exists (baseCharacter)) return null;
         var z = Random.Range (-1f, 1f);
         var spawningPosition = spawningPoint.position + Vector3.forward * z;
-        var instance = Instantiate<CharacterDisplay> (_displayPrefab, spawningPosition, Quaternion.identity);
+        var instance = Instantiate<CharacterDisplay> (baseCharacter.displayPrefab, spawningPosition, Quaternion.identity);
         instance.baseObject = baseCharacter;
         return instance;
     }

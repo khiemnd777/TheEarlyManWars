@@ -169,18 +169,25 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     IEnumerator Go ()
     {
-        yield return null;
         while (gameObject != null && !gameObject.Equals (null))
         {
             if (_detectedEnemies.Any ())
             {
                 if (PrepareAttack ())
                 {
-                    if (AnimationAttackIsNotNull ())
-                    {
-                        yield return StartCoroutine (AnimateAttack ());
-                    }
-                    Attack (_detectedEnemies);
+                    yield return StartCoroutine (AnimateAttack (_detectedEnemies));
+                    // if (AnimationAttackIsNotNull ())
+                    // {
+                    //     yield return StartCoroutine (AnimateAttack (_detectedEnemies));
+                    // }
+                    // else
+                    // {
+                    //     Attack (_detectedEnemies);
+                    // }
+                }
+                else
+                {
+                    yield return null;
                 }
             }
             else
@@ -189,19 +196,27 @@ public abstract class ObjectDisplay : MonoBehaviour
                 {
                     if (PrepareAttack ())
                     {
-                        if (AnimationAttackIsNotNull ())
-                        {
-                            yield return StartCoroutine (AnimateAttack ());
-                        }
-                        Attack (_detectedTower);
+                        yield return StartCoroutine (AnimateAttack (_detectedTower));
+                        // if (AnimationAttackIsNotNull ())
+                        // {
+                        //     yield return StartCoroutine (AnimateAttack (_detectedTower));
+                        // }
+                        // else
+                        // {
+                        //     Attack (_detectedTower);
+                        // }
+                    }
+                    else
+                    {
+                        yield return null;
                     }
                 }
                 else
                 {
                     Move ();
+                    yield return new WaitForFixedUpdate ();
                 }
             }
-            yield return null;
         }
     }
 
@@ -212,12 +227,27 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     protected virtual IEnumerator AnimateAttack ()
     {
+        if (!AnimationAttackIsNotNull ()) yield break;
         animator.Play (animationAttack.name, 0);
         var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
         if (hitFn != null)
         {
             yield return new WaitForSeconds (hitFn.time);
         }
+    }
+
+    protected virtual IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
+    {
+        if (!enemies.Any ()) yield break;
+        yield return StartCoroutine (AnimateAttack ());
+        Attack (enemies);
+    }
+
+    protected virtual IEnumerator AnimateAttack (Tower tower)
+    {
+        if (tower == null || tower is Object && tower.Equals (null)) yield break;
+        yield return StartCoroutine (AnimateAttack ());
+        Attack (tower);
     }
 
     IEnumerator ScanEnemies ()

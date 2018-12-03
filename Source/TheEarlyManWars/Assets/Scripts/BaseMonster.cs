@@ -7,4 +7,5 @@ public class BaseMonster : BaseObject
 {
     public int gainedMeat;
     public MonsterAttackType attackType;
+    public MonsterDisplay displayPrefab;
 }

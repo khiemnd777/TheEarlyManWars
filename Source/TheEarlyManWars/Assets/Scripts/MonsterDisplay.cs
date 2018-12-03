@@ -29,12 +29,14 @@ public class MonsterDisplay : ObjectDisplay
 
     public override void Attack (IEnumerable<ObjectDisplay> enemies)
     {
+        if(!enemies.Any()) return;
         var atkPwrVal = attackPower.GetValue ();
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {
-            _currentEnemy = enemies.ElementAt (Random.Range (0, enemies.Count ()));
+            _currentEnemy = enemies.First();
         }
-        _currentEnemy.TakeDamage (atkPwrVal, this);
+        if(_currentEnemy is Object && !_currentEnemy.Equals (null))
+            _currentEnemy.TakeDamage (atkPwrVal, this);
     }
 
     public override void OnDeath (ObjectDisplay damagedBy)

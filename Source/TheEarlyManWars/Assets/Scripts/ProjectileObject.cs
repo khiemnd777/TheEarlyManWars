@@ -1,6 +1,8 @@
 using UnityEngine;
 
-public class ProjectileObject : MonoBehaviour
+public abstract class ProjectileObject : MonoBehaviour
 {
-    
+    public float initialVelocity;
+    [System.NonSerialized]
+    public Direction direction;
 }
