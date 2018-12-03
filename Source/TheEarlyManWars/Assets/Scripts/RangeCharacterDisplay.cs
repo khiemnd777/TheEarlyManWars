@@ -5,7 +5,7 @@ using UnityEngine;
 public class RangeCharacterDisplay : CharacterDisplay
 {
     [SerializeField]
-    Transform _flyableObject;
+    ProjectileObject _projectileObjectPrefab;
 
     protected override IEnumerator AnimateAttack ()
     {
