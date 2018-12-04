@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class RangeCharacterDisplay : CharacterDisplay
 {
-    [SerializeField]
-    ProjectileObject _projectileObjectPrefab;
+    public ProjectileObject projectileObjectPrefab;
+
+    // Hit function is used for being flag to determine launching time.
+    public void Launch ()
+    {
+
+    }
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
         if (!enemies.Any ()) yield break;
-        var projectileIns = Instantiate<ProjectileObject> (_projectileObjectPrefab, transform.position, Quaternion.identity);
+        if (AnimationAttackIsNotNull ())
+        {
+            yield return StartCoroutine (PrepareAnimateLaunch ());
+        }
+        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, transform.position, Quaternion.identity);
         projectileIns.direction = direction;
         if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
         {
@@ -36,7 +45,11 @@ public class RangeCharacterDisplay : CharacterDisplay
     protected override IEnumerator AnimateAttack (Tower tower)
     {
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
-        var projectileIns = Instantiate<ProjectileObject> (_projectileObjectPrefab, transform.position, Quaternion.identity);
+        if (AnimationAttackIsNotNull ())
+        {
+            yield return StartCoroutine (PrepareAnimateLaunch ());
+        }
+        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, transform.position, Quaternion.identity);
         projectileIns.direction = direction;
         // t = h / (uB-uA)
         var h = tower.transform.position.x - projectileIns.transform.position.x;
@@ -46,6 +59,17 @@ public class RangeCharacterDisplay : CharacterDisplay
         if (tower != null && tower is Object && !tower.Equals (null))
         {
             tower.TakeDamage (attackPower.GetValue ());
+        }
+    }
+
+    IEnumerator PrepareAnimateLaunch ()
+    {
+        if (!AnimationAttackIsNotNull ()) yield break;
+        animator.Play (animationAttack.name, 0);
+        var launchFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Launch");
+        if (launchFn != null)
+        {
+            yield return new WaitForSeconds (launchFn.time);
         }
     }
 

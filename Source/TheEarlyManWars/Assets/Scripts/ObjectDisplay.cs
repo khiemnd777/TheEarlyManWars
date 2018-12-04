@@ -210,7 +210,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         
     }
 
-    bool AnimationAttackIsNotNull ()
+    public bool AnimationAttackIsNotNull ()
     {
         return animator != null && !animator.Equals (null) && animationAttack != null && !animationAttack.Equals (null);
     }
