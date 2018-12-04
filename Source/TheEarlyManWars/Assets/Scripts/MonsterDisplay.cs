@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,16 +28,19 @@ public class MonsterDisplay : ObjectDisplay
         _gainedMeat = baseMonster.gainedMeat;
     }
 
-    public override void Attack (IEnumerable<ObjectDisplay> enemies)
+    protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
-        if(!enemies.Any()) return;
+        if(!enemies.Any()) yield break;
+        yield return StartCoroutine(AnimateAttack());
         var atkPwrVal = attackPower.GetValue ();
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {
-            _currentEnemy = enemies.First();
+            _currentEnemy = enemies.FirstOrDefault();
         }
-        if(_currentEnemy is Object && !_currentEnemy.Equals (null))
+        if(_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null)){
             _currentEnemy.TakeDamage (atkPwrVal, this);
+        }
+        yield break;
     }
 
     public override void OnDeath (ObjectDisplay damagedBy)

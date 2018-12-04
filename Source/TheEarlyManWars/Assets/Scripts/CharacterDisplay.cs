@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -22,8 +23,9 @@ public class CharacterDisplay : ObjectDisplay
         attackType = ((BaseCharacter) baseObject).attackType;
     }
 
-    public override void Attack (IEnumerable<ObjectDisplay> enemies)
+    protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
+        yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
         if (attackType == AttackType.AOEMelee)
         {
@@ -36,10 +38,13 @@ public class CharacterDisplay : ObjectDisplay
         {
             if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
             {
-                currentEnemy = enemies.First();
+                currentEnemy = enemies.FirstOrDefault ();
             }
-            if(currentEnemy is Object && !currentEnemy.Equals(null))
+            if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
+            {
                 currentEnemy.TakeDamage (atkPwrVal, this);
+            }
         }
+        yield break;
     }
 }

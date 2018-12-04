@@ -33,6 +33,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     float _attackTime = 0f;
     IEnumerable<ObjectDisplay> _detectedEnemies;
     Tower _detectedTower;
+    protected bool isStopMove;
 
     public virtual void Awake ()
     {
@@ -70,12 +71,9 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    public abstract void Attack (IEnumerable<ObjectDisplay> enemies);
-
     public virtual void Attack (Tower tower)
     {
-        var atkPwrVal = attackPower.GetValue ();
-        tower.TakeDamage (atkPwrVal);
+
     }
 
     bool PrepareAttack ()
@@ -175,15 +173,8 @@ public abstract class ObjectDisplay : MonoBehaviour
             {
                 if (PrepareAttack ())
                 {
+                    isStopMove = true;
                     yield return StartCoroutine (AnimateAttack (_detectedEnemies));
-                    // if (AnimationAttackIsNotNull ())
-                    // {
-                    //     yield return StartCoroutine (AnimateAttack (_detectedEnemies));
-                    // }
-                    // else
-                    // {
-                    //     Attack (_detectedEnemies);
-                    // }
                 }
                 else
                 {
@@ -196,15 +187,8 @@ public abstract class ObjectDisplay : MonoBehaviour
                 {
                     if (PrepareAttack ())
                     {
+                        isStopMove = true;
                         yield return StartCoroutine (AnimateAttack (_detectedTower));
-                        // if (AnimationAttackIsNotNull ())
-                        // {
-                        //     yield return StartCoroutine (AnimateAttack (_detectedTower));
-                        // }
-                        // else
-                        // {
-                        //     Attack (_detectedTower);
-                        // }
                     }
                     else
                     {
@@ -213,11 +197,17 @@ public abstract class ObjectDisplay : MonoBehaviour
                 }
                 else
                 {
+                    isStopMove = false;
                     Move ();
                     yield return new WaitForFixedUpdate ();
                 }
             }
         }
+    }
+
+    void StopMove ()
+    {
+        
     }
 
     bool AnimationAttackIsNotNull ()
@@ -240,14 +230,14 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         if (!enemies.Any ()) yield break;
         yield return StartCoroutine (AnimateAttack ());
-        Attack (enemies);
     }
 
     protected virtual IEnumerator AnimateAttack (Tower tower)
     {
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         yield return StartCoroutine (AnimateAttack ());
-        Attack (tower);
+        var atkPwrVal = attackPower.GetValue ();
+        tower.TakeDamage (atkPwrVal);
     }
 
     IEnumerator ScanEnemies ()
