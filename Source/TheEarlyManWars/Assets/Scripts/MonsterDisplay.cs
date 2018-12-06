@@ -14,7 +14,7 @@ public class MonsterDisplay : ObjectDisplay
     {
         direction = Direction.RightToLeft;
         base.Awake ();
-        enemyTower = FindObjectOfType<PlayerTower> ();
+        enemyTower = FindObjectOfType<PlayerTowerDisplay> ();
         allies = FindObjectOfType<MonsterDisplayList> ();
         enemies = FindObjectOfType<CharacterDisplayList> ();
         _meatSystem = FindObjectOfType<MeatSystem> ();

@@ -12,7 +12,7 @@ public class CharacterDisplay : ObjectDisplay
     {
         direction = Direction.LeftToRight;
         base.Awake ();
-        enemyTower = FindObjectOfType<MonsterTower> ();
+        enemyTower = FindObjectOfType<MonsterTowerDisplay> ();
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
     }

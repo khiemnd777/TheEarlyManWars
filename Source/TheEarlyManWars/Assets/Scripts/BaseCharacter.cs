@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "New Character", menuName = "Create Character")]
 public class BaseCharacter : BaseObject
 {
+	public int level;
 	public int meat;
 	public AttackType attackType;
 	public float cooldownPurchase;

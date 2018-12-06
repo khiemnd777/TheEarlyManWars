@@ -17,7 +17,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     [System.NonSerialized]
     public ObjectDisplayList enemies;
     [System.NonSerialized]
-    public Tower enemyTower;
+    public TowerDisplay enemyTower;
     // Settings
     [System.NonSerialized]
     public Settings settings;
@@ -32,7 +32,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Direction direction;
     float _attackTime = 0f;
     IEnumerable<ObjectDisplay> _detectedEnemies;
-    Tower _detectedTower;
+    TowerDisplay _detectedTower;
     protected bool isStopMove;
 
     public virtual void Awake ()
@@ -71,7 +71,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    public virtual void Attack (Tower tower)
+    public virtual void Attack (TowerDisplay tower)
     {
 
     }
@@ -102,19 +102,36 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage (int damage, ObjectDisplay damgedBy)
+    public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
-            OnDeath (damgedBy);
+            OnDeath (damagedBy);
+            allies.Remove (this);
+            Destroy (gameObject);
+        }
+    }
+
+    public virtual void TakeDamage (int damage, TowerDisplay damagedBy)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Debug.Log (name + " being killed!");
+            OnDeath (damagedBy);
             allies.Remove (this);
             Destroy (gameObject);
         }
     }
 
     public virtual void OnDeath (ObjectDisplay damagedBy)
+    {
+
+    }
+
+    public virtual void OnDeath (TowerDisplay damagedBy)
     {
 
     }
@@ -139,8 +156,9 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual Tower DetectEnemyTower ()
+    public virtual TowerDisplay DetectEnemyTower ()
     {
+        if(enemyTower == null || enemyTower is Object && enemyTower.Equals(null)) return null;
         var atkRangeVal = rangeAttack.GetValue ();
         if (settings.debug)
         {
@@ -232,12 +250,12 @@ public abstract class ObjectDisplay : MonoBehaviour
         yield return StartCoroutine (AnimateAttack ());
     }
 
-    protected virtual IEnumerator AnimateAttack (Tower tower)
+    protected virtual IEnumerator AnimateAttack (TowerDisplay tower)
     {
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
-        tower.TakeDamage (atkPwrVal);
+        tower.TakeDamage (atkPwrVal, this);
     }
 
     IEnumerator ScanEnemies ()

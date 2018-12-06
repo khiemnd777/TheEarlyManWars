@@ -42,7 +42,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         }
     }
 
-    protected override IEnumerator AnimateAttack (Tower tower)
+    protected override IEnumerator AnimateAttack (TowerDisplay tower)
     {
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         if (AnimationAttackIsNotNull ())
@@ -58,7 +58,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         yield return new WaitForSeconds (predictedTime);
         if (tower != null && tower is Object && !tower.Equals (null))
         {
-            tower.TakeDamage (attackPower.GetValue ());
+            tower.TakeDamage (attackPower.GetValue (), this);
         }
     }
 
