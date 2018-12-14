@@ -8,7 +8,7 @@ public class MeterorShower : MonoBehaviour
 {
 	public int cooldown = 10;
 	public float shakeDuration = .2f;
-	public float shakeMagnitude = .05f;
+	public float shakeMagnitude = .8f;
 	[SerializeField]
 	MonsterDisplayList _monsterList;
 	[SerializeField]

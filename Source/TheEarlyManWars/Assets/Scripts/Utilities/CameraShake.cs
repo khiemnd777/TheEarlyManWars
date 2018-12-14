@@ -10,8 +10,8 @@ public class CameraShake : MonoBehaviour
         while (elapsed <= 1f)
         {
             transform.localPosition = originalLocalPosition + Random.insideUnitSphere * magnitude;
-            elapsed += Time.deltaTime / duration;
-            yield return null;
+            elapsed += Time.fixedDeltaTime / duration;
+            yield return new WaitForFixedUpdate();
         }
         transform.localPosition = originalLocalPosition;
     }
