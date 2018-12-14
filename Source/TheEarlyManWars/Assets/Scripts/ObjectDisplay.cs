@@ -102,6 +102,17 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
+    public virtual void TakeDamage (int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Debug.Log (name + " being killed!");
+            allies.Remove (this);
+            Destroy (gameObject);
+        }
+    }
+
     public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
