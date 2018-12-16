@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: Boguman
   m_EditorClassIdentifier: 
   name: Boguman
-  speed: 6
-  attackSpeed: 5
-  attackPower: 10
+  speed: 5
+  attackSpeed: 1
   rangeAttack: 2
-  hp: 50
+  attackPower: 1
+  hp: 8
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
-  level: 0
+  level: 1
   meat: 10
   attackType: 0
   cooldownPurchase: 0.5

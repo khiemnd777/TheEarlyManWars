@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Name: Muchee
   m_EditorClassIdentifier: 
   name: Muchee
-  speed: 8
-  attackSpeed: 8
-  attackPower: 10
-  rangeAttack: 12
-  hp: 50
+  speed: 3
+  attackSpeed: 1
+  rangeAttack: 4
+  attackPower: 5
+  hp: 20
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
-  meat: 15
+  level: 1
+  meat: 150
   attackType: 1
-  cooldownPurchase: 0.5
+  cooldownPurchase: 2
   displayPrefab: {fileID: 114901492720599578, guid: 754ae7366b7ce463e8319bdacf5c1c9b,
     type: 2}

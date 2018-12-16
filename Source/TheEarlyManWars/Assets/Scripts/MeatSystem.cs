@@ -35,6 +35,6 @@ public class MeatSystem : MonoBehaviour
 
     void Update ()
     {
-        _meat += Time.deltaTime * deltaCounter * 15 * _settings.deltaSpeed;
+        _meat += Time.deltaTime * deltaCounter * _settings.deltaSpeed;
     }
 }

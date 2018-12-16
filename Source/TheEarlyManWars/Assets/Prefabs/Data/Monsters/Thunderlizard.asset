@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Thunderlizard
   speed: 5
-  attackSpeed: 2
-  attackPower: 5
-  rangeAttack: 3
-  hp: 150
+  attackSpeed: 1
+  rangeAttack: 2
+  attackPower: 2
+  hp: 10
   moveType: 1
   animator: {fileID: 0}
   animationAttack: {fileID: 0}

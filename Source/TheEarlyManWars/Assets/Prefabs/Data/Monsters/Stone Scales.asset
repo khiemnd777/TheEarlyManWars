@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: Stone Scales
   m_EditorClassIdentifier: 
   name: Stone Scales
-  speed: 1
+  speed: 3
   attackSpeed: 1
-  attackPower: 10
-  rangeAttack: 1
-  hp: 400
+  rangeAttack: 2
+  attackPower: 3
+  hp: 40
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
-  gainedMeat: 25
+  gainedMeat: 11
   attackType: 2
   displayPrefab: {fileID: 114958171200426166, guid: 52294686846794f769befe825e9f1fe0,
     type: 2}

@@ -13,13 +13,13 @@ public class TowerDisplay : MonoBehaviour
     public Direction direction;
     [System.NonSerialized]
     public ObjectDisplayList enemies;
-    Settings _settings;
+    protected Settings settings;
     IEnumerable<ObjectDisplay> _detectedEnemies;
     float _attackTime = 0f;
 
     public virtual void Awake ()
     {
-        _settings = FindObjectOfType<Settings> ();
+        settings = FindObjectOfType<Settings> ();
     }
 
     public virtual void Start ()
@@ -55,7 +55,7 @@ public class TowerDisplay : MonoBehaviour
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
     {
         var atkRangeVal = rangeAttack.GetValue ();
-        if (_settings.debug)
+        if (settings.debug)
         {
             Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
         }
@@ -74,10 +74,10 @@ public class TowerDisplay : MonoBehaviour
 
     bool PrepareAttack ()
     {
-        if (_settings.deltaSpeed <= 0) return false;
+        if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
         var atkSpdVal = attackSpeed.GetValue ();
-        _attackTime = Time.time + _settings.deltaAttackTime / (atkSpdVal * _settings.deltaSpeed);
+        _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
         return true;
     }
 

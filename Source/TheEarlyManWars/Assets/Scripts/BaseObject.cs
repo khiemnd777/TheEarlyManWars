@@ -5,10 +5,10 @@ using UnityEngine;
 public class BaseObject : ScriptableObject
 {
 	public new string name;
-	public int speed;
-	public int attackSpeed;
+	public SpeedEnum speed;
+	public AttackSpeedEnum attackSpeed;
+	public RangeAttackEnum rangeAttack;
 	public int attackPower;
-	public int rangeAttack;
 	public int hp;
 	public MoveType moveType;
 	public Animator animator;

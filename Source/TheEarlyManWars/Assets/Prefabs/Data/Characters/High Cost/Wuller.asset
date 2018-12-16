@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Wuller
   m_EditorClassIdentifier: 
   name: Wuller
-  speed: 7
+  speed: 3
   attackSpeed: 10
   attackPower: 10
   rangeAttack: 2
@@ -20,6 +20,7 @@ MonoBehaviour:
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  level: 0
   meat: 350
   attackType: 0
   cooldownPurchase: 15

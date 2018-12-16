@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class JumpVelocityCalculator
 {
-    public static JumpVelocityData Calculate(Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight)
+    public static JumpVelocityData Calculate(Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight, float deltaSpeed = 1f)
     {
         var offsetY = targetPosition.y - ownerPosition.y;
         var offsetXZ = new Vector3(targetPosition.x - ownerPosition.x, 0, targetPosition.z - ownerPosition.z);
         var updatedHeight = offsetY - height > 0 ? offsetY + height : height;
-        var time = Mathf.Sqrt(-2 * updatedHeight / gravity) + Mathf.Sqrt(2 * (offsetY - updatedHeight) / gravity);
+        var time = (Mathf.Sqrt(-2 * updatedHeight / gravity) + Mathf.Sqrt(2 * (offsetY - updatedHeight) / gravity)) / deltaSpeed;
         var velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * updatedHeight);
         var velocityXZ = offsetXZ / time;
 

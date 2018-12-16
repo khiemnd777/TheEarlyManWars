@@ -11,7 +11,7 @@ public class PlayerTowerDisplay : TowerDisplay
     public override void Awake ()
     {
         direction = Direction.LeftToRight;
-        enemies = FindObjectOfType<MonsterDisplayList> ();
+        enemies = FindObjectOfType<MonsterDisplayList> (); 
         base.Awake ();
     }
 
@@ -20,7 +20,7 @@ public class PlayerTowerDisplay : TowerDisplay
         var arrowIns = Instantiate<Arrow>(arrowPrefab, arrowLaunchPoint.position, Quaternion.identity);
         var enemy = enemies.ElementAt(Random.Range(0, enemies.Count()));
         if(enemy != null && !enemy.Equals(null)){
-            arrowIns.Launch(enemy.transform.position, () => {
+            arrowIns.Launch(enemy.transform.position, settings.deltaSpeed, () => {
                 if(enemy != null && !enemy.Equals(null)){
                     enemy.TakeDamage(arrowIns.damage, this);
                 }

@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Name: Lingaga
   m_EditorClassIdentifier: 
   name: Lingaga
-  speed: 6
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
-  hp: 0
+  speed: 5
+  attackSpeed: 1
+  rangeAttack: 4
+  attackPower: 1
+  hp: 4
   moveType: 0
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
+  level: 1
   meat: 20
   attackType: 1
-  cooldownPurchase: 2
+  cooldownPurchase: 0.5
+  displayPrefab: {fileID: 0}

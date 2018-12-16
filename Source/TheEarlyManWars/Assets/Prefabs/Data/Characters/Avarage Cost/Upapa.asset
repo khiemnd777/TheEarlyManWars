@@ -13,10 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Upapa
   speed: 3
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 0
-  hp: 0
+  attackSpeed: 2
+  rangeAttack: 4
+  attackPower: 3
+  hp: 10
+  moveType: 0
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
+  level: 1
   meat: 65
   attackType: 4
-  cooldownPurchase: 0
+  cooldownPurchase: 2
+  displayPrefab: {fileID: 0}

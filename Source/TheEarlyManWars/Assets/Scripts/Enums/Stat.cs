@@ -9,31 +9,34 @@ public class Stat
 	public int baseValue;
 	public int growthPercent;
 
-	List<int> modifiers = new List<int>();
+	List<int> modifiers = new List<int> ();
 
-	public int GetValue() {
+	public int GetValue ()
+	{
 		var finalValue = baseValue;
-		finalValue += modifiers.Sum();
+		finalValue += modifiers.Sum ();
 		return finalValue;
 	}
 
-	public void GrowUp()
+	public void GrowUp ()
 	{
 		baseValue *= (1 + growthPercent);
 	}
 
-	public void AddModifier(int modifier){
-		if(modifier != 0)
-			modifiers.Add(modifier);
-	}
-
-	public void RemoveModifier(int modifier){
-		if(modifier != 0)
-			modifiers.Remove(modifier);
-	}
-
-	public void ClearModifiers()
+	public void AddModifier (int modifier)
 	{
-		modifiers.Clear();
+		if (modifier != 0)
+			modifiers.Add (modifier);
+	}
+
+	public void RemoveModifier (int modifier)
+	{
+		if (modifier != 0)
+			modifiers.Remove (modifier);
+	}
+
+	public void ClearModifiers ()
+	{
+		modifiers.Clear ();
 	}
 }

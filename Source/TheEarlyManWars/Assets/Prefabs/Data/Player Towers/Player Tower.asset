@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -14,6 +14,6 @@ MonoBehaviour:
   level: 0
   hp: 5000
   rangeAttack: 12
-  attackSpeed: 20
+  attackSpeed: 1
   displayPrefab: {fileID: 114624593749148046, guid: 1b3dfddce7be0bc4894f6e78f1417ab1,
     type: 2}

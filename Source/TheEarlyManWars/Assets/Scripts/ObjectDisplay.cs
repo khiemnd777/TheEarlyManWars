@@ -34,6 +34,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     IEnumerable<ObjectDisplay> _detectedEnemies;
     TowerDisplay _detectedTower;
     protected bool isStopMove;
+    float attackSpeedSecond;
 
     public virtual void Awake ()
     {
@@ -51,10 +52,10 @@ public abstract class ObjectDisplay : MonoBehaviour
         {
             animationAttack = baseObject.animationAttack;
         }
-        speed.baseValue = baseObject.speed;
-        attackSpeed.baseValue = baseObject.attackSpeed;
+        speed.baseValue = (int) baseObject.speed;
+        attackSpeed.baseValue = (int) baseObject.attackSpeed;
+        rangeAttack.baseValue = (int) baseObject.rangeAttack;        
         attackPower.baseValue = baseObject.attackPower;
-        rangeAttack.baseValue = baseObject.rangeAttack;
         maxHP = hp = baseObject.hp;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (ScanTower ());
@@ -80,7 +81,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
-        var atkSpdVal = attackSpeed.GetValue ();
+        var atkSpdVal = AttackSpeedUtility.GetHitValuePerSecond (attackSpeed.GetValue ());
+        if (atkSpdVal == 0) return false;
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
         return true;
     }
@@ -169,7 +171,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual TowerDisplay DetectEnemyTower ()
     {
-        if(enemyTower == null || enemyTower is Object && enemyTower.Equals(null)) return null;
+        if (enemyTower == null || enemyTower is Object && enemyTower.Equals (null)) return null;
         var atkRangeVal = rangeAttack.GetValue ();
         if (settings.debug)
         {
@@ -236,7 +238,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     void StopMove ()
     {
-        
+
     }
 
     public bool AnimationAttackIsNotNull ()
