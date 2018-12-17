@@ -22,10 +22,10 @@ public abstract class ObjectDisplay : MonoBehaviour
     [System.NonSerialized]
     public Settings settings;
     // Stats
-    public Stat speed;
-    public Stat attackSpeed;
+    public SpeedEnum speed;
+    public AttackSpeedEnum attackSpeed;
+    public RangeAttackEnum rangeAttack;
     public Stat attackPower;
-    public Stat rangeAttack;
     public int hp;
     public int maxHP;
     [System.NonSerialized]
@@ -52,9 +52,9 @@ public abstract class ObjectDisplay : MonoBehaviour
         {
             animationAttack = baseObject.animationAttack;
         }
-        speed.baseValue = (int) baseObject.speed;
-        attackSpeed.baseValue = (int) baseObject.attackSpeed;
-        rangeAttack.baseValue = (int) baseObject.rangeAttack;        
+        speed = baseObject.speed;
+        attackSpeed = baseObject.attackSpeed;
+        rangeAttack = baseObject.rangeAttack;
         attackPower.baseValue = baseObject.attackPower;
         maxHP = hp = baseObject.hp;
         StartCoroutine (ScanEnemies ());
@@ -81,7 +81,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
-        var atkSpdVal = AttackSpeedUtility.GetHitValuePerSecond (attackSpeed.GetValue ());
+        var atkSpdVal = AttackSpeedUtility.GetHitValuePerSecond (attackSpeed);
         if (atkSpdVal == 0) return false;
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
         return true;
@@ -151,7 +151,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
     {
-        var atkRangeVal = rangeAttack.GetValue ();
+        var atkRangeVal = RangeAttackUtility.GetValue(rangeAttack);
         if (settings.debug)
         {
             Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
@@ -172,7 +172,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual TowerDisplay DetectEnemyTower ()
     {
         if (enemyTower == null || enemyTower is Object && enemyTower.Equals (null)) return null;
-        var atkRangeVal = rangeAttack.GetValue ();
+        var atkRangeVal = RangeAttackUtility.GetValue(rangeAttack);
         if (settings.debug)
         {
             Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);

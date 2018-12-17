@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour
 {
-    public int delaySpawning = 1;
-    public int delayNextWave = 5;
+    public float delaySpawning = 5f;
+    public float delayNextWave = 3f;
     public Transform spawningPoint;
     public List<Wave> waves;
     [System.NonSerialized]
     public MonsterDisplayList displayList;
-    [System.NonSerialized]
-    public Settings settings;
+    public int waveCount { get { return _waveCount; } }
+    Settings _settings;
     List<Wave> _waves;
     Wave _currentWave;
     int _currentMonsterSpawningIndex;
@@ -21,7 +21,7 @@ public class MonsterSpawner : MonoBehaviour
 
     void Awake ()
     {
-        settings = FindObjectOfType<Settings> ();
+        _settings = FindObjectOfType<Settings> ();
         displayList = FindObjectOfType<MonsterDisplayList> ();
         // Clone to a wave list to execute.
         _waves = waves.GetRange (0, waves.Count);
@@ -35,19 +35,19 @@ public class MonsterSpawner : MonoBehaviour
 
     void NextWave ()
     {
-        if(settings.deltaSpeed <= 0) return;
+        if (_settings.deltaSpeed <= 0) return;
         if (_waveCount == 0)
         {
             _currentWave = ShiftWave ();
             _waveCount++;
             return;
         }
-        if (_currentWave != null && _currentMonsterSpawningIndex == _currentWave.monsters.Count)
+        if (_currentWave != null && _currentMonsterSpawningIndex == _currentWave.monsters.Count && !displayList.list.Any ())
         {
+            if (Time.time < _nextWaveTime) return;
             if (_currentWave != null) _currentWave = null;
             _currentMonsterSpawningIndex = 0;
-            if (Time.time < _nextWaveTime) return;
-            _nextWaveTime = Time.time + delayNextWave / settings.deltaSpeed;
+            _nextWaveTime = Time.time + delayNextWave / _settings.deltaSpeed;
             _currentWave = ShiftWave ();
             _waveCount++;
         }
@@ -63,15 +63,15 @@ public class MonsterSpawner : MonoBehaviour
 
     void Spawn ()
     {
-        if(settings.deltaSpeed <= 0) return;
+        if (_settings.deltaSpeed <= 0) return;
         if (_currentWave == null) return;
         if (_currentMonsterSpawningIndex == _currentWave.monsters.Count) return;
         if (Time.time < _spawnTime) return;
-        _spawnTime = Time.time + delaySpawning / settings.deltaSpeed;
+        _spawnTime = Time.time + delaySpawning / _settings.deltaSpeed;
         var baseMonster = _currentWave.monsters[_currentMonsterSpawningIndex];
         var mstrDisp = InstanceMonster (baseMonster);
         displayList.Add (mstrDisp);
-        _currentMonsterSpawningIndex++;
+        ++_currentMonsterSpawningIndex;
     }
 
     MonsterDisplay InstanceMonster (BaseMonster baseMonster)

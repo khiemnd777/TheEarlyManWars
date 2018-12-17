@@ -55,6 +55,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         var h = tower.transform.position.x - projectileIns.transform.position.x;
         var u = projectileIns.initialVelocity * settings.deltaSpeed * settings.deltaMoveStep;
         var predictedTime = h / u;
+        Destroy (projectileIns.gameObject, predictedTime);
         yield return new WaitForSeconds (predictedTime);
         if (tower != null && tower is Object && !tower.Equals (null))
         {

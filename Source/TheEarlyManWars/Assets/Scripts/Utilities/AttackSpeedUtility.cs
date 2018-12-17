@@ -1,16 +1,16 @@
 public class AttackSpeedUtility
 {
-    public static float GetHitValuePerSecond (int rawValue)
+    public static float GetHitValuePerSecond (AttackSpeedEnum rawValue)
     {
         switch (rawValue)
         {
-            case 1:
+            case AttackSpeedEnum.One:
                 return 0.5f;
-            case 2:
+            case AttackSpeedEnum.Two:
                 return 1f;
-            case 3:
+            case AttackSpeedEnum.Three:
                 return 1.5f;
-            case 4:
+            case AttackSpeedEnum.Four:
                 return 2f;
             default:
                 return 0;

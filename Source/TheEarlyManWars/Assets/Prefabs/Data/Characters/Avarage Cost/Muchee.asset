@@ -14,7 +14,7 @@ MonoBehaviour:
   name: Muchee
   speed: 3
   attackSpeed: 1
-  rangeAttack: 4
+  rangeAttack: 7
   attackPower: 5
   hp: 20
   moveType: 0

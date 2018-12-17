@@ -14,9 +14,14 @@ MonoBehaviour:
   name: Moscoman
   speed: 5
   attackSpeed: 5
+  rangeAttack: 2
   attackPower: 5
-  rangeAttack: 1
   hp: 100
+  moveType: 0
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
+  level: 0
   meat: 100
   attackType: 0
   cooldownPurchase: 5
+  displayPrefab: {fileID: 0}
