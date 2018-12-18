@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Muchee
   m_EditorClassIdentifier: 
   name: Muchee
-  speed: 3
+  speed: 2
   attackSpeed: 1
-  rangeAttack: 7
+  rangeAttack: 2
   attackPower: 5
   hp: 20
   moveType: 0
@@ -24,5 +24,5 @@ MonoBehaviour:
   meat: 150
   attackType: 1
   cooldownPurchase: 2
-  displayPrefab: {fileID: 114901492720599578, guid: 754ae7366b7ce463e8319bdacf5c1c9b,
+  displayPrefab: {fileID: 114264077875413872, guid: 754ae7366b7ce463e8319bdacf5c1c9b,
     type: 2}

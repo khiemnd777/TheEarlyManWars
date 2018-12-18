@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class ObjectDisplay : MonoBehaviour
 {
     public BaseObject baseObject;
+    [SerializeField]
+    Text _nameText;
     // Animation & Animator
     [System.NonSerialized]
     public Animator animator;
@@ -57,6 +60,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         rangeAttack = baseObject.rangeAttack;
         attackPower.baseValue = baseObject.attackPower;
         maxHP = hp = baseObject.hp;
+        _nameText.text = baseObject.name;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (ScanTower ());
         StartCoroutine (Go ());
@@ -81,7 +85,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
-        var atkSpdVal = AttackSpeedUtility.GetHitValuePerSecond (attackSpeed);
+        var atkSpdVal = attackSpeed.GetValue ();
         if (atkSpdVal == 0) return false;
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
         return true;
@@ -151,7 +155,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
     {
-        var atkRangeVal = RangeAttackUtility.GetValue(rangeAttack);
+        var atkRangeVal = rangeAttack.GetValue ();
         if (settings.debug)
         {
             Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
@@ -172,7 +176,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual TowerDisplay DetectEnemyTower ()
     {
         if (enemyTower == null || enemyTower is Object && enemyTower.Equals (null)) return null;
-        var atkRangeVal = RangeAttackUtility.GetValue(rangeAttack);
+        var atkRangeVal = rangeAttack.GetValue ();
         if (settings.debug)
         {
             Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);

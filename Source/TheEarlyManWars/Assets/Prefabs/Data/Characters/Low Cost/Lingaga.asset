@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Lingaga
   m_EditorClassIdentifier: 
   name: Lingaga
-  speed: 5
+  speed: 3
   attackSpeed: 1
-  rangeAttack: 7
+  rangeAttack: 2
   attackPower: 1
   hp: 4
   moveType: 0
@@ -24,4 +24,5 @@ MonoBehaviour:
   meat: 20
   attackType: 1
   cooldownPurchase: 0.5
-  displayPrefab: {fileID: 0}
+  displayPrefab: {fileID: 114994601373003580, guid: 7af46729cd95e460a889d14c25405100,
+    type: 2}

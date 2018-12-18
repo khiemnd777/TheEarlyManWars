@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: Upapa
   m_EditorClassIdentifier: 
   name: Upapa
-  speed: 3
+  speed: 2
   attackSpeed: 2
-  rangeAttack: 4
+  rangeAttack: 2
   attackPower: 3
   hp: 10
   moveType: 0
@@ -24,4 +24,5 @@ MonoBehaviour:
   meat: 65
   attackType: 4
   cooldownPurchase: 2
-  displayPrefab: {fileID: 0}
+  displayPrefab: {fileID: 114994601373003580, guid: 7af46729cd95e460a889d14c25405100,
+    type: 2}
