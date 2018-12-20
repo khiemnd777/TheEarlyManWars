@@ -16,7 +16,7 @@ public class MonsterSpawner : MonoBehaviour
     Wave _currentWave;
     int _currentMonsterSpawningIndex;
     float _nextWaveTime;
-    float _spawnTime;
+    float _spawnTime = 2f;
     int _waveCount = 0;
 
     void Awake ()
@@ -66,12 +66,15 @@ public class MonsterSpawner : MonoBehaviour
         if (_settings.deltaSpeed <= 0) return;
         if (_currentWave == null) return;
         if (_currentMonsterSpawningIndex == _currentWave.monsters.Count) return;
-        if (Time.time < _spawnTime) return;
-        _spawnTime = Time.time + delaySpawning / _settings.deltaSpeed;
+        if (_spawnTime <= 1f){
+            _spawnTime += Time.deltaTime / delaySpawning * _settings.deltaSpeed;
+            return;
+        }
         var baseMonster = _currentWave.monsters[_currentMonsterSpawningIndex];
         var mstrDisp = InstanceMonster (baseMonster);
         displayList.Add (mstrDisp);
         ++_currentMonsterSpawningIndex;
+        _spawnTime = 0f;
     }
 
     MonsterDisplay InstanceMonster (BaseMonster baseMonster)

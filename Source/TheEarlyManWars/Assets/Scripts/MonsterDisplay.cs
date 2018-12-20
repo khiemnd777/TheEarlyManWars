@@ -44,7 +44,17 @@ public class MonsterDisplay : ObjectDisplay
         yield break;
     }
 
+    public override void OnDeath (TowerDisplay damagedBy)
+    {
+        OnDeath();
+    }
+
     public override void OnDeath (ObjectDisplay damagedBy)
+    {
+        OnDeath();
+    }
+
+    public override void OnDeath ()
     {
         _meatSystem.Gain (_gainedMeat);
     }
