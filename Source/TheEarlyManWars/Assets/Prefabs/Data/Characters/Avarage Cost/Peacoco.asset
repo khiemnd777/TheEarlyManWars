@@ -13,10 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Peacoco
   speed: 3
-  attackSpeed: 0
-  attackPower: 0
-  rangeAttack: 10
-  hp: 75
-  meat: 200
+  attackSpeed: 2
+  rangeAttack: 2
+  attackPower: 2
+  hp: 20
+  moveType: 0
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
+  level: 0
+  meat: 50
   attackType: 2
   cooldownPurchase: 0
+  displayPrefab: {fileID: 114618444937256446, guid: 74854b56a7f41441ab3cb6ae9c4f1b61,
+    type: 2}

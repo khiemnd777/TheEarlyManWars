@@ -29,16 +29,20 @@ public class CharacterDisplay : ObjectDisplay
         var atkPwrVal = attackPower.GetValue ();
         if (attackType == AttackType.AOEMelee)
         {
-            foreach (var enemy in enemies)
+            var enemyArray = GetMonstersByAttackType (enemies);
+            foreach (var enemy in enemyArray)
             {
+                if (enemy == null || enemy is Object && enemy.Equals (null)) continue;
+                if (enemy.attackType == MonsterAttackType.Air) continue;
                 enemy.TakeDamage (atkPwrVal, this);
             }
         }
-        else
+        else if (attackType == AttackType.Range)
         {
+            var enemyArray = GetMonstersByAttackType (enemies);
             if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
             {
-                currentEnemy = enemies.FirstOrDefault ();
+                currentEnemy = enemyArray.FirstOrDefault ();
             }
             if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
             {
@@ -46,5 +50,14 @@ public class CharacterDisplay : ObjectDisplay
             }
         }
         yield break;
+    }
+
+    IEnumerable<MonsterDisplay> GetMonstersByAttackType (IEnumerable<ObjectDisplay> monsters)
+    {
+        if (attackType == AttackType.Range)
+        {
+            return monsters.Select (x => (MonsterDisplay) x).ToArray ();
+        }
+        return monsters.Select (x => (MonsterDisplay) x).Where (x => x.attackType != MonsterAttackType.Air).ToArray ();
     }
 }

@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -24,5 +24,5 @@ MonoBehaviour:
   meat: 65
   attackType: 4
   cooldownPurchase: 2
-  displayPrefab: {fileID: 114994601373003580, guid: 7af46729cd95e460a889d14c25405100,
+  displayPrefab: {fileID: 114359982606537780, guid: 3c325561fb9b043f580f441954d9849b,
     type: 2}

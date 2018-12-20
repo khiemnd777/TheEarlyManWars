@@ -8,7 +8,7 @@ public class TowerDisplay : MonoBehaviour
     public TowerObject towerObject;
     public int hp;
     public Stat rangeAttack;
-    public Stat attackSpeed;
+    public float attackSpeed;
     [System.NonSerialized]
     public Direction direction;
     [System.NonSerialized]
@@ -25,7 +25,7 @@ public class TowerDisplay : MonoBehaviour
     public virtual void Start ()
     {
         rangeAttack.baseValue = towerObject.rangeAttack;
-        attackSpeed.baseValue = towerObject.attackSpeed;
+        attackSpeed = towerObject.attackSpeed;
         hp = towerObject.hp;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (OnAlert ());
@@ -76,7 +76,7 @@ public class TowerDisplay : MonoBehaviour
     {
         if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
-        var atkSpdVal = attackSpeed.GetValue ();
+        var atkSpdVal = attackSpeed;
         _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
         return true;
     }

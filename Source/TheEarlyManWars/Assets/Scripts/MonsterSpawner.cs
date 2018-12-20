@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour
 {
     public float delaySpawning = 5f;
-    public float delayNextWave = 3f;
+    public float delayNextWave = 1f;
     public Transform spawningPoint;
     public List<Wave> waves;
     [System.NonSerialized]

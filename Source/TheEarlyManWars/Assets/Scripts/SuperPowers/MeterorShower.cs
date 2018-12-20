@@ -6,7 +6,8 @@ using UnityEngine.UI;
 [RequireComponent (typeof (Button))]
 public class MeterorShower : MonoBehaviour
 {
-	public int cooldown = 10;
+	public int damage = 20;
+	public int cooldown = 100;
 	public float shakeDuration = .2f;
 	public float shakeMagnitude = .8f;
 	[SerializeField]
@@ -18,23 +19,18 @@ public class MeterorShower : MonoBehaviour
 	Button _button;
 	float _cooldownCounter;
 
-	void Awake ()
-	{
-		_button = FindObjectOfType<Button> ();
-	}
-
 	void Start ()
 	{
+		_button = GetComponent<Button> ();
 		_settings = FindObjectOfType<Settings> ();
-		_button.onClick.AddListener (() => OnClick ());
 	}
 
 	void Update ()
 	{
-		CalculateCooldownProgress();
+		CalculateCooldownProgress ();
 	}
 
-	void OnClick ()
+	public void OnClick ()
 	{
 		if (_inCooldownProgress) return;
 		Execute ();
@@ -43,10 +39,11 @@ public class MeterorShower : MonoBehaviour
 
 	void Execute ()
 	{
-		StartCoroutine(_cameraShake.Shake(shakeDuration / _settings.deltaSpeed, shakeMagnitude));
-		foreach (var monster in _monsterList.list)
+		StartCoroutine (_cameraShake.Shake (shakeDuration / _settings.deltaSpeed, shakeMagnitude));
+		var list = _monsterList.list.ToArray();
+		foreach (var monster in list)
 		{
-			var damage = monster.hp / 2;
+			if (monster == null || monster is Object && monster.Equals (null)) continue;
 			monster.TakeDamage (damage);
 		}
 	}

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class MonsterDisplay : ObjectDisplay
 {
+    [System.NonSerialized]
+    public MonsterAttackType attackType;
     MeatSystem _meatSystem;
-    MonsterAttackType _attackType;
     int _gainedMeat;
     ObjectDisplay _currentEnemy;
 
@@ -24,7 +25,7 @@ public class MonsterDisplay : ObjectDisplay
     {
         base.Start ();
         var baseMonster = (BaseMonster) baseObject;
-        _attackType = baseMonster.attackType;
+        attackType = baseMonster.attackType;
         _gainedMeat = baseMonster.gainedMeat;
     }
 

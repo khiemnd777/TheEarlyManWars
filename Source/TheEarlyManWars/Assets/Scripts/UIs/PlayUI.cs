@@ -11,12 +11,12 @@ public class PlayUI : MonoBehaviour
 
     public void Speedx2 ()
     {
-        _settings.deltaSpeed = 10;
+        _settings.deltaSpeed = 2;
     }
 
     public void Speedx3 ()
     {
-        _settings.deltaSpeed = 20;
+        _settings.deltaSpeed = 3;
     }
 
     public void Play ()

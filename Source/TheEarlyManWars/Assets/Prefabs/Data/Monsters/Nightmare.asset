@@ -3,7 +3,7 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -15,12 +15,12 @@ MonoBehaviour:
   speed: 2
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 10
+  attackPower: 5
   hp: 300
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
   gainedMeat: 100
   attackType: 3
-  displayPrefab: {fileID: 114958171200426166, guid: 52294686846794f769befe825e9f1fe0,
+  displayPrefab: {fileID: 114649192040936934, guid: 0c4e9979fddb24a50ad5fd7de2c1ac46,
     type: 2}

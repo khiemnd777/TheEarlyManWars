@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public abstract class ObjectDisplay : MonoBehaviour
 {
     public BaseObject baseObject;
-    [SerializeField]
-    Text _nameText;
     // Animation & Animator
     [System.NonSerialized]
     public Animator animator;
@@ -35,6 +33,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Direction direction;
     float _attackTime = 0f;
     IEnumerable<ObjectDisplay> _detectedEnemies;
+    IEnumerable<ObjectDisplay> _detectedAllies;
     TowerDisplay _detectedTower;
     protected bool isStopMove;
     float attackSpeedSecond;
@@ -60,7 +59,6 @@ public abstract class ObjectDisplay : MonoBehaviour
         rangeAttack = baseObject.rangeAttack;
         attackPower.baseValue = baseObject.attackPower;
         maxHP = hp = baseObject.hp;
-        _nameText.text = baseObject.name;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (ScanTower ());
         StartCoroutine (Go ());
@@ -114,6 +112,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
+            OnDeath ();
             allies.Remove (this);
             Destroy (gameObject);
         }
@@ -153,6 +152,11 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
+    public virtual void OnDeath ()
+    {
+
+    }
+
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
     {
         var atkRangeVal = rangeAttack.GetValue ();
@@ -168,6 +172,26 @@ public abstract class ObjectDisplay : MonoBehaviour
                 return enemies.list.Where (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
             case Direction.RightToLeft:
                 return enemies.list.Where (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
+            default:
+                return new List<ObjectDisplay> ();
+        }
+    }
+
+    public virtual IEnumerable<ObjectDisplay> DetectAllies ()
+    {
+        var atkRangeVal = rangeAttack.GetValue ();
+        if (settings.debug)
+        {
+            Debug.DrawRay (transform.position, Vector3.right * (int) direction * atkRangeVal, Color.yellow);
+        }
+        var currentX = transform.position.x;
+        var rangeX = currentX + atkRangeVal * (int) direction;
+        switch (direction)
+        {
+            case Direction.RightToLeft:
+                return allies.list.Where (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
+            case Direction.LeftToRight:
+                return allies.list.Where (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
             default:
                 return new List<ObjectDisplay> ();
         }
