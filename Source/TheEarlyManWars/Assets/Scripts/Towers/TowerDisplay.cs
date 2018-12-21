@@ -7,6 +7,7 @@ public class TowerDisplay : MonoBehaviour
 {
     public TowerObject towerObject;
     public int hp;
+    public int maxHP;
     public Stat rangeAttack;
     public float attackSpeed;
     [System.NonSerialized]
@@ -26,9 +27,14 @@ public class TowerDisplay : MonoBehaviour
     {
         rangeAttack.baseValue = towerObject.rangeAttack;
         attackSpeed = towerObject.attackSpeed;
-        hp = towerObject.hp;
+        maxHP = hp = towerObject.hp;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (OnAlert ());
+    }
+
+    public virtual void Update ()
+    {
+
     }
 
     public void TakeDamage (int damage, ObjectDisplay damagedBy)

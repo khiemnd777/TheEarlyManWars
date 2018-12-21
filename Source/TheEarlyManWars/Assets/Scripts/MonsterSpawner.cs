@@ -15,7 +15,7 @@ public class MonsterSpawner : MonoBehaviour
     List<Wave> _waves;
     Wave _currentWave;
     int _currentMonsterSpawningIndex;
-    float _nextWaveTime;
+    float _nextWaveTime = 2f;
     float _spawnTime = 2f;
     int _waveCount = 0;
 
@@ -44,10 +44,13 @@ public class MonsterSpawner : MonoBehaviour
         }
         if (_currentWave != null && _currentMonsterSpawningIndex == _currentWave.monsters.Count && !displayList.list.Any ())
         {
-            if (Time.time < _nextWaveTime) return;
+            if (_nextWaveTime <= 1f)
+            {
+                _nextWaveTime = Time.deltaTime / delayNextWave * _settings.deltaSpeed;
+                return;
+            }
             if (_currentWave != null) _currentWave = null;
             _currentMonsterSpawningIndex = 0;
-            _nextWaveTime = Time.time + delayNextWave / _settings.deltaSpeed;
             _currentWave = ShiftWave ();
             _waveCount++;
         }
@@ -66,7 +69,8 @@ public class MonsterSpawner : MonoBehaviour
         if (_settings.deltaSpeed <= 0) return;
         if (_currentWave == null) return;
         if (_currentMonsterSpawningIndex == _currentWave.monsters.Count) return;
-        if (_spawnTime <= 1f){
+        if (_spawnTime <= 1f)
+        {
             _spawnTime += Time.deltaTime / delaySpawning * _settings.deltaSpeed;
             return;
         }

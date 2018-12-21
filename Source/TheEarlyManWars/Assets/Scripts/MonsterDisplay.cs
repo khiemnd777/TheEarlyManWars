@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterDisplay : ObjectDisplay
 {
     [System.NonSerialized]
     public MonsterAttackType attackType;
+    public Image healthBar;
+    public Text nameText;
     MeatSystem _meatSystem;
     int _gainedMeat;
     ObjectDisplay _currentEnemy;
@@ -27,18 +30,31 @@ public class MonsterDisplay : ObjectDisplay
         var baseMonster = (BaseMonster) baseObject;
         attackType = baseMonster.attackType;
         _gainedMeat = baseMonster.gainedMeat;
+        if (nameText != null && !nameText.Equals (null))
+        {
+            nameText.text = baseObject.name;
+        }
+    }
+
+    public override void Update ()
+    {
+        if (healthBar != null && !healthBar.Equals (null))
+        {
+            healthBar.fillAmount = (float) hp / (float) maxHP;
+        }
     }
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
-        if(!enemies.Any()) yield break;
-        yield return StartCoroutine(AnimateAttack());
+        if (!enemies.Any ()) yield break;
+        yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {
-            _currentEnemy = enemies.FirstOrDefault();
+            _currentEnemy = enemies.FirstOrDefault ();
         }
-        if(_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null)){
+        if (_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null))
+        {
             _currentEnemy.TakeDamage (atkPwrVal, this);
         }
         yield break;
@@ -46,12 +62,12 @@ public class MonsterDisplay : ObjectDisplay
 
     public override void OnDeath (TowerDisplay damagedBy)
     {
-        OnDeath();
+        OnDeath ();
     }
 
     public override void OnDeath (ObjectDisplay damagedBy)
     {
-        OnDeath();
+        OnDeath ();
     }
 
     public override void OnDeath ()

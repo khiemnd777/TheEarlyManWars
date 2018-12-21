@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterDisplay : ObjectDisplay
 {
     public AttackType attackType;
     protected ObjectDisplay currentEnemy;
+    public Image healthBar;
+    public Text nameText;
 
     public override void Awake ()
     {
@@ -21,6 +24,18 @@ public class CharacterDisplay : ObjectDisplay
     {
         base.Start ();
         attackType = ((BaseCharacter) baseObject).attackType;
+        if (nameText != null && !nameText.Equals (null))
+        {
+            nameText.text = baseObject.name;
+        }
+    }
+
+    public override void Update ()
+    {
+        if (healthBar != null && !healthBar.Equals (null))
+        {
+            healthBar.fillAmount = (float) hp / (float) maxHP;
+        }
     }
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerTowerDisplay : TowerDisplay
 {
     public Arrow arrowPrefab;
     public Transform arrowLaunchPoint;
+    public Image healthBar;
 
     public override void Awake ()
     {
@@ -14,6 +16,15 @@ public class PlayerTowerDisplay : TowerDisplay
         enemies = FindObjectOfType<MonsterDisplayList> (); 
         base.Awake ();
     }
+
+    public override void Update ()
+    {
+        if (healthBar != null && !healthBar.Equals (null))
+        {
+            healthBar.fillAmount = (float) hp / (float) maxHP;
+        }
+    }
+
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
