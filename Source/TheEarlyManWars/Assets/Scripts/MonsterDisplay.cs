@@ -13,6 +13,8 @@ public class MonsterDisplay : ObjectDisplay
     MeatSystem _meatSystem;
     int _gainedMeat;
     ObjectDisplay _currentEnemy;
+    [SerializeField]
+    ParticleSystem _onDeathEffectPrefab;
 
     public override void Awake ()
     {
@@ -60,18 +62,17 @@ public class MonsterDisplay : ObjectDisplay
         yield break;
     }
 
-    public override void OnDeath (TowerDisplay damagedBy)
-    {
-        OnDeath ();
-    }
-
-    public override void OnDeath (ObjectDisplay damagedBy)
-    {
-        OnDeath ();
-    }
-
     public override void OnDeath ()
     {
         _meatSystem.Gain (_gainedMeat);
+        StartCoroutine (InstantiateOnDeathEffect ());
+    }
+
+    IEnumerator InstantiateOnDeathEffect ()
+    {
+        var angle = Quaternion.Euler (-10f, 90f, 0f);
+        var ins = Instantiate<ParticleSystem> (_onDeathEffectPrefab, transform.position, angle);
+        Destroy (ins.gameObject, ins.main.startLifetime.constant);
+        yield break;
     }
 }

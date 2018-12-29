@@ -10,6 +10,8 @@ public class CharacterDisplay : ObjectDisplay
     protected ObjectDisplay currentEnemy;
     public Image healthBar;
     public Text nameText;
+    [SerializeField]
+    ParticleSystem _onDeathEffectPrefab;
 
     public override void Awake ()
     {
@@ -36,6 +38,19 @@ public class CharacterDisplay : ObjectDisplay
         {
             healthBar.fillAmount = (float) hp / (float) maxHP;
         }
+    }
+
+    public override void OnDeath ()
+    {
+        StartCoroutine (InstantiateOnDeathEffect ());
+    }
+
+    IEnumerator InstantiateOnDeathEffect ()
+    {
+        var angle = Quaternion.Euler (-10f, -90f, 0f);
+        var ins = Instantiate<ParticleSystem> (_onDeathEffectPrefab, transform.position, angle);
+        Destroy (ins.gameObject, ins.main.startLifetime.constant);
+        yield break;
     }
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)

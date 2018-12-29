@@ -6,11 +6,9 @@ public class CharacterSpawner : MonoBehaviour
     CharacterDisplayList _displayList;
     [SerializeField]
     CharacterAvailableList _availableList;
-    Settings _settings;
 
     void Awake ()
     {
-        _settings = FindObjectOfType<Settings> ();
         _displayList = FindObjectOfType<CharacterDisplayList> ();
     }
 

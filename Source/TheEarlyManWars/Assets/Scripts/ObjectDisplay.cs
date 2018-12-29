@@ -144,17 +144,17 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void OnDeath (ObjectDisplay damagedBy)
     {
-
+        OnDeath();
     }
 
     public virtual void OnDeath (TowerDisplay damagedBy)
     {
-
+        OnDeath();
     }
 
     public virtual void OnDeath ()
     {
-
+        
     }
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()

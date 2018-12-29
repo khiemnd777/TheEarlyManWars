@@ -1,19 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof (Rigidbody2D))]
 public class Arrow : MonoBehaviour
 {
     public int damage = 5;
     public float height = 3f;
-    Settings _settings;
     Rigidbody2D _rb;
     Vector3 _currentVel;
 
     void Awake ()
     {
         _rb = GetComponent<Rigidbody2D> ();
-        _settings = FindObjectOfType<Settings> ();
     }
 
     public void Launch (Vector3 targetPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
