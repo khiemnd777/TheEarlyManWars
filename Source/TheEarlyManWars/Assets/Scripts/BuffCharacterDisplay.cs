@@ -30,6 +30,48 @@ public class BuffCharacterDisplay : CharacterDisplay
         minHpChar.hp += atkPwrVal;
     }
 
+    protected override IEnumerator Go ()
+    {
+        while (gameObject != null && !gameObject.Equals (null))
+        {
+            if (detectedEnemies.Any ())
+            {
+                if (detectedEnemies.Any (x => x.hp < x.maxHP))
+                {
+                    if (PrepareAttack ())
+                    {
+                        isStopMove = true;
+                        yield return StartCoroutine (AnimateAttack (detectedEnemies));
+                    }
+                    else
+                    {
+                        yield return null;
+                    }
+                }
+                else
+                {
+                    // Do something...
+                }
+            }
+            else
+            {
+                var currentX = transform.position.x;
+                var frontAllies = allies.list.Where (e => e.transform.position.x > currentX).ToList ();
+                if (frontAllies.Any ())
+                {
+                    isStopMove = true;
+                    Move ();
+                    yield return new WaitForFixedUpdate ();
+                }
+                else
+                {
+                    isStopMove = false;
+                    yield return null;
+                }
+            }
+        }
+    }
+
     public override IEnumerable<ObjectDisplay> DetectEnemies ()
     {
         var atkRangeVal = rangeAttack.GetValue ();

@@ -32,8 +32,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     [System.NonSerialized]
     public Direction direction;
     float _attackTime = 0f;
-    IEnumerable<ObjectDisplay> _detectedEnemies;
-    IEnumerable<ObjectDisplay> _detectedAllies;
+    protected IEnumerable<ObjectDisplay> detectedEnemies;
+    protected IEnumerable<ObjectDisplay> detectedAllies;
     TowerDisplay _detectedTower;
     protected bool isStopMove;
     float attackSpeedSecond;
@@ -79,7 +79,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    bool PrepareAttack ()
+    protected virtual bool PrepareAttack ()
     {
         if (settings.deltaSpeed <= 0) return false;
         if (Time.time < _attackTime) return false;
@@ -224,16 +224,16 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    IEnumerator Go ()
+    protected virtual IEnumerator Go ()
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
-            if (_detectedEnemies.Any ())
+            if (detectedEnemies.Any ())
             {
                 if (PrepareAttack ())
                 {
                     isStopMove = true;
-                    yield return StartCoroutine (AnimateAttack (_detectedEnemies));
+                    yield return StartCoroutine (AnimateAttack (detectedEnemies));
                 }
                 else
                 {
@@ -303,7 +303,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
-            _detectedEnemies = DetectEnemies ();
+            detectedEnemies = DetectEnemies ();
             yield return null;
         }
     }
