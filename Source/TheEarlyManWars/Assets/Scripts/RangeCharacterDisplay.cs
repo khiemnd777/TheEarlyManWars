@@ -6,6 +6,8 @@ using UnityEngine;
 public class RangeCharacterDisplay : CharacterDisplay
 {
     public ProjectileObject projectileObjectPrefab;
+    [SerializeField]
+    Transform _projectilePoint;
 
     // Hit function is used for being flag to determine launching time.
     public void Launch ()
@@ -20,7 +22,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             yield return StartCoroutine (PrepareAnimateLaunch ());
         }
-        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, transform.position, Quaternion.identity);
+        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
         projectileIns.direction = direction;
         if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
         {
@@ -49,7 +51,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             yield return StartCoroutine (PrepareAnimateLaunch ());
         }
-        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, transform.position, Quaternion.identity);
+        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
         projectileIns.direction = direction;
         // t = h / (uB-uA)
         var h = tower.transform.position.x - projectileIns.transform.position.x;

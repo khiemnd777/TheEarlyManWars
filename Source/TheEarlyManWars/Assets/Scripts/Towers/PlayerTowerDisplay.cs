@@ -10,10 +10,12 @@ public class PlayerTowerDisplay : TowerDisplay
     public Transform arrowLaunchPoint;
     public Image healthBar;
 
+    ObjectDisplay _currentEnemy;
+
     public override void Awake ()
     {
         direction = Direction.LeftToRight;
-        enemies = FindObjectOfType<MonsterDisplayList> (); 
+        enemies = FindObjectOfType<MonsterDisplayList> ();
         base.Awake ();
     }
 
@@ -25,15 +27,21 @@ public class PlayerTowerDisplay : TowerDisplay
         }
     }
 
-
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
-        var arrowIns = Instantiate<Arrow>(arrowPrefab, arrowLaunchPoint.position, Quaternion.identity);
-        var enemy = enemies.ElementAt(Random.Range(0, enemies.Count()));
-        if(enemy != null && !enemy.Equals(null)){
-            arrowIns.Launch(enemy.transform.position, settings.deltaSpeed, () => {
-                if(enemy != null && !enemy.Equals(null)){
-                    enemy.TakeDamage(arrowIns.damage, this);
+        var arrowIns = Instantiate<Arrow> (arrowPrefab, arrowLaunchPoint.position, Quaternion.identity);
+        var enemyArray = enemies.ToArray ();
+        if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
+        {
+            _currentEnemy = enemyArray.FirstOrDefault ();
+        }
+        if (_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null))
+        {
+            arrowIns.Launch (_currentEnemy.transform.position, settings.deltaSpeed, () =>
+            {
+                if (_currentEnemy != null && !_currentEnemy.Equals (null))
+                {
+                    _currentEnemy.TakeDamage (arrowIns.damage, this);
                 }
             });
         }

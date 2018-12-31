@@ -11,6 +11,8 @@ public class CharacterDisplay : ObjectDisplay
     public Image healthBar;
     public Text nameText;
     [SerializeField]
+    Transform _onDeathPoint;
+    [SerializeField]
     ParticleSystem _onDeathEffectPrefab;
 
     public override void Awake ()
@@ -48,7 +50,8 @@ public class CharacterDisplay : ObjectDisplay
     IEnumerator InstantiateOnDeathEffect ()
     {
         var angle = Quaternion.Euler (-10f, -90f, 0f);
-        var ins = Instantiate<ParticleSystem> (_onDeathEffectPrefab, transform.position, angle);
+        var onDeathPosition = _onDeathPoint.Equals(null) ? transform.position : _onDeathPoint.position;
+        var ins = Instantiate<ParticleSystem> (_onDeathEffectPrefab, onDeathPosition, angle);
         Destroy (ins.gameObject, ins.main.startLifetime.constant);
         yield break;
     }
@@ -67,7 +70,7 @@ public class CharacterDisplay : ObjectDisplay
                 enemy.TakeDamage (atkPwrVal, this);
             }
         }
-        else if (attackType == AttackType.Range)
+        else
         {
             var enemyArray = GetMonstersByAttackType (enemies);
             if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))

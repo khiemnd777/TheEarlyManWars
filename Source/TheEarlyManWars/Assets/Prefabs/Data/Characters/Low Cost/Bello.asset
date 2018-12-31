@@ -24,5 +24,5 @@ MonoBehaviour:
   meat: 50
   attackType: 0
   cooldownPurchase: 10
-  displayPrefab: {fileID: 114359982606537780, guid: 3c325561fb9b043f580f441954d9849b,
+  displayPrefab: {fileID: 114446385950419560, guid: f2d8829f0a8a0427ba7dbea3ec2d0807,
     type: 2}
