@@ -17,6 +17,8 @@ public class TowerDisplay : MonoBehaviour
     protected Settings settings;
     IEnumerable<ObjectDisplay> _detectedEnemies;
     float _attackTime = 0f;
+    [System.NonSerialized]
+    public bool hasDestroyed;
 
     public virtual void Awake ()
     {
@@ -43,6 +45,7 @@ public class TowerDisplay : MonoBehaviour
         if (hp <= 0)
         {
             Debug.Log (name + " being destroyed!");
+            hasDestroyed = true;
             OnDeath (damagedBy);
             Destroy (gameObject);
         }

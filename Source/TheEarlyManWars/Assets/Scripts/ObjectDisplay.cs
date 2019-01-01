@@ -295,6 +295,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         yield return StartCoroutine (AnimateAttack ());
+        if (tower == null || tower is Object && tower.Equals (null)) yield break;
         var atkPwrVal = attackPower.GetValue ();
         tower.TakeDamage (atkPwrVal, this);
     }

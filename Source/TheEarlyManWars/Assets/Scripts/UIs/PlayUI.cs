@@ -1,8 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayUI : MonoBehaviour
 {
+    [SerializeField]
+    Text _youWinText;
+
     Settings _settings;
+    bool _stopped;
 
     void Awake ()
     {
@@ -11,21 +17,46 @@ public class PlayUI : MonoBehaviour
 
     public void Speedx2 ()
     {
+        if (_stopped) return;
         _settings.deltaSpeed = 2;
     }
 
     public void Speedx3 ()
     {
+        if (_stopped) return;
         _settings.deltaSpeed = 3;
     }
 
     public void Play ()
     {
+        if (_stopped) return;
         _settings.deltaSpeed = 1;
     }
 
     public void Pause ()
     {
         _settings.deltaSpeed = 0;
+    }
+
+    public void Stop ()
+    {
+        Pause ();
+        _stopped = true;
+    }
+
+    public void ShowYouWinText ()
+    {
+        _youWinText.gameObject.SetActive (true);
+    }
+
+    public void Win ()
+    {
+        Stop ();
+        ShowYouWinText ();
+    }
+
+    public void ResetScene ()
+    {
+        SceneManager.LoadScene("Prototype I");
     }
 }
