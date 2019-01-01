@@ -9,7 +9,10 @@ public class BuffCharacterDisplay : CharacterDisplay
     {
         yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
-        var allyArray = enemies.Where (x => x.GetInstanceID () != GetInstanceID ()).Select (x => (CharacterDisplay) x).ToArray ();
+        var instanceId = GetInstanceID ();
+        var allyArray = enemies.Where (x => x.GetInstanceID () != instanceId)
+            .Select (x => (CharacterDisplay) x)
+            .ToArray ();
         var minRateHp = 1f;
         var minHpChar = allyArray.FirstOrDefault ();
         if (minHpChar == null || minHpChar is Object && minHpChar.Equals (null)) yield break;
@@ -51,6 +54,21 @@ public class BuffCharacterDisplay : CharacterDisplay
                 else
                 {
                     // Do something...
+                    var currentX = transform.position.x;
+                    var frontAllies = allies.list
+                        .Where (x => detectedEnemies.Any (x1 => x1.GetInstanceID () != x.GetInstanceID ()))
+                        .Where (x => x.transform.position.x > currentX && x.hp < x.maxHP).ToList ();
+                    if (frontAllies.Any ())
+                    {
+                        isStopMove = true;
+                        Move ();
+                        yield return new WaitForFixedUpdate ();
+                    }
+                    else
+                    {
+                        isStopMove = false;
+                        yield return null;
+                    }
                 }
             }
             else
