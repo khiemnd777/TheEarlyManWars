@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
-  cooldown: 200
+  cooldown: 60
   shakeDuration: 0.4
   shakeMagnitude: 0.9
   _monsterList: {fileID: 2130525010}
@@ -2657,19 +2657,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delaySpawning: 5
-  delayNextWave: 2
+  delayNextWave: 3
   spawningPoint: {fileID: 1650950920}
+  bossSpawnKnockBackRange: 5
   waves:
   - monsters:
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
   - monsters:
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
   - monsters:
-    - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
     - {fileID: 11400000, guid: a0ae31fb501ce495c91ef9c4ec988122, type: 2}
   - monsters:
@@ -2699,6 +2697,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
     - {fileID: 11400000, guid: b149d78e7ec8d49cab851383d301a408, type: 2}
+    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
   - monsters:
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
@@ -2708,6 +2707,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: a0ae31fb501ce495c91ef9c4ec988122, type: 2}
     - {fileID: 11400000, guid: a0ae31fb501ce495c91ef9c4ec988122, type: 2}
     - {fileID: 11400000, guid: b149d78e7ec8d49cab851383d301a408, type: 2}
+    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
   - monsters:
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
@@ -2716,6 +2716,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
     - {fileID: 11400000, guid: b149d78e7ec8d49cab851383d301a408, type: 2}
     - {fileID: 11400000, guid: b149d78e7ec8d49cab851383d301a408, type: 2}
+    - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
   - monsters:
     - {fileID: 11400000, guid: 0063bba78f0ad4f2dada937855249db3, type: 2}
 --- !u!1 &1444411658

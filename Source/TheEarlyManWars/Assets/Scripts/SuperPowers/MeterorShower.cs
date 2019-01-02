@@ -14,7 +14,7 @@ public class MeterorShower : MonoBehaviour
 	MonsterDisplayList _monsterList;
 	[SerializeField]
 	CameraShake _cameraShake;
-	bool _inCooldownProgress;
+	bool _inCooldownProgress = true;
 	Settings _settings;
 	Button _button;
 	float _cooldownCounter;
@@ -53,7 +53,7 @@ public class MeterorShower : MonoBehaviour
 		if (_settings.deltaSpeed <= 0) return;
 		if (!_inCooldownProgress) return;
 		_button.interactable = false;
-		if (_cooldownCounter < 1f)
+		if (_cooldownCounter <= 1f)
 		{
 			_cooldownCounter += Time.deltaTime / cooldown * _settings.deltaSpeed;
 			return;

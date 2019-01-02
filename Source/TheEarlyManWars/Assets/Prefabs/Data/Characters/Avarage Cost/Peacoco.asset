@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Peacoco
   speed: 3
-  attackSpeed: 2
+  attackSpeed: 1
   rangeAttack: 2
   attackPower: 2
   hp: 20

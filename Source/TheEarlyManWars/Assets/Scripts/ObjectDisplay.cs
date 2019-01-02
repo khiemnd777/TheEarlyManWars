@@ -91,6 +91,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void Move ()
     {
+        if (_stopMove) return;
         var spdVal = speed.GetValue ();
         switch (baseObject.moveType)
         {
@@ -144,17 +145,17 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void OnDeath (ObjectDisplay damagedBy)
     {
-        OnDeath();
+        OnDeath ();
     }
 
     public virtual void OnDeath (TowerDisplay damagedBy)
     {
-        OnDeath();
+        OnDeath ();
     }
 
     public virtual void OnDeath ()
     {
-        
+
     }
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
@@ -224,6 +225,17 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
+    bool _stopMove;
+    public void StopMove ()
+    {
+        _stopMove = true;
+    }
+
+    public void CanMove ()
+    {
+        _stopMove = false;
+    }
+
     protected virtual IEnumerator Go ()
     {
         while (gameObject != null && !gameObject.Equals (null))
@@ -262,11 +274,6 @@ public abstract class ObjectDisplay : MonoBehaviour
                 }
             }
         }
-    }
-
-    void StopMove ()
-    {
-
     }
 
     public bool AnimationAttackIsNotNull ()

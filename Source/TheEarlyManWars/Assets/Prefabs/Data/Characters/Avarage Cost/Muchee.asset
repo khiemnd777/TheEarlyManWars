@@ -21,7 +21,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
   level: 1
-  meat: 120
+  meat: 80
   attackType: 1
   cooldownPurchase: 20
   displayPrefab: {fileID: 114041901505747116, guid: 96ed1f8f8f7ef41c189c012d9d702432,

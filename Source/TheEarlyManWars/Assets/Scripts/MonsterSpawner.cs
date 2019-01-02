@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,9 +8,12 @@ public class MonsterSpawner : MonoBehaviour
     public float delaySpawning = 5f;
     public float delayNextWave = 1f;
     public Transform spawningPoint;
+    public float bossSpawnKnockBackRange = 2f;
     public List<Wave> waves;
     [System.NonSerialized]
     public MonsterDisplayList displayList;
+    [System.NonSerialized]
+    public CharacterDisplayList characterDisplayList;
     public int waveCount { get { return _waveCount; } }
     Settings _settings;
     List<Wave> _waves;
@@ -23,6 +27,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         _settings = FindObjectOfType<Settings> ();
         displayList = FindObjectOfType<MonsterDisplayList> ();
+        characterDisplayList = FindObjectOfType<CharacterDisplayList> ();
         // Clone to a wave list to execute.
         _waves = waves.GetRange (0, waves.Count);
     }
@@ -77,10 +82,35 @@ public class MonsterSpawner : MonoBehaviour
             return;
         }
         var baseMonster = _currentWave.monsters[_currentMonsterSpawningIndex];
+        StartCoroutine (KnockBackOfSpawnBoss (baseMonster));
         var mstrDisp = InstanceMonster (baseMonster);
         displayList.Add (mstrDisp);
         ++_currentMonsterSpawningIndex;
         _spawnTime = 0f;
+    }
+
+    IEnumerator KnockBackOfSpawnBoss (BaseMonster monster)
+    {
+        if (monster.attackType != MonsterAttackType.Boss) yield break;
+        var charactersNearbyTower = characterDisplayList.list.Where (x => Mathf.Abs (x.transform.position.x - spawningPoint.position.x) <= bossSpawnKnockBackRange).ToList ();
+        Debug.Log (charactersNearbyTower.Count);
+        if (!charactersNearbyTower.Any ()) yield break;
+        charactersNearbyTower.ForEach (x => x.StopMove ());
+        var targetPos = charactersNearbyTower.Select (x => new Vector2 (x.transform.position.x - bossSpawnKnockBackRange, x.transform.position.y)).ToList ();
+        var originPos = charactersNearbyTower.Select (x => x.transform.position).ToList ();
+        var percent = 0f;
+        while (percent <= 1f)
+        {
+            var step = Time.deltaTime * _settings.deltaMoveStep * 12f * _settings.deltaSpeed;
+            percent += step;
+            for (var i = 0; i < charactersNearbyTower.Count; i++)
+            {
+                var character = charactersNearbyTower[i];
+                character.transform.position = Vector2.Lerp (originPos[i], targetPos[i], percent);
+            }
+            yield return null;
+        }
+        charactersNearbyTower.ForEach (x => x.CanMove ());
     }
 
     MonsterDisplay InstanceMonster (BaseMonster baseMonster)
