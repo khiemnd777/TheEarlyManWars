@@ -43,7 +43,6 @@ public abstract class ObjectDisplay : MonoBehaviour
     // Others
     [System.NonSerialized]
     public Direction direction;
-    float _attackTime = 0f;
     protected IEnumerable<ObjectDisplay> detectedEnemies;
     protected IEnumerable<ObjectDisplay> detectedAllies;
     TowerDisplay _detectedTower;
@@ -92,16 +91,6 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
 
     }
-
-    // protected virtual bool PrepareAttack ()
-    // {
-    //     if (settings.deltaSpeed <= 0) return false;
-    //     if (Time.time < _attackTime) return false;
-    //     var atkSpdVal = attackSpeed.GetValue ();
-    //     if (atkSpdVal == 0) return false;
-    //     _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
-    //     return true;
-    // }
 
     protected virtual IEnumerator PrepareAttack ()
     {
