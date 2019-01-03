@@ -41,15 +41,9 @@ public class BuffCharacterDisplay : CharacterDisplay
             {
                 if (detectedEnemies.Any (x => x.hp < x.maxHP))
                 {
-                    if (PrepareAttack ())
-                    {
-                        isStopMove = true;
-                        yield return StartCoroutine (AnimateAttack (detectedEnemies));
-                    }
-                    else
-                    {
-                        yield return null;
-                    }
+                    yield return StartCoroutine (PrepareAttack ());
+                    isStopMove = true;
+                    yield return StartCoroutine (AnimateAttack (detectedEnemies));
                 }
                 else
                 {

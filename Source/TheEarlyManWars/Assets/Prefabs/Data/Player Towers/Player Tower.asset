@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Player Tower
   m_EditorClassIdentifier: 
   level: 0
-  hp: 210
+  hp: 150
   rangeAttack: 10
   attackSpeed: 0.5
   displayPrefab: {fileID: 114624593749148046, guid: 1b3dfddce7be0bc4894f6e78f1417ab1,

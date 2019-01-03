@@ -13,4 +13,7 @@ public class BaseObject : ScriptableObject
 	public MoveType moveType;
 	public Animator animator;
 	public AnimationClip animationAttack;
+	[Space]
+	public bool canKnockBack;
+    public float knockBackProbability;
 }

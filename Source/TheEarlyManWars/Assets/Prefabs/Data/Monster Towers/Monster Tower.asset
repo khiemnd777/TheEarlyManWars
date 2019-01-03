@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Monster Tower
   m_EditorClassIdentifier: 
   level: 1
-  hp: 210
+  hp: 150
   rangeAttack: 5
   attackSpeed: 0
   displayPrefab: {fileID: 114490195797487286, guid: 26a385f6c683e4442a360b1ec2f4d3c3,

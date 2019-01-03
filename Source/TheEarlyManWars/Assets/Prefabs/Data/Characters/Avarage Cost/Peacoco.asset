@@ -23,6 +23,6 @@ MonoBehaviour:
   level: 1
   meat: 50
   attackType: 2
-  cooldownPurchase: 15
+  cooldownPurchase: 30
   displayPrefab: {fileID: 114435459609277656, guid: 74854b56a7f41441ab3cb6ae9c4f1b61,
     type: 2}

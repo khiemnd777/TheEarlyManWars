@@ -29,6 +29,18 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Stat attackPower;
     public int hp;
     public int maxHP;
+    // Knock back
+    public bool canKnockBack
+    {
+        get;
+        private set;
+    }
+    public float knockBackProbability
+    {
+        get;
+        private set;
+    }
+    // Others
     [System.NonSerialized]
     public Direction direction;
     float _attackTime = 0f;
@@ -59,6 +71,8 @@ public abstract class ObjectDisplay : MonoBehaviour
         rangeAttack = baseObject.rangeAttack;
         attackPower.baseValue = baseObject.attackPower;
         maxHP = hp = baseObject.hp;
+        canKnockBack = baseObject.canKnockBack;
+        knockBackProbability = baseObject.knockBackProbability;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (ScanTower ());
         StartCoroutine (Go ());
@@ -79,14 +93,27 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    protected virtual bool PrepareAttack ()
+    // protected virtual bool PrepareAttack ()
+    // {
+    //     if (settings.deltaSpeed <= 0) return false;
+    //     if (Time.time < _attackTime) return false;
+    //     var atkSpdVal = attackSpeed.GetValue ();
+    //     if (atkSpdVal == 0) return false;
+    //     _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
+    //     return true;
+    // }
+
+    protected virtual IEnumerator PrepareAttack ()
     {
-        if (settings.deltaSpeed <= 0) return false;
-        if (Time.time < _attackTime) return false;
+        if (settings.deltaSpeed <= 0) yield break;
         var atkSpdVal = attackSpeed.GetValue ();
-        if (atkSpdVal == 0) return false;
-        _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
-        return true;
+        if (atkSpdVal == 0) yield break;
+        var percent = 0f;
+        while (percent <= 1f)
+        {
+            percent += Time.deltaTime * (atkSpdVal * settings.deltaAttackTime) * settings.deltaSpeed;
+            yield return null;
+        }
     }
 
     public virtual void Move ()
@@ -242,29 +269,17 @@ public abstract class ObjectDisplay : MonoBehaviour
         {
             if (detectedEnemies.Any ())
             {
-                if (PrepareAttack ())
-                {
-                    isStopMove = true;
-                    yield return StartCoroutine (AnimateAttack (detectedEnemies));
-                }
-                else
-                {
-                    yield return null;
-                }
+                yield return StartCoroutine (PrepareAttack ());
+                isStopMove = true;
+                yield return StartCoroutine (AnimateAttack (detectedEnemies));
             }
             else
             {
                 if (_detectedTower != null)
                 {
-                    if (PrepareAttack ())
-                    {
-                        isStopMove = true;
-                        yield return StartCoroutine (AnimateAttack (_detectedTower));
-                    }
-                    else
-                    {
-                        yield return null;
-                    }
+                    yield return StartCoroutine (PrepareAttack ());
+                    isStopMove = true;
+                    yield return StartCoroutine (AnimateAttack (_detectedTower));
                 }
                 else
                 {
