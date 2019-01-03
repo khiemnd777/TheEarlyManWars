@@ -20,6 +20,9 @@ MonoBehaviour:
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  canKnockBack: 1
+  knockBackProbability: 0.15
+  knockBackRange: 2
   gainedMeat: 11
   attackType: 2
   displayPrefab: {fileID: 114649192040936934, guid: 0c4e9979fddb24a50ad5fd7de2c1ac46,

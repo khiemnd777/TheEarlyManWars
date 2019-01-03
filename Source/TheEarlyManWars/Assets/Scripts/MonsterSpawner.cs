@@ -93,7 +93,6 @@ public class MonsterSpawner : MonoBehaviour
     {
         if (monster.attackType != MonsterAttackType.Boss) yield break;
         var charactersNearbyTower = characterDisplayList.list.Where (x => Mathf.Abs (x.transform.position.x - spawningPoint.position.x) <= bossSpawnKnockBackRange).ToList ();
-        Debug.Log (charactersNearbyTower.Count);
         if (!charactersNearbyTower.Any ()) yield break;
         charactersNearbyTower.ForEach (x => x.StopMove ());
         var targetPos = charactersNearbyTower.Select (x => new Vector2 (x.transform.position.x - bossSpawnKnockBackRange, x.transform.position.y)).ToList ();

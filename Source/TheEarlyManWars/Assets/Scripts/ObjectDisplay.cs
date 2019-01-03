@@ -40,6 +40,11 @@ public abstract class ObjectDisplay : MonoBehaviour
         get;
         private set;
     }
+    public float knockBackRange
+    {
+        get;
+        private set;
+    }
     // Others
     [System.NonSerialized]
     public Direction direction;
@@ -72,6 +77,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         maxHP = hp = baseObject.hp;
         canKnockBack = baseObject.canKnockBack;
         knockBackProbability = baseObject.knockBackProbability;
+        knockBackRange = baseObject.knockBackRange;
         StartCoroutine (ScanEnemies ());
         StartCoroutine (ScanTower ());
         StartCoroutine (Go ());
@@ -138,6 +144,16 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
+        if (damagedBy.canKnockBack)
+        {
+            var prob = damagedBy.knockBackProbability * 100f;
+            var procKnockBacks = Probability.Initialize<bool> (new [] { true, false }, new [] { prob, 100f - prob });
+            var procKnockBack = Probability.GetValueInProbability (procKnockBacks);
+            if (procKnockBack)
+            {
+                StartCoroutine (KnockBack (damagedBy));
+            }
+        }
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
@@ -157,6 +173,22 @@ public abstract class ObjectDisplay : MonoBehaviour
             allies.Remove (this);
             Destroy (gameObject);
         }
+    }
+
+    IEnumerator KnockBack (ObjectDisplay damageBy)
+    {
+        StopMove ();
+        var percent = 0f;
+        var originPos = transform.position;
+        var targetPos = new Vector2 (transform.position.x - damageBy.knockBackRange, transform.position.y);
+        while (percent <= 1f)
+        {
+            var step = Time.deltaTime * settings.deltaMoveStep * 12f * settings.deltaSpeed;
+            percent += step;
+            transform.position = Vector2.Lerp (originPos, targetPos, percent);
+            yield return null;
+        }
+        CanMove ();
     }
 
     public virtual void OnDeath (ObjectDisplay damagedBy)

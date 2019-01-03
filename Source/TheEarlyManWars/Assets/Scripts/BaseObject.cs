@@ -16,4 +16,5 @@ public class BaseObject : ScriptableObject
 	[Space]
 	public bool canKnockBack;
     public float knockBackProbability;
+	public float knockBackRange;
 }
