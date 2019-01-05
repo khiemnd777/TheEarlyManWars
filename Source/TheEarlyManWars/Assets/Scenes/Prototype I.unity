@@ -2898,6 +2898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deltaSpeed: 1
   deltaMoveStep: 0.15
+  deltaProjectileMoveStep: 3
   deltaAttackTime: 1
   debug: 1
 --- !u!4 &1478212646

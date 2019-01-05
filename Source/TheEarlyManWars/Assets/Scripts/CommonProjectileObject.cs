@@ -11,6 +11,6 @@ public class CommonProjectileObject : ProjectileObject
 
     void FixedUpdate ()
     {
-        transform.position += Vector3.right * (int) direction * initialVelocity * _settings.deltaSpeed * _settings.deltaMoveStep * Time.fixedDeltaTime;
+        transform.position += Vector3.right * (int) direction * initialVelocity * _settings.deltaSpeed * _settings.deltaMoveStep * _settings.deltaProjectileMoveStep * Time.fixedDeltaTime;
     }
 }

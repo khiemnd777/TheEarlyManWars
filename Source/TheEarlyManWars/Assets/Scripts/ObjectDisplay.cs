@@ -52,7 +52,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     protected IEnumerable<ObjectDisplay> detectedAllies;
     TowerDisplay _detectedTower;
     protected bool isStopMove;
-    float attackSpeedSecond;
+    float _attackSpeedSecond;
+    bool _firstAttack = true;
 
     public virtual void Awake ()
     {
@@ -100,6 +101,11 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     protected virtual IEnumerator PrepareAttack ()
     {
+        if (_firstAttack)
+        {
+            _firstAttack = false;
+            yield break;
+        }
         if (settings.deltaSpeed <= 0) yield break;
         var atkSpdVal = attackSpeed.GetValue ();
         if (atkSpdVal == 0) yield break;
@@ -290,17 +296,17 @@ public abstract class ObjectDisplay : MonoBehaviour
         {
             if (detectedEnemies.Any ())
             {
-                yield return StartCoroutine (PrepareAttack ());
                 isStopMove = true;
                 yield return StartCoroutine (AnimateAttack (detectedEnemies));
+                yield return StartCoroutine (PrepareAttack ());
             }
             else
             {
                 if (_detectedTower != null)
                 {
-                    yield return StartCoroutine (PrepareAttack ());
                     isStopMove = true;
                     yield return StartCoroutine (AnimateAttack (_detectedTower));
+                    yield return StartCoroutine (PrepareAttack ());
                 }
                 else
                 {

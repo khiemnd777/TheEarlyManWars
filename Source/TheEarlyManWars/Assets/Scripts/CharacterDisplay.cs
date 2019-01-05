@@ -75,7 +75,7 @@ public class CharacterDisplay : ObjectDisplay
             var enemyArray = GetMonstersByAttackType (enemies);
             if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
             {
-                currentEnemy = enemyArray.FirstOrDefault ();
+                currentEnemy = enemyArray.ElementAtOrDefault(Random.Range(0, enemyArray.Count()));
             }
             if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
             {

@@ -33,7 +33,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             var h = currentEnemy.transform.position.x - projectileIns.transform.position.x;
             var targetVel = isStopMove ? 0 : currentEnemy.speed.GetValue ();
-            var u = (projectileIns.initialVelocity + targetVel) * settings.deltaSpeed * settings.deltaMoveStep;
+            var u = (projectileIns.initialVelocity + targetVel) * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
             var predictedTime = h / u;
             Destroy (projectileIns.gameObject, predictedTime);
             yield return new WaitForSeconds (predictedTime);
@@ -55,7 +55,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         projectileIns.direction = direction;
         // t = h / (uB-uA)
         var h = tower.transform.position.x - projectileIns.transform.position.x;
-        var u = projectileIns.initialVelocity * settings.deltaSpeed * settings.deltaMoveStep;
+        var u = projectileIns.initialVelocity * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
         var predictedTime = h / u;
         Destroy (projectileIns.gameObject, predictedTime);
         yield return new WaitForSeconds (predictedTime);

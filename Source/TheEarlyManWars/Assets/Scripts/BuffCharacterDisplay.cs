@@ -14,8 +14,7 @@ public class BuffCharacterDisplay : CharacterDisplay
             .Select (x => (CharacterDisplay) x)
             .ToArray ();
         var minRateHp = 1f;
-        var minHpChar = allyArray.FirstOrDefault ();
-        if (minHpChar == null || minHpChar is Object && minHpChar.Equals (null)) yield break;
+        CharacterDisplay minHpChar = null;
         foreach (var c in allyArray)
         {
             var rateHp = (float) c.hp / (float) c.maxHP;
@@ -25,6 +24,7 @@ public class BuffCharacterDisplay : CharacterDisplay
                 minHpChar = c;
             }
         }
+        if (minHpChar == null || minHpChar is Object && minHpChar.Equals (null)) yield break;
         if (minHpChar.hp >= minHpChar.maxHP)
         {
             minHpChar.hp = minHpChar.maxHP;
@@ -41,13 +41,12 @@ public class BuffCharacterDisplay : CharacterDisplay
             {
                 if (detectedEnemies.Any (x => x.hp < x.maxHP))
                 {
-                    yield return StartCoroutine (PrepareAttack ());
                     isStopMove = true;
                     yield return StartCoroutine (AnimateAttack (detectedEnemies));
+                    yield return StartCoroutine (PrepareAttack ());
                 }
                 else
                 {
-                    // Do something...
                     var currentX = transform.position.x;
                     var frontAllies = allies.list
                         .Where (x => detectedEnemies.Any (x1 => x1.GetInstanceID () != x.GetInstanceID ()))
@@ -96,9 +95,9 @@ public class BuffCharacterDisplay : CharacterDisplay
         switch (direction)
         {
             case Direction.LeftToRight:
-                return allies.list.Where (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
+                return allies.list.Where (e => e.GetInstanceID() != GetInstanceID() && e.transform.position.x > currentX && e.transform.position.x <= rangeX);
             case Direction.RightToLeft:
-                return allies.list.Where (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
+                return allies.list.Where (e => e.GetInstanceID() != GetInstanceID() && e.transform.position.x >= rangeX && e.transform.position.x < currentX);
             default:
                 return new List<ObjectDisplay> ();
         }

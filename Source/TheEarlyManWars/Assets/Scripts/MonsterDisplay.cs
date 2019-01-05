@@ -53,7 +53,9 @@ public class MonsterDisplay : ObjectDisplay
         var atkPwrVal = attackPower.GetValue ();
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {
-            _currentEnemy = enemies.FirstOrDefault ();
+            var inx = Random.Range (0, enemies.Count ());
+            Debug.Log(inx);
+            _currentEnemy = enemies.ElementAtOrDefault (inx);
         }
         if (_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null))
         {
