@@ -2,21 +2,23 @@ using UnityEngine;
 
 public class JumpVelocityCalculator
 {
-    public static JumpVelocityData Calculate (Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight)
+    public static JumpVelocityData Calculate (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDisplacement, float gravity, float height, bool updateHeight)
     {
         var offsetY = targetPosition.y - ownerPosition.y;
-        var offsetXZ = new Vector3 (targetPosition.x - ownerPosition.x, 0, targetPosition.z - ownerPosition.z);
         var updatedHeight = offsetY - height > 0 ? offsetY + height : height;
-        var time = (Mathf.Sqrt ((float)(-2 * updatedHeight / gravity)) + Mathf.Sqrt ((float)(2 * (offsetY - updatedHeight) / gravity)));
-        var velocityY = Vector3.up * Mathf.Sqrt ((float)(-2 * gravity * updatedHeight));
+        var time = (Mathf.Sqrt ((float) (-2 * updatedHeight / gravity)) + Mathf.Sqrt ((float) (2 * (offsetY - updatedHeight) / gravity)));
+        var velocityY = Vector3.up * Mathf.Sqrt ((float) (-2 * gravity * updatedHeight));
+        var targetDeltaDistance = time * deltaDisplacement;
+        var realTargetPosition = targetPosition - targetDeltaDistance;
+        var offsetXZ = new Vector3 (realTargetPosition.x - ownerPosition.x, 0, realTargetPosition.z - ownerPosition.z);
         var velocityXZ = offsetXZ / time;
-        var velocity = velocityXZ + velocityY * -Mathf.Sign ((float)gravity);
+        var velocity = velocityXZ + velocityY * -Mathf.Sign ((float) gravity);
         return new JumpVelocityData (velocity, time);
     }
 
-    public static void DrawPath (Vector3 ownerPosition, Vector3 targetPosition, float gravity, float height, bool updateHeight)
+    public static void DrawPath (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDisplacement, float gravity, float height, bool updateHeight)
     {
-        var calculatedJump = Calculate (ownerPosition, targetPosition, gravity, height, updateHeight);
+        var calculatedJump = Calculate (ownerPosition, targetPosition, deltaDisplacement, gravity, height, updateHeight);
         var previousDrawPoint = ownerPosition;
 
         int resolution = 30;
@@ -32,7 +34,7 @@ public class JumpVelocityCalculator
 
     public static float GetGravity2D (Rigidbody2D rb)
     {
-        return GetGravity2D(rb.gravityScale);
+        return GetGravity2D (rb.gravityScale);
     }
 
     public static float GetGravity2D (float gravityScale)

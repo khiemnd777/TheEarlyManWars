@@ -30,7 +30,7 @@ public class TowerDisplay : MonoBehaviour
         rangeAttack.baseValue = towerObject.rangeAttack;
         attackSpeed = towerObject.attackSpeed;
         maxHP = hp = towerObject.hp;
-        StartCoroutine (ScanEnemies ());
+        // StartCoroutine (ScanEnemies ());
         StartCoroutine (OnAlert ());
     }
 
@@ -90,19 +90,20 @@ public class TowerDisplay : MonoBehaviour
         return true;
     }
 
-    IEnumerator ScanEnemies ()
-    {
-        while (gameObject != null && !gameObject.Equals (null))
-        {
-            _detectedEnemies = DetectEnemies ();
-            yield return null;
-        }
-    }
+    // IEnumerator ScanEnemies ()
+    // {
+    //     while (gameObject != null && !gameObject.Equals (null))
+    //     {
+    //         _detectedEnemies = DetectEnemies ();
+    //         yield return null;
+    //     }
+    // }
 
     IEnumerator OnAlert ()
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
+            _detectedEnemies = DetectEnemies ();
             if (_detectedEnemies.Any ())
             {
                 if (PrepareAttack ())

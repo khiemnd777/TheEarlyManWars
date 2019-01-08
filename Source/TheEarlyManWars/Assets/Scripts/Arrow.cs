@@ -7,22 +7,24 @@ public class Arrow : MonoBehaviour
     public float height = 3f;
     Rigidbody2D _rb;
     Vector3 _currentVel;
+    Settings _settings;
 
     void Awake ()
     {
         _rb = GetComponent<Rigidbody2D> ();
+        _settings = FindObjectOfType<Settings>();
     }
 
-    public void Launch (Vector3 targetPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    public void Launch (Vector3 targetPosition, Vector3 deltaDisplacement, float deltaSpeed = 1, System.Action reachedTargetAction = null)
     {
-        StartCoroutine (Lauching (targetPosition, deltaSpeed, reachedTargetAction));
+        StartCoroutine (Lauching (targetPosition, deltaDisplacement, deltaSpeed, reachedTargetAction));
     }
 
-    IEnumerator Lauching (Vector3 targetPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    IEnumerator Lauching (Vector3 targetPosition, Vector3 deltaDisplacement, float deltaSpeed = 1, System.Action reachedTargetAction = null)
     {
         _rb.gravityScale *= deltaSpeed;
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
-        var jumpVel = JumpVelocityCalculator.Calculate (transform.position, targetPosition, gravity, height, true);
+        var jumpVel = JumpVelocityCalculator.Calculate (transform.position, targetPosition, deltaDisplacement, gravity, height, true);
         _currentVel = jumpVel.velocity;
         _rb.velocity = _currentVel;
         yield return new WaitForSeconds (jumpVel.simulatedTime);

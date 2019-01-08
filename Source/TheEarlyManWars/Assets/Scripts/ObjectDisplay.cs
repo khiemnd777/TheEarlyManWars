@@ -51,9 +51,11 @@ public abstract class ObjectDisplay : MonoBehaviour
     protected IEnumerable<ObjectDisplay> detectedEnemies;
     protected IEnumerable<ObjectDisplay> detectedAllies;
     TowerDisplay _detectedTower;
-    protected bool isStopMove;
+    [System.NonSerialized]
+    public bool isStopMove;
     float _attackSpeedSecond;
     bool _firstAttack = true;
+    bool _stopMove;
 
     public virtual void Awake ()
     {
@@ -79,8 +81,8 @@ public abstract class ObjectDisplay : MonoBehaviour
         canKnockBack = baseObject.canKnockBack;
         knockBackProbability = baseObject.knockBackProbability;
         knockBackRange = baseObject.knockBackRange;
-        StartCoroutine (ScanEnemies ());
-        StartCoroutine (ScanTower ());
+        // StartCoroutine (ScanEnemies ());
+        // StartCoroutine (ScanTower ());
         StartCoroutine (Go ());
     }
 
@@ -279,7 +281,6 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     }
 
-    bool _stopMove;
     public void StopMove ()
     {
         _stopMove = true;
@@ -294,6 +295,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
+            detectedEnemies = DetectEnemies();
             if (detectedEnemies.Any ())
             {
                 isStopMove = true;
@@ -302,6 +304,7 @@ public abstract class ObjectDisplay : MonoBehaviour
             }
             else
             {
+                _detectedTower = DetectEnemyTower();
                 if (_detectedTower != null)
                 {
                     isStopMove = true;
@@ -349,21 +352,21 @@ public abstract class ObjectDisplay : MonoBehaviour
         tower.TakeDamage (atkPwrVal, this);
     }
 
-    IEnumerator ScanEnemies ()
-    {
-        while (gameObject != null && !gameObject.Equals (null))
-        {
-            detectedEnemies = DetectEnemies ();
-            yield return null;
-        }
-    }
+    // IEnumerator ScanEnemies ()
+    // {
+    //     while (gameObject != null && !gameObject.Equals (null))
+    //     {
+    //         detectedEnemies = DetectEnemies ();
+    //         yield return null;
+    //     }
+    // }
 
-    IEnumerator ScanTower ()
-    {
-        while (gameObject != null && !gameObject.Equals (null))
-        {
-            _detectedTower = DetectEnemyTower ();
-            yield return null;
-        }
-    }
+    // IEnumerator ScanTower ()
+    // {
+    //     while (gameObject != null && !gameObject.Equals (null))
+    //     {
+    //         _detectedTower = DetectEnemyTower ();
+    //         yield return null;
+    //     }
+    // }
 }

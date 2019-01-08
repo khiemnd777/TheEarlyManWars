@@ -37,6 +37,7 @@ public class BuffCharacterDisplay : CharacterDisplay
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
+            detectedEnemies = DetectEnemies();
             if (detectedEnemies.Any ())
             {
                 if (detectedEnemies.Any (x => x.hp < x.maxHP))
