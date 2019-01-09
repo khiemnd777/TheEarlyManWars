@@ -18,7 +18,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: magnitude
-      value: 0.07
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.2
-  magnitude: 0.07
+  magnitude: 0.08
 --- !u!114 &114994459677947072
 MonoBehaviour:
   m_ObjectHideFlags: 1
