@@ -7,12 +7,10 @@ public class Arrow : MonoBehaviour
     public float height = 3f;
     Rigidbody2D _rb;
     Vector3 _currentVel;
-    Settings _settings;
 
     void Awake ()
     {
         _rb = GetComponent<Rigidbody2D> ();
-        _settings = FindObjectOfType<Settings>();
     }
 
     public void Launch (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)

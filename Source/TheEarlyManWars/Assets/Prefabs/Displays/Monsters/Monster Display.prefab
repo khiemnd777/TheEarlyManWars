@@ -12,6 +12,14 @@ Prefab:
       value: 
       objectReference: {fileID: 198655351538821054, guid: 272974eeb26b24b218dbc4a952fc028b,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: duration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: magnitude
+      value: 0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1711483242411752}
@@ -112,6 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4250801441607190}
   - component: {fileID: 114649192040936934}
+  - component: {fileID: 114908621142039190}
   m_Layer: 0
   m_Name: Monster Display
   m_TagString: Untagged
@@ -333,6 +342,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1100
+--- !u!114 &114908621142039190
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1711483242411752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  magnitude: 0.07
 --- !u!114 &114994459677947072
 MonoBehaviour:
   m_ObjectHideFlags: 1

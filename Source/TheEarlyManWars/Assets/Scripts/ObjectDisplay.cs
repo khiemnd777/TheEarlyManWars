@@ -50,9 +50,12 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Direction direction;
     protected IEnumerable<ObjectDisplay> detectedEnemies;
     protected IEnumerable<ObjectDisplay> detectedAllies;
-    TowerDisplay _detectedTower;
     [System.NonSerialized]
     public bool isStopMove;
+    TowerDisplay _detectedTower;
+    Transform _display;
+    // Shake
+    ObjectShake _shake;
     float _attackSpeedSecond;
     bool _firstAttack = true;
     bool _stopMove;
@@ -60,6 +63,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Awake ()
     {
         settings = FindObjectOfType<Settings> ();
+        _shake = GetComponent<ObjectShake> ();
+        _display = transform.Find("Display");
     }
 
     public virtual void Start ()
@@ -140,6 +145,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage)
     {
         hp -= damage;
+        StartCoroutine (_shake.Shake (_display));
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
@@ -152,6 +158,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
+        StartCoroutine (_shake.Shake (_display));
         if (damagedBy.canKnockBack)
         {
             var prob = damagedBy.knockBackProbability * 100f;
@@ -174,6 +181,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage, TowerDisplay damagedBy)
     {
         hp -= damage;
+        StartCoroutine (_shake.Shake (_display));
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
@@ -295,7 +303,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         while (gameObject != null && !gameObject.Equals (null))
         {
-            detectedEnemies = DetectEnemies();
+            detectedEnemies = DetectEnemies ();
             if (detectedEnemies.Any ())
             {
                 isStopMove = true;
@@ -304,7 +312,7 @@ public abstract class ObjectDisplay : MonoBehaviour
             }
             else
             {
-                _detectedTower = DetectEnemyTower();
+                _detectedTower = DetectEnemyTower ();
                 if (_detectedTower != null)
                 {
                     isStopMove = true;

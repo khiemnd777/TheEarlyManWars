@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4622450433113090}
   - component: {fileID: 114041901505747116}
+  - component: {fileID: 114318531427453364}
   m_Layer: 0
   m_Name: Range Character Display
   m_TagString: Untagged
@@ -264,6 +265,19 @@ MonoBehaviour:
   projectileObjectPrefab: {fileID: 114068402400610810, guid: ebe10092b6cd44c7491db35cdb3be5d6,
     type: 2}
   _projectilePoint: {fileID: 4651247693907500}
+--- !u!114 &114318531427453364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389880586925888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.2
+  magnitude: 0.07
 --- !u!114 &114385311610104178
 MonoBehaviour:
   m_ObjectHideFlags: 1
