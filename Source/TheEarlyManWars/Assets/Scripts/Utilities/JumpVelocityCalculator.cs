@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class JumpVelocityCalculator
 {
-    public static JumpVelocityData Calculate (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDisplacement, float gravity, float height, bool updateHeight)
+    public static JumpVelocityData Calculate (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float gravity, float height, bool updateHeight)
     {
         var offsetY = targetPosition.y - ownerPosition.y;
         var updatedHeight = offsetY - height > 0 ? offsetY + height : height;
         var time = (Mathf.Sqrt ((float) (-2 * updatedHeight / gravity)) + Mathf.Sqrt ((float) (2 * (offsetY - updatedHeight) / gravity)));
         var velocityY = Vector3.up * Mathf.Sqrt ((float) (-2 * gravity * updatedHeight));
-        var targetDeltaDistance = time * deltaDisplacement;
+        var targetDeltaDistance = time * deltaDistance;
         var realTargetPosition = targetPosition - targetDeltaDistance;
+        if (realTargetPosition.x < stopPosition.x)
+        {
+            realTargetPosition = new Vector3 (stopPosition.x, realTargetPosition.y, realTargetPosition.z);
+        }
         var offsetXZ = new Vector3 (realTargetPosition.x - ownerPosition.x, 0, realTargetPosition.z - ownerPosition.z);
         var velocityXZ = offsetXZ / time;
         var velocity = velocityXZ + velocityY * -Mathf.Sign ((float) gravity);
         return new JumpVelocityData (velocity, time);
     }
 
-    public static void DrawPath (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDisplacement, float gravity, float height, bool updateHeight)
+    public static void DrawPath (Vector3 ownerPosition, Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float gravity, float height, bool updateHeight)
     {
-        var calculatedJump = Calculate (ownerPosition, targetPosition, deltaDisplacement, gravity, height, updateHeight);
+        var calculatedJump = Calculate (ownerPosition, targetPosition, deltaDistance, stopPosition, gravity, height, updateHeight);
         var previousDrawPoint = ownerPosition;
 
         int resolution = 30;

@@ -81,13 +81,17 @@ public class TowerDisplay : MonoBehaviour
         }
     }
 
-    bool PrepareAttack ()
+    IEnumerator PrepareAttack ()
     {
-        if (settings.deltaSpeed <= 0) return false;
-        if (Time.time < _attackTime) return false;
+        if (settings.deltaSpeed <= 0) yield break;
+        if (Time.time < _attackTime) yield break;
         var atkSpdVal = attackSpeed;
-        _attackTime = Time.time + settings.deltaAttackTime / (atkSpdVal * settings.deltaSpeed);
-        return true;
+        while (_attackTime <= 1f)
+        {
+            _attackTime += Time.deltaTime * (atkSpdVal * settings.deltaAttackTime) * settings.deltaSpeed;
+            yield return null;
+        }
+        _attackTime = 0f;
     }
 
     // IEnumerator ScanEnemies ()
@@ -106,10 +110,8 @@ public class TowerDisplay : MonoBehaviour
             _detectedEnemies = DetectEnemies ();
             if (_detectedEnemies.Any ())
             {
-                if (PrepareAttack ())
-                {
-                    yield return StartCoroutine (AnimateAttack (_detectedEnemies));
-                }
+                yield return StartCoroutine (AnimateAttack (_detectedEnemies));
+                yield return StartCoroutine (PrepareAttack ());
             }
             yield return null;
         }

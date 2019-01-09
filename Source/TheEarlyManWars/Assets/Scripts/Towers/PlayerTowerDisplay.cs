@@ -37,8 +37,9 @@ public class PlayerTowerDisplay : TowerDisplay
         }
         if (_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null))
         {
-            var deltaDisplacement = _currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * _currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
-            arrowIns.Launch (_currentEnemy.transform.position, deltaDisplacement, settings.deltaSpeed, () =>
+            var deltaDistance = Vector3.right * (int) direction * _currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
+            var stopPos = new Vector3 (transform.position.x + _currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
+            arrowIns.Launch (_currentEnemy.transform.position, deltaDistance, stopPos, settings.deltaSpeed, () =>
             {
                 if (_currentEnemy != null && !_currentEnemy.Equals (null))
                 {

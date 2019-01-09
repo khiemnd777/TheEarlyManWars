@@ -15,16 +15,16 @@ public class Arrow : MonoBehaviour
         _settings = FindObjectOfType<Settings>();
     }
 
-    public void Launch (Vector3 targetPosition, Vector3 deltaDisplacement, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    public void Launch (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
     {
-        StartCoroutine (Lauching (targetPosition, deltaDisplacement, deltaSpeed, reachedTargetAction));
+        StartCoroutine (Lauching (targetPosition, deltaDistance, stopPosition, deltaSpeed, reachedTargetAction));
     }
 
-    IEnumerator Lauching (Vector3 targetPosition, Vector3 deltaDisplacement, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    IEnumerator Lauching (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
     {
         _rb.gravityScale *= deltaSpeed;
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
-        var jumpVel = JumpVelocityCalculator.Calculate (transform.position, targetPosition, deltaDisplacement, gravity, height, true);
+        var jumpVel = JumpVelocityCalculator.Calculate (transform.position, targetPosition, deltaDistance, stopPosition, gravity, height, true);
         _currentVel = jumpVel.velocity;
         _rb.velocity = _currentVel;
         yield return new WaitForSeconds (jumpVel.simulatedTime);
