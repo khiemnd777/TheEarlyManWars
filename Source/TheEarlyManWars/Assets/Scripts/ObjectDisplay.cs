@@ -53,8 +53,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     [System.NonSerialized]
     public bool isStopMove;
     TowerDisplay _detectedTower;
-    Transform _display;
     // Shake
+    [SerializeField]
     ObjectShake _shake;
     float _attackSpeedSecond;
     bool _firstAttack = true;
@@ -63,8 +63,6 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Awake ()
     {
         settings = FindObjectOfType<Settings> ();
-        _shake = GetComponent<ObjectShake> ();
-        _display = transform.Find("Display");
     }
 
     public virtual void Start ()
@@ -145,7 +143,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage)
     {
         hp -= damage;
-        StartCoroutine (_shake.Shake (_display));
+        StartCoroutine (_shake.Shake ());
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");
@@ -158,7 +156,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
-        StartCoroutine (_shake.Shake (_display));
+        StartCoroutine (_shake.Shake ());
         if (damagedBy.canKnockBack)
         {
             var prob = damagedBy.knockBackProbability * 100f;
@@ -181,7 +179,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void TakeDamage (int damage, TowerDisplay damagedBy)
     {
         hp -= damage;
-        StartCoroutine (_shake.Shake (_display));
+        StartCoroutine (_shake.Shake ());
         if (hp <= 0)
         {
             Debug.Log (name + " being killed!");

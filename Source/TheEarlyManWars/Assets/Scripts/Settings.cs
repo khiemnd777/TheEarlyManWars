@@ -8,4 +8,6 @@ public class Settings : MonoBehaviour
     // Delta attack time should be one
     public float deltaAttackTime = 1f;
     public bool debug = false;
+    public float objectShakeDuration = .2f;
+    public float objectShakeMagnitude = .08f;
 }

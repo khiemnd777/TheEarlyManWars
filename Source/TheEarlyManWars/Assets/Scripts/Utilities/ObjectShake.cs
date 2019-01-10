@@ -5,24 +5,26 @@ public class ObjectShake : MonoBehaviour
 {
     public float duration;
     public float magnitude;
-
+    Vector3 _originalLocalPosition;
     Settings _settings;
 
     void Start ()
     {
         _settings = FindObjectOfType<Settings> ();
+        _originalLocalPosition = transform.localPosition;
+        duration = _settings.objectShakeDuration;
+        magnitude = _settings.objectShakeMagnitude;
     }
 
-    public IEnumerator Shake (Transform owner)
+    public IEnumerator Shake ()
     {
-        var originalLocalPosition = owner.localPosition;
         var elapsed = 0f;
         while (elapsed <= 1f)
         {
-            owner.localPosition = originalLocalPosition + Random.insideUnitSphere * magnitude;
+            transform.localPosition = _originalLocalPosition + Random.insideUnitSphere * magnitude;
             elapsed += Time.fixedDeltaTime / duration * _settings.deltaSpeed;
             yield return new WaitForFixedUpdate ();
         }
-        owner.localPosition = originalLocalPosition;
+        transform.localPosition = _originalLocalPosition;
     }
 }
