@@ -11,12 +11,19 @@ public class PlayerTowerDisplay : TowerDisplay
     public Image healthBar;
 
     ObjectDisplay _currentEnemy;
+    TechnologyManager _technologyManager;
 
     public override void Awake ()
     {
         direction = Direction.LeftToRight;
         enemies = FindObjectOfType<MonsterDisplayList> ();
         base.Awake ();
+    }
+
+    public override void Start ()
+    {
+        base.Start();
+        _technologyManager = FindObjectOfType<TechnologyManager>();
     }
 
     public override void Update ()
@@ -43,7 +50,8 @@ public class PlayerTowerDisplay : TowerDisplay
             {
                 if (_currentEnemy != null && !_currentEnemy.Equals (null))
                 {
-                    _currentEnemy.TakeDamage (arrowIns.damage, this);
+                    var damage = Mathf.FloorToInt(arrowIns.damage * (1 + _technologyManager.towerDamageRate));
+                    _currentEnemy.TakeDamage (damage, this);
                 }
             });
         }

@@ -22,6 +22,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     // Settings
     [System.NonSerialized]
     public Settings settings;
+    [System.NonSerialized]
+    public TechnologyManager technologyManager;
     // Stats
     public SpeedEnum speed;
     public AttackSpeedEnum attackSpeed;
@@ -63,6 +65,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Awake ()
     {
         settings = FindObjectOfType<Settings> ();
+        technologyManager = FindObjectOfType<TechnologyManager> ();
     }
 
     public virtual void Start ()
@@ -354,7 +357,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         yield return StartCoroutine (AnimateAttack ());
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
-        var atkPwrVal = attackPower.GetValue ();
+        var atkPwrVal = Mathf.FloorToInt(attackPower.GetValue () * (1 + technologyManager.meleeDamageRate));
         tower.TakeDamage (atkPwrVal, this);
     }
 

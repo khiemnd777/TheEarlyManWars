@@ -20,7 +20,12 @@ Prefab:
       propertyPath: magnitude
       value: 0.08
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 0}
+      propertyPath: _shake
+      value: 
+      objectReference: {fileID: 114351867917033392}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1711483242411752}
   m_IsPrefabParent: 0
@@ -120,7 +125,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4250801441607190}
   - component: {fileID: 114649192040936934}
-  - component: {fileID: 114908621142039190}
   m_Layer: 0
   m_Name: Monster Display
   m_TagString: Untagged
@@ -137,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4439767138223550}
   - component: {fileID: 212563020850980500}
+  - component: {fileID: 114351867917033392}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -297,6 +302,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114351867917033392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960828571268422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!114 &114649192040936934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,6 +335,7 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
+  _shake: {fileID: 114351867917033392}
   healthBar: {fileID: 114230565895180516}
   nameText: {fileID: 114084305687752170}
   _onDeathEffectPrefab: {fileID: 198655351538821054, guid: 272974eeb26b24b218dbc4a952fc028b,
@@ -342,19 +361,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1100
---- !u!114 &114908621142039190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1711483242411752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.2
-  magnitude: 0.08
 --- !u!114 &114994459677947072
 MonoBehaviour:
   m_ObjectHideFlags: 1

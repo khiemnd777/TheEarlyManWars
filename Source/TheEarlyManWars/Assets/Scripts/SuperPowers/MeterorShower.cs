@@ -16,6 +16,7 @@ public class MeterorShower : MonoBehaviour
 	CameraShake _cameraShake;
 	bool _inCooldownProgress = true;
 	Settings _settings;
+	TechnologyManager _technologyManager;
 	Button _button;
 	float _cooldownCounter;
 
@@ -23,6 +24,7 @@ public class MeterorShower : MonoBehaviour
 	{
 		_button = GetComponent<Button> ();
 		_settings = FindObjectOfType<Settings> ();
+		_technologyManager = FindObjectOfType<TechnologyManager>();
 	}
 
 	void Update ()
@@ -44,7 +46,8 @@ public class MeterorShower : MonoBehaviour
 		foreach (var monster in list)
 		{
 			if (monster == null || monster is Object && monster.Equals (null)) continue;
-			monster.TakeDamage (damage);
+			var operatedDamage = Mathf.FloorToInt(damage * (1 + _technologyManager.superPowerDamageRate));
+			monster.TakeDamage (operatedDamage);
 		}
 	}
 
@@ -55,7 +58,8 @@ public class MeterorShower : MonoBehaviour
 		_button.interactable = false;
 		if (_cooldownCounter <= 1f)
 		{
-			_cooldownCounter += Time.deltaTime / cooldown * _settings.deltaSpeed;
+			var operatedCooldown = cooldown * (1 - _technologyManager.superPowerCooldownRate);
+			_cooldownCounter += Time.deltaTime / operatedCooldown * _settings.deltaSpeed;
 			return;
 		}
 		_inCooldownProgress = false;

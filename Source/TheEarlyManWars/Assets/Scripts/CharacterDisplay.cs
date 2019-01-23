@@ -14,6 +14,7 @@ public class CharacterDisplay : ObjectDisplay
     Transform _onDeathPoint;
     [SerializeField]
     ParticleSystem _onDeathEffectPrefab;
+    TechnologyManager _technologyManager;
 
     public override void Awake ()
     {
@@ -22,6 +23,7 @@ public class CharacterDisplay : ObjectDisplay
         enemyTower = FindObjectOfType<MonsterTowerDisplay> ();
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
+        _technologyManager = FindObjectOfType<TechnologyManager>();
     }
 
     public override void Start ()
@@ -60,6 +62,7 @@ public class CharacterDisplay : ObjectDisplay
     {
         yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
+        atkPwrVal = Mathf.FloorToInt(atkPwrVal * (1 + _technologyManager.meleeDamageRate));
         if (attackType == AttackType.AOEMelee)
         {
             var enemyArray = GetMonstersByAttackType (enemies);

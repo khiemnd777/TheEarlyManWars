@@ -7,10 +7,12 @@ public class MeatSystem : MonoBehaviour
     Settings _settings;
     [SerializeField]
     float _meat;
+    TechnologyManager _technologyManager;
 
     void Start ()
     {
         _settings = FindObjectOfType<Settings> ();
+        _technologyManager = FindObjectOfType<TechnologyManager>();
     }
 
     public void Gain (int meat)
@@ -35,6 +37,8 @@ public class MeatSystem : MonoBehaviour
 
     void Update ()
     {
-        _meat += Time.deltaTime * deltaCounter * _settings.deltaSpeed;
+        var amount = Time.deltaTime * deltaCounter * _settings.deltaSpeed;
+        amount *= (1 + _technologyManager.meatRate);
+        _meat += amount;
     }
 }

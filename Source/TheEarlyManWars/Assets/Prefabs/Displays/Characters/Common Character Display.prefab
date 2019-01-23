@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4913566936400722}
   - component: {fileID: 114446385950419560}
-  - component: {fileID: 114695006172669154}
   m_Layer: 0
   m_Name: Common Character Display
   m_TagString: Untagged
@@ -105,6 +104,7 @@ GameObject:
   - component: {fileID: 4647772532691682}
   - component: {fileID: 212905543633631296}
   - component: {fileID: 95434127768767298}
+  - component: {fileID: 114465126911319006}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -308,12 +308,26 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
+  _shake: {fileID: 114465126911319006}
   attackType: 0
   healthBar: {fileID: 114983113090843560}
   nameText: {fileID: 114094613820409438}
   _onDeathPoint: {fileID: 4775580071159494}
   _onDeathEffectPrefab: {fileID: 198601302953459880, guid: d88ab79575e72438f92b4872e46f89f6,
     type: 2}
+--- !u!114 &114465126911319006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428168961435330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!114 &114533969785878742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,19 +381,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1500
---- !u!114 &114695006172669154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1010430576699864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.2
-  magnitude: 0.08
 --- !u!114 &114983113090843560
 MonoBehaviour:
   m_ObjectHideFlags: 1

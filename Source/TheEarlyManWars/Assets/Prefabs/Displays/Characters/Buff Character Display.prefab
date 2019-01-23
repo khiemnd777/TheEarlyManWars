@@ -105,7 +105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4254505178986800}
   - component: {fileID: 114435459609277656}
-  - component: {fileID: 114103872696030684}
   m_Layer: 0
   m_Name: Buff Character Display
   m_TagString: Untagged
@@ -123,6 +122,7 @@ GameObject:
   - component: {fileID: 4740056376661978}
   - component: {fileID: 212566337026120050}
   - component: {fileID: 95281638127518328}
+  - component: {fileID: 114585943333497324}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -234,19 +234,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114103872696030684
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1778810803750146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.2
-  magnitude: 0.08
 --- !u!114 &114142600833170592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,12 +324,26 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
+  _shake: {fileID: 114585943333497324}
   attackType: 0
   healthBar: {fileID: 114076550999532988}
   nameText: {fileID: 114289438977379004}
   _onDeathPoint: {fileID: 4313528362279564}
   _onDeathEffectPrefab: {fileID: 198601302953459880, guid: d88ab79575e72438f92b4872e46f89f6,
     type: 2}
+--- !u!114 &114585943333497324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895692373051572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!114 &114637111615583076
 MonoBehaviour:
   m_ObjectHideFlags: 1
