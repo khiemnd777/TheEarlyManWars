@@ -62,7 +62,7 @@ public class CharacterDisplay : ObjectDisplay
     {
         yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
-        atkPwrVal = Mathf.FloorToInt(atkPwrVal * (1 + _technologyManager.meleeDamageRate));
+        atkPwrVal = atkPwrVal * (1 + _technologyManager.meleeDamageRate);
         if (attackType == AttackType.AOEMelee)
         {
             var enemyArray = GetMonstersByAttackType (enemies);

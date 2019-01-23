@@ -15,12 +15,12 @@ public class MeatSystem : MonoBehaviour
         _technologyManager = FindObjectOfType<TechnologyManager>();
     }
 
-    public void Gain (int meat)
+    public void Gain (float meat)
     {
         this._meat += meat;
     }
 
-    public void Gain (int[] meats)
+    public void Gain (float[] meats)
     {
         foreach (var meat in meats)
         {
@@ -28,7 +28,7 @@ public class MeatSystem : MonoBehaviour
         }
     }
 
-    public void Purchase (int meat, System.Action then)
+    public void Purchase (float meat, System.Action then)
     {
         if (meat > this._meat) return;
         this._meat -= meat;

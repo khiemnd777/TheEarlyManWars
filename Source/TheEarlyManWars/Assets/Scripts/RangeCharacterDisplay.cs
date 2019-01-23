@@ -46,7 +46,7 @@ public class RangeCharacterDisplay : CharacterDisplay
             yield return new WaitForSeconds (predictedTime);
             if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
             {
-                var atkPwrVal = Mathf.FloorToInt (attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate));
+                var atkPwrVal = attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate);
                 currentEnemy.TakeDamage (atkPwrVal, this);
             }
         }
@@ -69,7 +69,7 @@ public class RangeCharacterDisplay : CharacterDisplay
         yield return new WaitForSeconds (predictedTime);
         if (tower != null && tower is Object && !tower.Equals (null))
         {
-            var atkPwrVal = Mathf.FloorToInt (attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate));
+            var atkPwrVal = attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate);
             tower.TakeDamage (atkPwrVal, this);
         }
     }

@@ -29,8 +29,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     public AttackSpeedEnum attackSpeed;
     public RangeAttackEnum rangeAttack;
     public Stat attackPower;
-    public int hp;
-    public int maxHP;
+    public float hp;
+    public float maxHP;
     // Knock back
     public bool canKnockBack
     {
@@ -143,7 +143,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage (int damage)
+    public virtual void TakeDamage (float damage)
     {
         hp -= damage;
         StartCoroutine (_shake.Shake ());
@@ -156,7 +156,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage (int damage, ObjectDisplay damagedBy)
+    public virtual void TakeDamage (float damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
         StartCoroutine (_shake.Shake ());
@@ -179,7 +179,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage (int damage, TowerDisplay damagedBy)
+    public virtual void TakeDamage (float damage, TowerDisplay damagedBy)
     {
         hp -= damage;
         StartCoroutine (_shake.Shake ());
@@ -357,7 +357,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         yield return StartCoroutine (AnimateAttack ());
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
-        var atkPwrVal = Mathf.FloorToInt(attackPower.GetValue () * (1 + technologyManager.meleeDamageRate));
+        var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.meleeDamageRate);
         tower.TakeDamage (atkPwrVal, this);
     }
 

@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 4647772532691682}
   - component: {fileID: 212905543633631296}
   - component: {fileID: 95434127768767298}
+  - component: {fileID: 114830571010707434}
   - component: {fileID: 114465126911319006}
   m_Layer: 0
   m_Name: Display
@@ -308,7 +309,7 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
-  _shake: {fileID: 114465126911319006}
+  _shake: {fileID: 114830571010707434}
   attackType: 0
   healthBar: {fileID: 114983113090843560}
   nameText: {fileID: 114094613820409438}
@@ -317,7 +318,7 @@ MonoBehaviour:
     type: 2}
 --- !u!114 &114465126911319006
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1428168961435330}
@@ -381,6 +382,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1500
+--- !u!114 &114830571010707434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428168961435330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!114 &114983113090843560
 MonoBehaviour:
   m_ObjectHideFlags: 1

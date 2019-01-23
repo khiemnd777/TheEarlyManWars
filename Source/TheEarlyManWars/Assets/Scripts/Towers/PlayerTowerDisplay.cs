@@ -50,7 +50,7 @@ public class PlayerTowerDisplay : TowerDisplay
             {
                 if (_currentEnemy != null && !_currentEnemy.Equals (null))
                 {
-                    var damage = Mathf.FloorToInt(arrowIns.damage * (1 + _technologyManager.towerDamageRate));
+                    var damage = arrowIns.damage * (1 + _technologyManager.towerDamageRate);
                     _currentEnemy.TakeDamage (damage, this);
                 }
             });

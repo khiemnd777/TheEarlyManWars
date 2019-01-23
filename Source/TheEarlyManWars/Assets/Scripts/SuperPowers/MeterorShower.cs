@@ -46,7 +46,7 @@ public class MeterorShower : MonoBehaviour
 		foreach (var monster in list)
 		{
 			if (monster == null || monster is Object && monster.Equals (null)) continue;
-			var operatedDamage = Mathf.FloorToInt(damage * (1 + _technologyManager.superPowerDamageRate));
+			var operatedDamage = damage * (1 + _technologyManager.superPowerDamageRate);
 			monster.TakeDamage (operatedDamage);
 		}
 	}

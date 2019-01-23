@@ -6,8 +6,8 @@ using UnityEngine;
 public class TowerDisplay : MonoBehaviour
 {
     public TowerObject towerObject;
-    public int hp;
-    public int maxHP;
+    public float hp;
+    public float maxHP;
     public Stat rangeAttack;
     public float attackSpeed;
     [System.NonSerialized]
@@ -39,7 +39,7 @@ public class TowerDisplay : MonoBehaviour
 
     }
 
-    public void TakeDamage (int damage, ObjectDisplay damagedBy)
+    public void TakeDamage (float damage, ObjectDisplay damagedBy)
     {
         hp -= damage;
         if (hp <= 0)

@@ -6,12 +6,12 @@ using UnityEngine;
 [System.Serializable]
 public class Stat
 {
-	public int baseValue;
-	public int growthPercent;
+	public float baseValue;
+	public float growthPercent;
 
-	List<int> modifiers = new List<int> ();
+	List<float> modifiers = new List<float> ();
 
-	public int GetValue ()
+	public float GetValue ()
 	{
 		var finalValue = baseValue;
 		finalValue += modifiers.Sum ();
@@ -23,13 +23,13 @@ public class Stat
 		baseValue *= (1 + growthPercent);
 	}
 
-	public void AddModifier (int modifier)
+	public void AddModifier (float modifier)
 	{
 		if (modifier != 0)
 			modifiers.Add (modifier);
 	}
 
-	public void RemoveModifier (int modifier)
+	public void RemoveModifier (float modifier)
 	{
 		if (modifier != 0)
 			modifiers.Remove (modifier);

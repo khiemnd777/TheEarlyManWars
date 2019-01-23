@@ -23,7 +23,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _shake
       value: 
-      objectReference: {fileID: 114351867917033392}
+      objectReference: {fileID: 114575380601746992}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4439767138223550}
   - component: {fileID: 212563020850980500}
-  - component: {fileID: 114351867917033392}
+  - component: {fileID: 114575380601746992}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114351867917033392
+--- !u!114 &114575380601746992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -335,7 +335,7 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
-  _shake: {fileID: 114351867917033392}
+  _shake: {fileID: 114575380601746992}
   healthBar: {fileID: 114230565895180516}
   nameText: {fileID: 114084305687752170}
   _onDeathEffectPrefab: {fileID: 198655351538821054, guid: 272974eeb26b24b218dbc4a952fc028b,

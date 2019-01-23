@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4631340674361078}
   - component: {fileID: 212642245615418114}
   - component: {fileID: 95088754871652806}
+  - component: {fileID: 114032374806963310}
   - component: {fileID: 114871108224831590}
   m_Layer: 0
   m_Name: Display
@@ -236,6 +237,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114032374806963310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092343980454940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!114 &114041901505747116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,7 +270,7 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
-  _shake: {fileID: 114871108224831590}
+  _shake: {fileID: 114032374806963310}
   attackType: 0
   healthBar: {fileID: 114507969857091134}
   nameText: {fileID: 114808203252252450}
@@ -381,7 +395,7 @@ MonoBehaviour:
   m_Text: New Text
 --- !u!114 &114871108224831590
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1092343980454940}

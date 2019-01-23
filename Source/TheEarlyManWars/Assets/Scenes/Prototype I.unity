@@ -2766,9 +2766,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b149d78e7ec8d49cab851383d301a408, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
   - monsters:
-    - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
-    - {fileID: 11400000, guid: a0ae31fb501ce495c91ef9c4ec988122, type: 2}
     - {fileID: 11400000, guid: 0063bba78f0ad4f2dada937855249db3, type: 2}
+    - {fileID: 11400000, guid: a0ae31fb501ce495c91ef9c4ec988122, type: 2}
+    - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
 --- !u!1 &1444411658
 GameObject:
   m_ObjectHideFlags: 0

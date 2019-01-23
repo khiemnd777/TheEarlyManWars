@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 4740056376661978}
   - component: {fileID: 212566337026120050}
   - component: {fileID: 95281638127518328}
+  - component: {fileID: 114910958253950402}
   - component: {fileID: 114585943333497324}
   m_Layer: 0
   m_Name: Display
@@ -324,7 +325,7 @@ MonoBehaviour:
     growthPercent: 0
   hp: 0
   maxHP: 0
-  _shake: {fileID: 114585943333497324}
+  _shake: {fileID: 114910958253950402}
   attackType: 0
   healthBar: {fileID: 114076550999532988}
   nameText: {fileID: 114289438977379004}
@@ -333,7 +334,7 @@ MonoBehaviour:
     type: 2}
 --- !u!114 &114585943333497324
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1895692373051572}
@@ -408,6 +409,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114910958253950402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895692373051572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d769973a72382402a9ae021968f57b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  magnitude: 0
 --- !u!212 &212566337026120050
 SpriteRenderer:
   m_ObjectHideFlags: 1
