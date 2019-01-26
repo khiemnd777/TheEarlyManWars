@@ -12,7 +12,7 @@ public class MeatSystem : MonoBehaviour
     void Start ()
     {
         _settings = FindObjectOfType<Settings> ();
-        _technologyManager = FindObjectOfType<TechnologyManager>();
+        _technologyManager = FindObjectOfType<TechnologyManager> ();
     }
 
     public void Gain (float meat)
@@ -36,6 +36,11 @@ public class MeatSystem : MonoBehaviour
     }
 
     void Update ()
+    {
+        IncreaseMeat ();
+    }
+
+    void IncreaseMeat ()
     {
         var amount = Time.deltaTime * deltaCounter * _settings.deltaSpeed;
         amount *= (1 + _technologyManager.meatRate);

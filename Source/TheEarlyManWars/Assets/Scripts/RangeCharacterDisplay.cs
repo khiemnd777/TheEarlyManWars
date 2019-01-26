@@ -8,12 +8,10 @@ public class RangeCharacterDisplay : CharacterDisplay
     public ProjectileObject projectileObjectPrefab;
     [SerializeField]
     Transform _projectilePoint;
-    TechnologyManager _technologyManager;
 
     public override void Start ()
     {
         base.Start ();
-        _technologyManager = FindObjectOfType<TechnologyManager> ();
     }
 
     // Hit function is used for being flag to determine launching time.
@@ -46,7 +44,7 @@ public class RangeCharacterDisplay : CharacterDisplay
             yield return new WaitForSeconds (predictedTime);
             if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
             {
-                var atkPwrVal = attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate);
+                var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
                 currentEnemy.TakeDamage (atkPwrVal, this);
             }
         }
@@ -69,8 +67,8 @@ public class RangeCharacterDisplay : CharacterDisplay
         yield return new WaitForSeconds (predictedTime);
         if (tower != null && tower is Object && !tower.Equals (null))
         {
-            var atkPwrVal = attackPower.GetValue () * (1 + _technologyManager.rangeDamageRate);
-            tower.TakeDamage (atkPwrVal, this);
+            var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
+            tower.TakeDamage (atkPwrVal, this); 
         }
     }
 
