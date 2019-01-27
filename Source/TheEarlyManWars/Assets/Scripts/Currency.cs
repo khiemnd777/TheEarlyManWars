@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "Currency", menuName = "Create Currency")]
 public class Currency : ScriptableObject
 {
-	public int gold;
-	public int diamond;
+	public float gold;
+	public float diamond;
 	public float experencePoint;
 
 	public void GainExperencePoint (float amount)
@@ -21,24 +21,24 @@ public class Currency : ScriptableObject
 		if (then != null) then ();
 	}
 
-	public void GainDiamond (int amount)
+	public void GainDiamond (float amount)
 	{
 		diamond += amount;
 	}
 
-	public void PurchaseByDiamond (int amount, System.Action then)
+	public void PurchaseByDiamond (float amount, System.Action then)
 	{
 		if (amount > diamond) return;
 		diamond -= amount;
 		if (then != null) then ();
 	}
 
-	public void GainGold (int amount)
+	public void GainGold (float amount)
 	{
 		gold += amount;
 	}
 
-	public void PurchaseByGold (int amount, System.Action then)
+	public void PurchaseByGold (float amount, System.Action then)
 	{
 		if (amount > gold) return;
 		gold -= amount;
