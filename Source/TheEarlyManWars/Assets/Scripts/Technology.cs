@@ -27,9 +27,19 @@ public class Technology : ScriptableObject
     public float upgradedRangeDamageRate;
     public Cost upgradedRangeDamageRateCost;
 
+    public void AddMeatRate ()
+    {
+        AddMeatRate(upgradedMeatRate);
+    }
+
     public void AddMeatRate (float rate)
     {
         meatRate += rate;
+    }
+
+    public void AddTowerDamageRate ()
+    {
+        AddTowerDamageRate(upgradedTowerDamageRate);
     }
 
     public void AddTowerDamageRate (float rate)
@@ -37,9 +47,19 @@ public class Technology : ScriptableObject
         towerDamageRate += rate;
     }
 
+    public void AddSuperPowerDamageRate ()
+    {
+        AddSuperPowerDamageRate(upgradedSuperPowerDamageRate);
+    }
+
     public void AddSuperPowerDamageRate (float rate)
     {
         superPowerDamageRate += rate;
+    }
+
+    public void AddSuperPowerCooldownRate ()
+    {
+        AddSuperPowerCooldownRate(upgradedSuperPowerCooldownRate);
     }
 
     public void AddSuperPowerCooldownRate (float rate)
@@ -47,9 +67,19 @@ public class Technology : ScriptableObject
         superPowerCooldownRate += rate;
     }
 
+    public void AddMeleeDamageRate ()
+    {
+        AddMeleeDamageRate(upgradedMeleeDamageRate);
+    }
+
     public void AddMeleeDamageRate (float rate)
     {
         meleeDamageRate += rate;
+    }
+
+    public void AddRangeDamageRate ()
+    {
+        AddRangeDamageRate(upgradedRangeDamageRate);
     }
 
     public void AddRangeDamageRate (float rate)
