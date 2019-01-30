@@ -11,41 +11,41 @@ public class TechnologyManager : MonoBehaviour
     public Cost upgradedMeatRateCost;
     [Space]
     public float towerDamageRate;
-    public Cost towerDamageRateCost;
+    public Cost upgradedTowerDamageRateCost;
     [Space]
     public float superPowerDamageRate;
-    public Cost superPowerDamageRateCost;
+    public Cost upgradedSuperPowerDamageRateCost;
     [Space]
     public float superPowerCooldownRate;
-    public Cost superPowerCooldownRateCost;
+    public Cost upgradedSuperPowerCooldownRateCost;
     [Space]
     public float meleeDamageRate;
-    public Cost meleeDamageRateCost;
+    public Cost upgradedMeleeDamageRateCost;
     [Space]
     public float rangeDamageRate;
-    public Cost rangeDamageRateCost;
+    public Cost upgradedRangeDamageRateCost;
 
     void Start ()
     {
         meatRate = _technology.meatRate;
         upgradedMeatRateCost = _technology.upgradedMeatRateCost;
         towerDamageRate = _technology.towerDamageRate;
-        towerDamageRateCost = _technology.upgradedTowerDamageRateCost;
+        upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
         superPowerDamageRate = _technology.superPowerDamageRate;
-        superPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
+        upgradedSuperPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
         superPowerCooldownRate = _technology.superPowerCooldownRate;
-        superPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
+        upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
         meleeDamageRate = _technology.meleeDamageRate;
-        meleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
+        upgradedMeleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
         rangeDamageRate = _technology.rangeDamageRate;
-        rangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
+        upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
     }
 
     public void UpgradeMeatRateByGold ()
     {
         _currency.PurchaseByGold (upgradedMeatRateCost.Gold, () =>
         {
-            _technology.AddMeatRate(_technology.upgradedMeatRate);
+            _technology.AddMeatRate();
             meatRate = _technology.meatRate;
             _technology.upgradedMeatRateCost.Gold *= 1.2f;
             upgradedMeatRateCost = _technology.upgradedMeatRateCost;
@@ -56,10 +56,120 @@ public class TechnologyManager : MonoBehaviour
     {
         _currency.PurchaseByGold (upgradedMeatRateCost.Diamond, () =>
         {
-            _technology.AddMeatRate(_technology.upgradedMeatRate);
+            _technology.AddMeatRate();
             meatRate = _technology.meatRate;
             _technology.upgradedMeatRateCost.Diamond *= 1.2f;
             upgradedMeatRateCost = _technology.upgradedMeatRateCost;
+        });
+    }
+
+    public void UpgradeTowerDamageRateByGold ()
+    {
+        _currency.PurchaseByGold (upgradedTowerDamageRateCost.Gold, () =>
+        {
+            _technology.AddTowerDamageRate();
+            towerDamageRate = _technology.towerDamageRate;
+            _technology.upgradedTowerDamageRateCost.Gold *= 1.2f;
+            upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
+        });
+    }
+
+    public void UpgradeTowerDamageRateByDiamond ()
+    {
+        _currency.PurchaseByGold (upgradedTowerDamageRateCost.Diamond, () =>
+        {
+            _technology.AddTowerDamageRate();
+            towerDamageRate = _technology.towerDamageRate;
+            _technology.upgradedTowerDamageRateCost.Diamond *= 1.2f;
+            upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
+        });
+    }
+
+    public void UpgradeSuperPowerDamageRateByGold ()
+    {
+        _currency.PurchaseByGold (upgradedSuperPowerDamageRateCost.Gold, () =>
+        {
+            _technology.AddSuperPowerDamageRate();
+            superPowerDamageRate = _technology.superPowerDamageRate;
+            _technology.upgradedSuperPowerDamageRateCost.Gold *= 1.2f;
+            upgradedSuperPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
+        });
+    }
+
+    public void UpgradeSuperPowerDamageRateByDiamond ()
+    {
+        _currency.PurchaseByGold (upgradedSuperPowerDamageRateCost.Diamond, () =>
+        {
+            _technology.AddSuperPowerDamageRate();
+            superPowerDamageRate = _technology.superPowerDamageRate;
+            _technology.upgradedSuperPowerDamageRateCost.Diamond *= 1.2f;
+            upgradedSuperPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
+        });
+    }
+
+    public void UpgradeSuperPowerCooldownRateByGold ()
+    {
+        _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Gold, () =>
+        {
+            _technology.AddSuperPowerCooldownRate();
+            superPowerCooldownRate = _technology.superPowerCooldownRate;
+            _technology.upgradedSuperPowerCooldownRateCost.Gold *= 1.2f;
+            upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
+        });
+    }
+
+    public void UpgradeSuperPowerCooldownRateByDiamond ()
+    {
+        _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Diamond, () =>
+        {
+            _technology.AddSuperPowerCooldownRate();
+            superPowerCooldownRate = _technology.superPowerCooldownRate;
+            _technology.upgradedSuperPowerCooldownRateCost.Diamond *= 1.2f;
+            upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
+        });
+    }
+
+    public void UpgradeMeleeDamagenRateByGold ()
+    {
+        _currency.PurchaseByGold (upgradedMeleeDamageRateCost.Gold, () =>
+        {
+            _technology.AddMeleeDamageRate();
+            meleeDamageRate = _technology.meleeDamageRate;
+            _technology.upgradedMeleeDamageRateCost.Gold *= 1.2f;
+            upgradedMeleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
+        });
+    }
+
+    public void UpgradeMeleeDamagenRateByDiamond ()
+    {
+        _currency.PurchaseByGold (upgradedMeleeDamageRateCost.Diamond, () =>
+        {
+            _technology.AddMeleeDamageRate();
+            meleeDamageRate = _technology.meleeDamageRate;
+            _technology.upgradedMeleeDamageRateCost.Diamond *= 1.2f;
+            upgradedMeleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
+        });
+    }
+
+    public void UpgradeRangeDamagenRateByGold ()
+    {
+        _currency.PurchaseByGold (upgradedRangeDamageRateCost.Gold, () =>
+        {
+            _technology.AddRangeDamageRate();
+            rangeDamageRate = _technology.rangeDamageRate;
+            _technology.upgradedRangeDamageRateCost.Gold *= 1.2f;
+            upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
+        });
+    }
+
+    public void UpgradeRangeDamagenRateByDiamond ()
+    {
+        _currency.PurchaseByGold (upgradedRangeDamageRateCost.Diamond, () =>
+        {
+            _technology.AddRangeDamageRate();
+            rangeDamageRate = _technology.rangeDamageRate;
+            _technology.upgradedRangeDamageRateCost.Diamond *= 1.2f;
+            upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
         });
     }
 }

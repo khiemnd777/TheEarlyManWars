@@ -12,38 +12,38 @@ MonoBehaviour:
   m_Name: Technology
   m_EditorClassIdentifier: 
   meatRate: 0
-  upgradedMeatRate: 0
+  upgradedMeatRate: 0.2
   upgradedMeatRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
   towerDamageRate: 0
-  upgradedTowerDamageRate: 0
+  upgradedTowerDamageRate: 0.1
   upgradedTowerDamageRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
   superPowerDamageRate: 0
-  upgradedSuperPowerDamageRate: 0
+  upgradedSuperPowerDamageRate: 0.2
   upgradedSuperPowerDamageRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
   superPowerCooldownRate: 0
-  upgradedSuperPowerCooldownRate: 0
+  upgradedSuperPowerCooldownRate: 0.1
   upgradedSuperPowerCooldownRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
   meleeDamageRate: 0
-  upgradedMeleeDamageRate: 0
+  upgradedMeleeDamageRate: 0.1
   upgradedMeleeDamageRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
   rangeDamageRate: 0
-  upgradedRangeDamageRate: 0
+  upgradedRangeDamageRate: 0.1
   upgradedRangeDamageRateCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 100
+    Diamond: 1
     ExperencePoint: 0
