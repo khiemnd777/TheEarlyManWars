@@ -46,6 +46,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedMeatRateCost.Gold, () =>
         {
             _technology.AddMeatRate();
+            ++_technology.meatRateLevel;
             meatRate = _technology.meatRate;
             _technology.upgradedMeatRateCost.Gold *= 1.2f;
             upgradedMeatRateCost = _technology.upgradedMeatRateCost;
@@ -57,6 +58,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedMeatRateCost.Diamond, () =>
         {
             _technology.AddMeatRate();
+            ++_technology.meatRateLevel;
             meatRate = _technology.meatRate;
             _technology.upgradedMeatRateCost.Diamond *= 1.2f;
             upgradedMeatRateCost = _technology.upgradedMeatRateCost;
@@ -68,6 +70,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedTowerDamageRateCost.Gold, () =>
         {
             _technology.AddTowerDamageRate();
+            ++_technology.towerDamageRateLevel;
             towerDamageRate = _technology.towerDamageRate;
             _technology.upgradedTowerDamageRateCost.Gold *= 1.2f;
             upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
@@ -79,6 +82,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedTowerDamageRateCost.Diamond, () =>
         {
             _technology.AddTowerDamageRate();
+            ++_technology.towerDamageRateLevel;
             towerDamageRate = _technology.towerDamageRate;
             _technology.upgradedTowerDamageRateCost.Diamond *= 1.2f;
             upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
@@ -90,6 +94,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedSuperPowerDamageRateCost.Gold, () =>
         {
             _technology.AddSuperPowerDamageRate();
+            ++_technology.superPowerDamageRateLevel;
             superPowerDamageRate = _technology.superPowerDamageRate;
             _technology.upgradedSuperPowerDamageRateCost.Gold *= 1.2f;
             upgradedSuperPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
@@ -101,6 +106,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedSuperPowerDamageRateCost.Diamond, () =>
         {
             _technology.AddSuperPowerDamageRate();
+            ++_technology.superPowerDamageRateLevel;
             superPowerDamageRate = _technology.superPowerDamageRate;
             _technology.upgradedSuperPowerDamageRateCost.Diamond *= 1.2f;
             upgradedSuperPowerDamageRateCost = _technology.upgradedSuperPowerDamageRateCost;
@@ -112,6 +118,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Gold, () =>
         {
             _technology.AddSuperPowerCooldownRate();
+            ++_technology.superPowerCooldownRateLevel;
             superPowerCooldownRate = _technology.superPowerCooldownRate;
             _technology.upgradedSuperPowerCooldownRateCost.Gold *= 1.2f;
             upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
@@ -123,6 +130,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Diamond, () =>
         {
             _technology.AddSuperPowerCooldownRate();
+            ++_technology.superPowerCooldownRateLevel;
             superPowerCooldownRate = _technology.superPowerCooldownRate;
             _technology.upgradedSuperPowerCooldownRateCost.Diamond *= 1.2f;
             upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
@@ -134,6 +142,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedMeleeDamageRateCost.Gold, () =>
         {
             _technology.AddMeleeDamageRate();
+            ++_technology.meleeDamageRateLevel;
             meleeDamageRate = _technology.meleeDamageRate;
             _technology.upgradedMeleeDamageRateCost.Gold *= 1.2f;
             upgradedMeleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
@@ -145,6 +154,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedMeleeDamageRateCost.Diamond, () =>
         {
             _technology.AddMeleeDamageRate();
+            ++_technology.meleeDamageRateLevel;
             meleeDamageRate = _technology.meleeDamageRate;
             _technology.upgradedMeleeDamageRateCost.Diamond *= 1.2f;
             upgradedMeleeDamageRateCost = _technology.upgradedMeleeDamageRateCost;
@@ -156,6 +166,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedRangeDamageRateCost.Gold, () =>
         {
             _technology.AddRangeDamageRate();
+            ++_technology.rangeDamageRateLevel;
             rangeDamageRate = _technology.rangeDamageRate;
             _technology.upgradedRangeDamageRateCost.Gold *= 1.2f;
             upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
@@ -167,6 +178,7 @@ public class TechnologyManager : MonoBehaviour
         _currency.PurchaseByGold (upgradedRangeDamageRateCost.Diamond, () =>
         {
             _technology.AddRangeDamageRate();
+            ++_technology.rangeDamageRateLevel;
             rangeDamageRate = _technology.rangeDamageRate;
             _technology.upgradedRangeDamageRateCost.Diamond *= 1.2f;
             upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;

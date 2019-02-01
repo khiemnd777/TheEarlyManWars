@@ -3,8 +3,9 @@ using UnityEngine;
 public class TowerObject : ScriptableObject
 {
     public int level;
-    public int hp;
-    public int rangeAttack;
+    public float damage;
+    public float hp;
+    public float rangeAttack;
     public float attackSpeed;
     public TowerDisplay displayPrefab;
 }

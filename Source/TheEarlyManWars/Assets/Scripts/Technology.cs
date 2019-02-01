@@ -4,26 +4,32 @@ using UnityEngine;
 public class Technology : ScriptableObject
 {
     public float meatRate;
+    public int meatRateLevel;
     public float upgradedMeatRate;
     public Cost upgradedMeatRateCost;
     [Space]
     public float towerDamageRate;
+    public int towerDamageRateLevel;
     public float upgradedTowerDamageRate;
     public Cost upgradedTowerDamageRateCost;
     [Space]
     public float superPowerDamageRate;
+    public int superPowerDamageRateLevel;
     public float upgradedSuperPowerDamageRate;
     public Cost upgradedSuperPowerDamageRateCost;
     [Space]
     public float superPowerCooldownRate;
+    public int superPowerCooldownRateLevel;
     public float upgradedSuperPowerCooldownRate;
     public Cost upgradedSuperPowerCooldownRateCost;
     [Space]
     public float meleeDamageRate;
+    public int meleeDamageRateLevel;
     public float upgradedMeleeDamageRate;
     public Cost upgradedMeleeDamageRateCost;
     [Space]
     public float rangeDamageRate;
+    public int rangeDamageRateLevel;
     public float upgradedRangeDamageRate;
     public Cost upgradedRangeDamageRateCost;
 

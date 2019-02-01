@@ -11,9 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eccbb6cce07a1c44ada3cfe803471d4, type: 3}
   m_Name: Player Tower
   m_EditorClassIdentifier: 
-  level: 0
+  level: 1
+  damage: 1
   hp: 150
   rangeAttack: 10
   attackSpeed: 0.5
   displayPrefab: {fileID: 114624593749148046, guid: 1b3dfddce7be0bc4894f6e78f1417ab1,
     type: 2}
+  upgradedAttackRate: 0
+  upgradedRangeRate: 0
+  upgradedDefendRate: 0
+  upgradedCost:
+    Gold: 0
+    Diamond: 0
+    ExperencePoint: 0
