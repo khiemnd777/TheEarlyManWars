@@ -14,7 +14,7 @@ MonoBehaviour:
   meatRate: 0
   upgradedMeatRate: 0.2
   upgradedMeatRateCost:
-    Gold: 100
+    Gold: 515.9782
     Diamond: 1
     ExperencePoint: 0
   towerDamageRate: 0
