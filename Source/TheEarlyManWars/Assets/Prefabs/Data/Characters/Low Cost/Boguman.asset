@@ -15,14 +15,24 @@ MonoBehaviour:
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 1
-  hp: 12
+  attackPower: 5
+  hp: 60
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  canKnockBack: 0
+  knockBackProbability: 0
+  knockBackRange: 0
+  characterLevel: 0
   level: 1
   meat: 10
   attackType: 0
   cooldownPurchase: 2
   displayPrefab: {fileID: 114446385950419560, guid: f2d8829f0a8a0427ba7dbea3ec2d0807,
     type: 2}
+  upgradedAttackRate: 0.2
+  upgradedHpRate: 0.1
+  upgradedCost:
+    Gold: 0
+    Diamond: 0
+    ExperencePoint: 0

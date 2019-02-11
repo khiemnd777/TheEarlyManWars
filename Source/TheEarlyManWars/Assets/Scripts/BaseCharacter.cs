@@ -11,4 +11,8 @@ public class BaseCharacter : BaseObject
 	public AttackType attackType;
 	public float cooldownPurchase;
 	public CharacterDisplay displayPrefab;
+	[Header("Upgrade")]
+    public float upgradedAttackRate;
+    public float upgradedHpRate;
+    public Cost upgradedCost;
 }

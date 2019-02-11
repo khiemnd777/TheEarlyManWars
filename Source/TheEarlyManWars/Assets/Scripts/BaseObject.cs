@@ -8,8 +8,8 @@ public class BaseObject : ScriptableObject
 	public SpeedEnum speed;
 	public AttackSpeedEnum attackSpeed;
 	public RangeAttackEnum rangeAttack;
-	public int attackPower;
-	public int hp;
+	public float attackPower;
+	public float hp;
 	public MoveType moveType;
 	public Animator animator;
 	public AnimationClip animationAttack;

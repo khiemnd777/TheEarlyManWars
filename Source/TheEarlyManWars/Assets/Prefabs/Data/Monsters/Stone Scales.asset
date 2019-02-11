@@ -15,8 +15,8 @@ MonoBehaviour:
   speed: 2
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 2
-  hp: 60
+  attackPower: 10
+  hp: 300
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}

@@ -15,8 +15,8 @@ MonoBehaviour:
   speed: 2
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 2
-  hp: 100
+  attackPower: 10
+  hp: 500
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
@@ -30,3 +30,9 @@ MonoBehaviour:
   cooldownPurchase: 20
   displayPrefab: {fileID: 114446385950419560, guid: f2d8829f0a8a0427ba7dbea3ec2d0807,
     type: 2}
+  upgradedAttackRate: 0.25
+  upgradedHpRate: 0.15
+  upgradedCost:
+    Gold: 0
+    Diamond: 0
+    ExperencePoint: 0

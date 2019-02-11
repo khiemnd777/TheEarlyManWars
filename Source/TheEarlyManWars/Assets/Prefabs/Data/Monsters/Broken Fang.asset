@@ -15,11 +15,14 @@ MonoBehaviour:
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 1
-  hp: 8
+  attackPower: 5
+  hp: 40
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  canKnockBack: 0
+  knockBackProbability: 0
+  knockBackRange: 0
   gainedMeat: 5
   attackType: 0
   displayPrefab: {fileID: 114649192040936934, guid: 0c4e9979fddb24a50ad5fd7de2c1ac46,

@@ -18,10 +18,10 @@ MonoBehaviour:
   attackSpeed: 0.5
   displayPrefab: {fileID: 114624593749148046, guid: 1b3dfddce7be0bc4894f6e78f1417ab1,
     type: 2}
-  upgradedAttackRate: 0
-  upgradedRangeRate: 0
-  upgradedDefendRate: 0
+  upgradedAttackRate: 0.1
+  upgradedRangeRate: 0.1
+  upgradedDefendRate: 0.1
   upgradedCost:
-    Gold: 0
-    Diamond: 0
+    Gold: 1000
+    Diamond: 5
     ExperencePoint: 0

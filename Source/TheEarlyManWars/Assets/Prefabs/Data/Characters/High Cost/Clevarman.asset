@@ -14,14 +14,24 @@ MonoBehaviour:
   name: Clevarman
   speed: 3
   attackSpeed: 3
-  attackPower: 30
   rangeAttack: 3
-  hp: 400
+  attackPower: 150
+  hp: 2000
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  canKnockBack: 0
+  knockBackProbability: 0
+  knockBackRange: 0
+  characterLevel: 0
+  level: 0
   meat: 400
   attackType: 1
   cooldownPurchase: 20
-  displayPrefab: {fileID: 114994601373003580, guid: 7af46729cd95e460a889d14c25405100,
-    type: 2}
+  displayPrefab: {fileID: 0}
+  upgradedAttackRate: 0.2
+  upgradedHpRate: 0.1
+  upgradedCost:
+    Gold: 0
+    Diamond: 0
+    ExperencePoint: 0
