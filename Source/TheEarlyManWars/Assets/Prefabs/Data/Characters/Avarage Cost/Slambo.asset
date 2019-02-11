@@ -20,6 +20,10 @@ MonoBehaviour:
   moveType: 0
   animator: {fileID: 0}
   animationAttack: {fileID: 0}
+  canKnockBack: 0
+  knockBackProbability: 0
+  knockBackRange: 0
+  characterLevel: 1
   level: 1
   meat: 60
   attackType: 3
