@@ -5,13 +5,13 @@ using UnityEngine;
 public class BaseObject : ScriptableObject
 {
 	public new string name;
+	public Animator animator;
 	public SpeedEnum speed;
 	public AttackSpeedEnum attackSpeed;
 	public RangeAttackEnum rangeAttack;
 	public float attackPower;
 	public float hp;
 	public MoveType moveType;
-	public Animator animator;
 	public AnimationClip animationAttack;
 	[Space]
 	public bool canKnockBack;

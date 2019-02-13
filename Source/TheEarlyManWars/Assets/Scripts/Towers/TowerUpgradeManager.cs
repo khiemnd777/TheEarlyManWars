@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class TowerUpgradeManager : MonoBehaviour
@@ -34,6 +35,7 @@ public class TowerUpgradeManager : MonoBehaviour
             _towerObject.rangeAttack *= (1 + upgradedRangeRate);
             _towerObject.hp *= (1 + upgradedDefendRate);
             ++_towerObject.level;
+            _towerObject.AssignUpgradedAnimator();
             _towerObject.upgradedCost.Gold *= 1.2f;
             upgradedCost = _towerObject.upgradedCost;
         });
@@ -48,6 +50,7 @@ public class TowerUpgradeManager : MonoBehaviour
             _towerObject.rangeAttack *= (1 + upgradedRangeRate);
             _towerObject.hp *= (1 + upgradedDefendRate);
             ++_towerObject.level;
+            _towerObject.AssignUpgradedAnimator();
             _towerObject.upgradedCost.Diamond *= 1.2f;
             upgradedCost = _towerObject.upgradedCost;
         });

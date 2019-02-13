@@ -25,3 +25,6 @@ MonoBehaviour:
     Gold: 1000
     Diamond: 5
     ExperencePoint: 0
+  upgradedAnimationLevels:
+  - level: 0
+    animator: {fileID: 0}

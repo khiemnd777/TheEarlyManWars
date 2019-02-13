@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Boguman
   m_EditorClassIdentifier: 
   name: Boguman
+  animator: {fileID: 0}
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
   attackPower: 5
   hp: 60
   moveType: 0
-  animator: {fileID: 0}
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
@@ -36,3 +36,4 @@ MonoBehaviour:
     Gold: 0
     Diamond: 0
     ExperencePoint: 0
+  upgradedAnimationLevels: []
