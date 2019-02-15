@@ -22,6 +22,6 @@ public class BaseCharacter : BaseObject
     {
         if (upgradedAnimationLevels.All (x => x.level != level)) return;
         var mUpgradedAnimationLevel = upgradedAnimationLevels.FirstOrDefault (x => x.level == level);
-        animator = mUpgradedAnimationLevel.animator;
+        displayPrefab = mUpgradedAnimationLevel.characterDisplay;
     }
 }

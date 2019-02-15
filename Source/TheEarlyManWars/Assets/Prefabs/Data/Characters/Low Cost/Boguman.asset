@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Boguman
   m_EditorClassIdentifier: 
   name: Boguman
-  animator: {fileID: 0}
+  animator: {fileID: 95662395187691410, guid: 66ced799ec873454e88e4c42667150e4, type: 2}
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
   meat: 10
   attackType: 0
   cooldownPurchase: 2
-  displayPrefab: {fileID: 114446385950419560, guid: f2d8829f0a8a0427ba7dbea3ec2d0807,
+  displayPrefab: {fileID: 114970961736409100, guid: 6f0a8861072d44164bfcff5555b86a61,
     type: 2}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1

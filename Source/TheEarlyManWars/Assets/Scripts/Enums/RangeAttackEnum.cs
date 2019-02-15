@@ -8,15 +8,16 @@ public static class RangeAttackEnumExtensions
 {
     public static int GetValue (this RangeAttackEnum rawValue)
     {
+        var commonRange = 1;
         switch (rawValue)
         {
             default:
                 case RangeAttackEnum.Melee:
-                return 2;
+                return 2 + commonRange;
             case RangeAttackEnum.MediumRange:
-                    return 5;
+                    return 5 + commonRange;
             case RangeAttackEnum.LongRange:
-                    return 8;
+                    return 8 + commonRange;
         }
     }
 }

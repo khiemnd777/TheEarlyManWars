@@ -83,6 +83,11 @@ public class CharacterDisplay : ObjectDisplay
                 currentEnemy.TakeDamage (atkPwrVal, this);
             }
         }
+        if (AnimationIdleIsNotNull ())
+        {
+            yield return new WaitForSeconds (animationAttack.length);
+            animator.Play (animationIdle.name, 0);
+        }
         yield break;
     }
 

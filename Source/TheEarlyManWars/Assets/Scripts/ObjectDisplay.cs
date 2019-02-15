@@ -8,10 +8,12 @@ public abstract class ObjectDisplay : MonoBehaviour
 {
     public BaseObject baseObject;
     // Animation & Animator
-    [System.NonSerialized]
+    [Header ("Animation & Animator")]
     public Animator animator;
-    [System.NonSerialized]
     public AnimationClip animationAttack;
+    public AnimationClip animationHurt;
+    public AnimationClip animationWalk;
+    public AnimationClip animationIdle;
     // List of object  display
     [System.NonSerialized]
     public ObjectDisplayList allies;
@@ -24,6 +26,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public Settings settings;
     [System.NonSerialized]
     public TechnologyManager technologyManager;
+    [Space]
     // Stats
     public SpeedEnum speed;
     public AttackSpeedEnum attackSpeed;
@@ -71,10 +74,6 @@ public abstract class ObjectDisplay : MonoBehaviour
     public virtual void Start ()
     {
         name = baseObject.name;
-        if (baseObject.animator != null)
-        {
-            animator = baseObject.animator;
-        }
         if (baseObject.animationAttack != null)
         {
             animationAttack = baseObject.animationAttack;
@@ -112,7 +111,7 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (_firstAttack)
         {
             _firstAttack = false;
-            yield break;
+            // yield break;
         }
         if (settings.deltaSpeed <= 0) yield break;
         var atkSpdVal = attackSpeed.GetValue ();
@@ -307,6 +306,10 @@ public abstract class ObjectDisplay : MonoBehaviour
             detectedEnemies = DetectEnemies ();
             if (detectedEnemies.Any ())
             {
+                if (AnimationIdleIsNotNull ())
+                {
+                    animator.Play (animationIdle.name, 0);
+                }
                 isStopMove = true;
                 yield return StartCoroutine (AnimateAttack (detectedEnemies));
                 yield return StartCoroutine (PrepareAttack ());
@@ -316,12 +319,20 @@ public abstract class ObjectDisplay : MonoBehaviour
                 _detectedTower = DetectEnemyTower ();
                 if (_detectedTower != null)
                 {
+                    if (AnimationIdleIsNotNull ())
+                    {
+                        animator.Play (animationIdle.name, 0);
+                    }
                     isStopMove = true;
                     yield return StartCoroutine (AnimateAttack (_detectedTower));
                     yield return StartCoroutine (PrepareAttack ());
                 }
                 else
                 {
+                    if (AnimationWalkIsNotNull ())
+                    {
+                        animator.Play (animationWalk.name, 0);
+                    }
                     isStopMove = false;
                     Move ();
                     yield return new WaitForFixedUpdate ();
@@ -335,6 +346,21 @@ public abstract class ObjectDisplay : MonoBehaviour
         return animator != null && !animator.Equals (null) && animationAttack != null && !animationAttack.Equals (null);
     }
 
+    public bool AnimationWalkIsNotNull ()
+    {
+        return animator != null && !animator.Equals (null) && animationWalk != null && !animationWalk.Equals (null);
+    }
+
+    public bool AnimationHurtIsNotNull ()
+    {
+        return animator != null && !animator.Equals (null) && animationHurt != null && !animationHurt.Equals (null);
+    }
+
+    public bool AnimationIdleIsNotNull ()
+    {
+        return animator != null && !animator.Equals (null) && animationIdle != null && !animationIdle.Equals (null);
+    }
+
     protected virtual IEnumerator AnimateAttack ()
     {
         if (!AnimationAttackIsNotNull ()) yield break;
@@ -343,6 +369,10 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (hitFn != null)
         {
             yield return new WaitForSeconds (hitFn.time);
+        }
+        else
+        {
+            yield return new WaitForSeconds (animationAttack.length);
         }
     }
 
@@ -360,22 +390,4 @@ public abstract class ObjectDisplay : MonoBehaviour
         var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.meleeDamageRate);
         tower.TakeDamage (atkPwrVal, this);
     }
-
-    // IEnumerator ScanEnemies ()
-    // {
-    //     while (gameObject != null && !gameObject.Equals (null))
-    //     {
-    //         detectedEnemies = DetectEnemies ();
-    //         yield return null;
-    //     }
-    // }
-
-    // IEnumerator ScanTower ()
-    // {
-    //     while (gameObject != null && !gameObject.Equals (null))
-    //     {
-    //         _detectedTower = DetectEnemyTower ();
-    //         yield return null;
-    //     }
-    // }
 }

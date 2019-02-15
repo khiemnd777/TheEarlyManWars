@@ -5,4 +5,5 @@ public struct UpgradedAnimationLevel
 {
     public int level;
     public Animator animator;
+    public CharacterDisplay characterDisplay;
 }
