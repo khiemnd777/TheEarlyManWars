@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f44fbad747d1c44fba576db0411e1d72
-timeCreated: 1550241914
+timeCreated: 1550326912
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -187,8 +187,8 @@ TextureImporter:
         serializedVersion: 2
         x: 3766
         y: 86
-        width: 671
-        height: 683
+        width: 720
+        height: 799
       alignment: 9
       pivot: {x: 0.0034201518, y: 0.0027059105}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,7 +199,7 @@ TextureImporter:
       name: boguman_6
       rect:
         serializedVersion: 2
-        x: 4462
+        x: 4581
         y: 88
         width: 671
         height: 683

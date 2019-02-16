@@ -54,7 +54,6 @@ public class MonsterDisplay : ObjectDisplay
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {
             var inx = Random.Range (0, enemies.Count ());
-            Debug.Log(inx);
             _currentEnemy = enemies.ElementAtOrDefault (inx);
         }
         if (_currentEnemy != null && _currentEnemy is Object && !_currentEnemy.Equals (null))
@@ -68,6 +67,7 @@ public class MonsterDisplay : ObjectDisplay
     {
         _meatSystem.Gain (_gainedMeat);
         StartCoroutine (InstantiateOnDeathEffect ());
+        base.OnDeath();
     }
 
     IEnumerator InstantiateOnDeathEffect ()

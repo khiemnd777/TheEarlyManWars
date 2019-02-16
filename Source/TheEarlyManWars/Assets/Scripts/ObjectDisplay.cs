@@ -14,6 +14,8 @@ public abstract class ObjectDisplay : MonoBehaviour
     public AnimationClip animationHurt;
     public AnimationClip animationWalk;
     public AnimationClip animationIdle;
+    [Header("Renderer")]
+    public SpriteRenderer spriteRenderer;
     // List of object  display
     [System.NonSerialized]
     public ObjectDisplayList allies;
@@ -51,6 +53,8 @@ public abstract class ObjectDisplay : MonoBehaviour
         private set;
     }
     // Others
+    [System.NonSerialized]
+    public bool dead;
     [System.NonSerialized]
     public Direction direction;
     protected IEnumerable<ObjectDisplay> detectedEnemies;
@@ -93,7 +97,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void Update ()
     {
-
+        animator.speed = settings.deltaSpeed;
     }
 
     public virtual void FixedUpdate ()
@@ -144,19 +148,21 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void TakeDamage (float damage)
     {
+        if(dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (hp <= 0)
         {
+            dead = true;
             Debug.Log (name + " being killed!");
             OnDeath ();
             allies.Remove (this);
-            Destroy (gameObject);
         }
     }
 
     public virtual void TakeDamage (float damage, ObjectDisplay damagedBy)
     {
+        if(dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (damagedBy.canKnockBack)
@@ -171,23 +177,24 @@ public abstract class ObjectDisplay : MonoBehaviour
         }
         if (hp <= 0)
         {
+            dead = true;
             Debug.Log (name + " being killed!");
             OnDeath (damagedBy);
             allies.Remove (this);
-            Destroy (gameObject);
         }
     }
 
     public virtual void TakeDamage (float damage, TowerDisplay damagedBy)
     {
+        if(dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (hp <= 0)
         {
+            dead = true;
             Debug.Log (name + " being killed!");
             OnDeath (damagedBy);
             allies.Remove (this);
-            Destroy (gameObject);
         }
     }
 
@@ -219,7 +226,7 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     public virtual void OnDeath ()
     {
-
+        Destroy (gameObject);
     }
 
     public virtual IEnumerable<ObjectDisplay> DetectEnemies ()
@@ -234,9 +241,9 @@ public abstract class ObjectDisplay : MonoBehaviour
         switch (direction)
         {
             case Direction.LeftToRight:
-                return enemies.list.Where (e => e.transform.position.x > currentX && e.transform.position.x <= rangeX);
+                return enemies.list.Where (e => !e.dead && e.transform.position.x > currentX && e.transform.position.x <= rangeX);
             case Direction.RightToLeft:
-                return enemies.list.Where (e => e.transform.position.x >= rangeX && e.transform.position.x < currentX);
+                return enemies.list.Where (e => !e.dead && e.transform.position.x >= rangeX && e.transform.position.x < currentX);
             default:
                 return new List<ObjectDisplay> ();
         }
@@ -301,12 +308,12 @@ public abstract class ObjectDisplay : MonoBehaviour
 
     protected virtual IEnumerator Go ()
     {
-        while (gameObject != null && !gameObject.Equals (null))
+        while (gameObject != null && !gameObject.Equals (null) && !dead)
         {
             detectedEnemies = DetectEnemies ();
             if (detectedEnemies.Any ())
             {
-                if (AnimationIdleIsNotNull ())
+                if (AnimationIdleIsNotNull () && !dead)
                 {
                     animator.Play (animationIdle.name, 0);
                 }
@@ -319,7 +326,7 @@ public abstract class ObjectDisplay : MonoBehaviour
                 _detectedTower = DetectEnemyTower ();
                 if (_detectedTower != null)
                 {
-                    if (AnimationIdleIsNotNull ())
+                    if (AnimationIdleIsNotNull () && !dead)
                     {
                         animator.Play (animationIdle.name, 0);
                     }
@@ -329,7 +336,7 @@ public abstract class ObjectDisplay : MonoBehaviour
                 }
                 else
                 {
-                    if (AnimationWalkIsNotNull ())
+                    if (AnimationWalkIsNotNull () && !dead)
                     {
                         animator.Play (animationWalk.name, 0);
                     }

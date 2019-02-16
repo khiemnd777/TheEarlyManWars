@@ -1,9 +1,11 @@
 fileFormatVersion: 2
 guid: f0d4a941dd71948c9b43c99fff791032
-timeCreated: 1550225209
+timeCreated: 1550329398
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: lingaga_0
+    21300002: lingaga_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -40,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,9 +67,92 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: lingaga_0
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 59
+        width: 417
+        height: 719
+      alignment: 9
+      pivot: {x: 0.18738818, y: 0.0007876899}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 122.12451, y: -351.5263}
+        - {x: 189.27783, y: -104.81577}
+        - {x: 120.149414, y: -89.0263}
+        - {x: 72.74707, y: -98.89472}
+        - {x: 60.896484, y: -112.71051}
+        - {x: 37.195312, y: -90.999985}
+        - {x: 104.34863, y: -90.999985}
+        - {x: 149.77588, y: -83.10525}
+        - {x: 208.5, y: -59.42104}
+        - {x: 208.5, y: 205.05264}
+        - {x: 130.0249, y: 359.5}
+        - {x: -170.18994, y: 359.5}
+        - {x: -207.7168, y: 349.1316}
+        - {x: -207.7168, y: -333.76315}
+        - {x: -184.01562, y: -359.42105}
+        - {x: -51.684082, y: -359.42105}
+        - {x: -39.833496, y: -343.63156}
+        - {x: -8.231935, y: -359.42105}
+        - {x: 94.473145, y: -359.42105}
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_1
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 59
+        width: 511
+        height: 655
+      alignment: 9
+      pivot: {x: 0.5732606, y: 0.0009936384}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

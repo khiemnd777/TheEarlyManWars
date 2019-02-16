@@ -262,6 +262,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 0}
+  animator: {fileID: 0}
+  animationAttack: {fileID: 0}
+  animationHurt: {fileID: 0}
+  animationWalk: {fileID: 0}
+  animationIdle: {fileID: 0}
   speed: 0
   attackSpeed: 0
   rangeAttack: 0
