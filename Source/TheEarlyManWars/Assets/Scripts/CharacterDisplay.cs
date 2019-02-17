@@ -67,18 +67,21 @@ public class CharacterDisplay : ObjectDisplay
 
     IEnumerator NavigateDeathAction ()
     {
-        yield return StartCoroutine (JumpForDeath ());
+        shadow.gameObject.SetActive(false);
+        yield return StartCoroutine (JumpForDeath (-2f, 1f, 1f));
+        yield return StartCoroutine (JumpForDeath (-1.15f, .5f, 1f));
         yield return StartCoroutine (Vanishing ());
         Destroy (gameObject);
     }
 
-    IEnumerator JumpForDeath ()
+    IEnumerator JumpForDeath (float distance, float height, float deltaGravityScale)
     {
-        _rb.gravityScale *= settings.deltaSpeed;
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        var positionAtDeath = new Vector3 (transform.position.x - 2, transform.position.y, transform.position.z);
+        _rb.gravityScale *= settings.deltaSpeed * deltaGravityScale;
+        var spriteTransform = spriteRenderer.transform;
+        var positionAtDeath = new Vector3 (spriteTransform.position.x + distance, spriteTransform.position.y, spriteTransform.position.z);
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
-        var jumpVel = JumpVelocityCalculator.Calculate (transform.position, positionAtDeath, Vector3.zero, positionAtDeath, gravity, 1f, true);
+        var jumpVel = JumpVelocityCalculator.Calculate (spriteTransform.position, positionAtDeath, Vector3.zero, positionAtDeath, gravity, height, true);
         var _currentVel = jumpVel.velocity;
         _rb.velocity = _currentVel;
         yield return new WaitForSeconds (jumpVel.simulatedTime);

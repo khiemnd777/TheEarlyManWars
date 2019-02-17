@@ -27,8 +27,6 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             yield return StartCoroutine (PrepareAnimateLaunch ());
         }
-        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
-        projectileIns.direction = direction;
         if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
         {
             currentEnemy = enemies.FirstOrDefault ();
@@ -36,17 +34,34 @@ public class RangeCharacterDisplay : CharacterDisplay
         // t = h / (uB-uA)
         if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
         {
-            var h = currentEnemy.transform.position.x - projectileIns.transform.position.x;
-            var targetVel = isStopMove ? 0 : currentEnemy.speed.GetValue ();
-            var u = (projectileIns.initialVelocity + targetVel) * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
-            var predictedTime = h / u;
-            Destroy (projectileIns.gameObject, predictedTime);
-            yield return new WaitForSeconds (predictedTime);
-            if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
+            var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
+            projectileIns.direction = direction;
+            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
+            var stopPos = new Vector3 (transform.position.x + currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
+            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, settings.deltaSpeed, () =>
             {
-                var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
-                currentEnemy.TakeDamage (atkPwrVal, this);
-            }
+                if (currentEnemy != null && !currentEnemy.Equals (null))
+                {
+                    var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
+                    currentEnemy.TakeDamage (atkPwrVal, this);
+                }
+            });
+            // var h = currentEnemy.transform.position.x - projectileIns.transform.position.x;
+            // var targetVel = isStopMove ? 0 : currentEnemy.speed.GetValue ();
+            // var u = (projectileIns.initialVelocity + targetVel) * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
+            // var predictedTime = h / u;
+            // Destroy (projectileIns.gameObject, predictedTime);
+            // yield return new WaitForSeconds (predictedTime);
+            // if (currentEnemy != null && currentEnemy is Object && !currentEnemy.Equals (null))
+            // {
+            //     var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
+            //     currentEnemy.TakeDamage (atkPwrVal, this);
+            // }
+        }
+        if (AnimationIdleIsNotNull () && !dead)
+        {
+            yield return new WaitForSeconds (animationAttack.length);
+            animator.Play (animationIdle.name, 0);
         }
     }
 
@@ -57,18 +72,28 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             yield return StartCoroutine (PrepareAnimateLaunch ());
         }
-        var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
-        projectileIns.direction = direction;
-        // t = h / (uB-uA)
-        var h = tower.transform.position.x - projectileIns.transform.position.x;
-        var u = projectileIns.initialVelocity * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
-        var predictedTime = h / u;
-        Destroy (projectileIns.gameObject, predictedTime);
-        yield return new WaitForSeconds (predictedTime);
+        // var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
+        // projectileIns.direction = direction;
+        // // t = h / (uB-uA)
+        // var h = tower.transform.position.x - projectileIns.transform.position.x;
+        // var u = projectileIns.initialVelocity * settings.deltaSpeed * settings.deltaMoveStep * settings.deltaProjectileMoveStep;
+        // var predictedTime = h / u;
+        // Destroy (projectileIns.gameObject, predictedTime);
+        // yield return new WaitForSeconds (predictedTime);
         if (tower != null && tower is Object && !tower.Equals (null))
         {
-            var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
-            tower.TakeDamage (atkPwrVal, this); 
+            var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
+            projectileIns.direction = direction;
+            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
+            var stopPos = new Vector3 (transform.position.x + currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
+            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, settings.deltaSpeed, () =>
+            {
+                if (currentEnemy != null && !currentEnemy.Equals (null))
+                {
+                    var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
+                    tower.TakeDamage (atkPwrVal, this);
+                }
+            });
         }
     }
 

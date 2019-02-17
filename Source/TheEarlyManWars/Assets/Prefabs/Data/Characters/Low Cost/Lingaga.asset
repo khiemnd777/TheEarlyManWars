@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Lingaga
   m_EditorClassIdentifier: 
   name: Lingaga
+  animator: {fileID: 0}
   speed: 3
   attackSpeed: 1
   rangeAttack: 2
   attackPower: 5
   hp: 30
   moveType: 0
-  animator: {fileID: 0}
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   meat: 20
   attackType: 1
   cooldownPurchase: 5
-  displayPrefab: {fileID: 114041901505747116, guid: 96ed1f8f8f7ef41c189c012d9d702432,
+  displayPrefab: {fileID: 114518841060958004, guid: 7848501b6e08848efbaa83c3767e72f2,
     type: 2}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1
@@ -36,3 +36,4 @@ MonoBehaviour:
     Gold: 0
     Diamond: 0
     ExperencePoint: 0
+  upgradedAnimationLevels: []

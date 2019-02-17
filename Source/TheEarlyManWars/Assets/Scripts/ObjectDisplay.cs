@@ -16,6 +16,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     public AnimationClip animationIdle;
     [Header("Renderer")]
     public SpriteRenderer spriteRenderer;
+    public Transform shadow;
     // List of object  display
     [System.NonSerialized]
     public ObjectDisplayList allies;
@@ -73,6 +74,7 @@ public abstract class ObjectDisplay : MonoBehaviour
     {
         settings = FindObjectOfType<Settings> ();
         technologyManager = FindObjectOfType<TechnologyManager> ();
+        _shake = GetComponentInChildren<ObjectShake>();
     }
 
     public virtual void Start ()

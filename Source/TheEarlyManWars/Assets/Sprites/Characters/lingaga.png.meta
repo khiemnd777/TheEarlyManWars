@@ -1,11 +1,17 @@
 fileFormatVersion: 2
 guid: f0d4a941dd71948c9b43c99fff791032
-timeCreated: 1550329398
+timeCreated: 1550382826
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: lingaga_0
     21300002: lingaga_1
+    21300004: lingaga_2
+    21300006: lingaga_3
+    21300008: lingaga_4
+    21300010: lingaga_5
+    21300012: lingaga_6
+    21300014: lingaga_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -115,7 +121,7 @@ TextureImporter:
         width: 417
         height: 719
       alignment: 9
-      pivot: {x: 0.18738818, y: 0.0007876899}
+      pivot: {x: 0.19806351, y: 0.01110685}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 122.12451, y: -351.5263}
@@ -148,7 +154,91 @@ TextureImporter:
         width: 511
         height: 655
       alignment: 9
-      pivot: {x: 0.5732606, y: 0.0009936384}
+      pivot: {x: 0.57906836, y: 0.011188292}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_2
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 59
+        width: 417
+        height: 717
+      alignment: 9
+      pivot: {x: 0.19321008, y: 0.0071376553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_3
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 59
+        width: 417
+        height: 727
+      alignment: 9
+      pivot: {x: 0.18895225, y: 0.0061803344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_4
+      rect:
+        serializedVersion: 2
+        x: 2216
+        y: 59
+        width: 445
+        height: 711
+      alignment: 9
+      pivot: {x: 0.53736997, y: 0.0038087633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_5
+      rect:
+        serializedVersion: 2
+        x: 2757
+        y: 59
+        width: 508
+        height: 722
+      alignment: 9
+      pivot: {x: 0.18255807, y: 0.0027797942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_6
+      rect:
+        serializedVersion: 2
+        x: 3345
+        y: 59
+        width: 508
+        height: 722
+      alignment: 9
+      pivot: {x: 0.18255807, y: 0.0027797942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: lingaga_7
+      rect:
+        serializedVersion: 2
+        x: 3924
+        y: 269
+        width: 84
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
