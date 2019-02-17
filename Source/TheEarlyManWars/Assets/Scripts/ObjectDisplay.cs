@@ -398,5 +398,14 @@ public abstract class ObjectDisplay : MonoBehaviour
         if (tower == null || tower is Object && tower.Equals (null)) yield break;
         var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.meleeDamageRate);
         tower.TakeDamage (atkPwrVal, this);
+        if (AnimationIdleIsNotNull () && !dead)
+        {
+            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+            if (hitFn != null)
+            {
+                yield return new WaitForSeconds (animationAttack.length - hitFn.time);
+            }
+            animator.Play (animationIdle.name, 0);
+        }
     }
 }

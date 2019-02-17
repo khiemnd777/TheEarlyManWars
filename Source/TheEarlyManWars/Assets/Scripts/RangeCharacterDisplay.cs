@@ -60,7 +60,11 @@ public class RangeCharacterDisplay : CharacterDisplay
         }
         if (AnimationIdleIsNotNull () && !dead)
         {
-            yield return new WaitForSeconds (animationAttack.length);
+            var launchFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Launch");
+            if (launchFn != null)
+            {
+                yield return new WaitForSeconds (animationAttack.length - launchFn.time);
+            }
             animator.Play (animationIdle.name, 0);
         }
     }
@@ -94,6 +98,15 @@ public class RangeCharacterDisplay : CharacterDisplay
                     tower.TakeDamage (atkPwrVal, this);
                 }
             });
+        }
+        if (AnimationIdleIsNotNull () && !dead)
+        {
+            var launchFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Launch");
+            if (launchFn != null)
+            {
+                yield return new WaitForSeconds (animationAttack.length - launchFn.time);
+            }
+            animator.Play (animationIdle.name, 0);
         }
     }
 

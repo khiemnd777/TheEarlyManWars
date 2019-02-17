@@ -67,7 +67,7 @@ public class CharacterDisplay : ObjectDisplay
 
     IEnumerator NavigateDeathAction ()
     {
-        shadow.gameObject.SetActive(false);
+        shadow.gameObject.SetActive (false);
         yield return StartCoroutine (JumpForDeath (-2f, 1f, 1f));
         yield return StartCoroutine (JumpForDeath (-1.15f, .5f, 1f));
         yield return StartCoroutine (Vanishing ());
@@ -95,7 +95,7 @@ public class CharacterDisplay : ObjectDisplay
         while (t <= 1f)
         {
             t += Time.deltaTime / .5f;
-            
+
             originColor.a = Mathf.Lerp (1f, 0f, t);
             spriteRenderer.color = originColor;
             yield return null;
@@ -131,7 +131,11 @@ public class CharacterDisplay : ObjectDisplay
         }
         if (AnimationIdleIsNotNull () && !dead)
         {
-            yield return new WaitForSeconds (animationAttack.length);
+            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+            if (hitFn != null)
+            {
+                yield return new WaitForSeconds (animationAttack.length - hitFn.time);
+            }
             animator.Play (animationIdle.name, 0);
         }
         yield break;
