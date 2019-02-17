@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Bello
   m_EditorClassIdentifier: 
   name: Bello
+  animator: {fileID: 0}
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
   attackPower: 10
   hp: 250
   moveType: 0
-  animator: {fileID: 0}
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   meat: 50
   attackType: 0
   cooldownPurchase: 10
-  displayPrefab: {fileID: 114446385950419560, guid: f2d8829f0a8a0427ba7dbea3ec2d0807,
+  displayPrefab: {fileID: 114432386176943524, guid: 1598c9a077ddd4f4a8d478187e7e8422,
     type: 2}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1
@@ -36,3 +36,4 @@ MonoBehaviour:
     Gold: 0
     Diamond: 0
     ExperencePoint: 0
+  upgradedAnimationLevels: []
