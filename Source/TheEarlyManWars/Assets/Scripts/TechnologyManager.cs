@@ -65,6 +65,11 @@ public class TechnologyManager : MonoBehaviour
         });
     }
 
+    public float PreviewMeatRate ()
+    {
+        return _technology.PreviewMeatRate();
+    }
+
     public void UpgradeTowerDamageRateByGold ()
     {
         _currency.PurchaseByGold (upgradedTowerDamageRateCost.Gold, () =>
@@ -87,6 +92,11 @@ public class TechnologyManager : MonoBehaviour
             _technology.upgradedTowerDamageRateCost.Diamond *= 1.2f;
             upgradedTowerDamageRateCost = _technology.upgradedTowerDamageRateCost;
         });
+    }
+
+    public float PreviewTowerDamageRate ()
+    {
+        return _technology.PreviewTowerDamageRate();
     }
 
     public void UpgradeSuperPowerDamageRateByGold ()
@@ -113,6 +123,11 @@ public class TechnologyManager : MonoBehaviour
         });
     }
 
+    public float PreviewSuperPowerDamageRate ()
+    {
+        return _technology.PreviewSuperPowerDamageRate();
+    }
+
     public void UpgradeSuperPowerCooldownRateByGold ()
     {
         _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Gold, () =>
@@ -135,6 +150,11 @@ public class TechnologyManager : MonoBehaviour
             _technology.upgradedSuperPowerCooldownRateCost.Diamond *= 1.2f;
             upgradedSuperPowerCooldownRateCost = _technology.upgradedSuperPowerCooldownRateCost;
         });
+    }
+
+    public float PreviewSuperPowerCooldownRate ()
+    {
+        return _technology.PreviewSuperPowerCooldownRate();
     }
 
     public void UpgradeMeleeDamagenRateByGold ()
@@ -161,6 +181,11 @@ public class TechnologyManager : MonoBehaviour
         });
     }
 
+    public float PreviewMeleeDamageRate()
+    {
+        return _technology.PreviewMeleeDamageRate();
+    }
+
     public void UpgradeRangeDamagenRateByGold ()
     {
         _currency.PurchaseByGold (upgradedRangeDamageRateCost.Gold, () =>
@@ -183,5 +208,10 @@ public class TechnologyManager : MonoBehaviour
             _technology.upgradedRangeDamageRateCost.Diamond *= 1.2f;
             upgradedRangeDamageRateCost = _technology.upgradedRangeDamageRateCost;
         });
+    }
+
+    public float PreviewRangeDamageRate()
+    {
+        return _technology.PreviewRangeDamageRate();
     }
 }

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Name: Technology
   m_EditorClassIdentifier: 
   meatRate: 0
-  meatRateLevel: 0
+  meatRateLevel: 1
   upgradedMeatRate: 0.2
   upgradedMeatRateCost:
     Gold: 100
     Diamond: 1
     ExperencePoint: 0
   towerDamageRate: 0
-  towerDamageRateLevel: 0
+  towerDamageRateLevel: 2
   upgradedTowerDamageRate: 0.1
   upgradedTowerDamageRateCost:
     Gold: 100

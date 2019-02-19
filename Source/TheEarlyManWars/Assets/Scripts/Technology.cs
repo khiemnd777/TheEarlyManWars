@@ -35,7 +35,7 @@ public class Technology : ScriptableObject
 
     public void AddMeatRate ()
     {
-        AddMeatRate(upgradedMeatRate);
+        AddMeatRate (upgradedMeatRate);
     }
 
     public void AddMeatRate (float rate)
@@ -43,9 +43,14 @@ public class Technology : ScriptableObject
         meatRate += rate;
     }
 
+    public float PreviewMeatRate ()
+    {
+        return meatRate + upgradedMeatRate;
+    }
+
     public void AddTowerDamageRate ()
     {
-        AddTowerDamageRate(upgradedTowerDamageRate);
+        AddTowerDamageRate (upgradedTowerDamageRate);
     }
 
     public void AddTowerDamageRate (float rate)
@@ -53,9 +58,14 @@ public class Technology : ScriptableObject
         towerDamageRate += rate;
     }
 
+    public float PreviewTowerDamageRate ()
+    {
+        return towerDamageRate + upgradedTowerDamageRate;
+    }
+
     public void AddSuperPowerDamageRate ()
     {
-        AddSuperPowerDamageRate(upgradedSuperPowerDamageRate);
+        AddSuperPowerDamageRate (upgradedSuperPowerDamageRate);
     }
 
     public void AddSuperPowerDamageRate (float rate)
@@ -63,9 +73,14 @@ public class Technology : ScriptableObject
         superPowerDamageRate += rate;
     }
 
+    public float PreviewSuperPowerDamageRate ()
+    {
+        return superPowerDamageRate + upgradedSuperPowerDamageRate;
+    }
+
     public void AddSuperPowerCooldownRate ()
     {
-        AddSuperPowerCooldownRate(upgradedSuperPowerCooldownRate);
+        AddSuperPowerCooldownRate (upgradedSuperPowerCooldownRate);
     }
 
     public void AddSuperPowerCooldownRate (float rate)
@@ -73,9 +88,14 @@ public class Technology : ScriptableObject
         superPowerCooldownRate += rate;
     }
 
+    public float PreviewSuperPowerCooldownRate ()
+    {
+        return superPowerCooldownRate + upgradedSuperPowerCooldownRate;
+    }
+
     public void AddMeleeDamageRate ()
     {
-        AddMeleeDamageRate(upgradedMeleeDamageRate);
+        AddMeleeDamageRate (upgradedMeleeDamageRate);
     }
 
     public void AddMeleeDamageRate (float rate)
@@ -83,13 +103,23 @@ public class Technology : ScriptableObject
         meleeDamageRate += rate;
     }
 
+    public float PreviewMeleeDamageRate ()
+    {
+        return meleeDamageRate + upgradedMeleeDamageRate;
+    }
+
     public void AddRangeDamageRate ()
     {
-        AddRangeDamageRate(upgradedRangeDamageRate);
+        AddRangeDamageRate (upgradedRangeDamageRate);
     }
 
     public void AddRangeDamageRate (float rate)
     {
         rangeDamageRate += rate;
+    }
+
+    public float PreviewRangeDamageRate ()
+    {
+        return rangeDamageRate + upgradedRangeDamageRate;
     }
 }

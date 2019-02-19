@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c0dbba05271411eacad367632d6290, type: 3}
   m_Name: Currency
   m_EditorClassIdentifier: 
-  gold: 1000
+  gold: 10000
   diamond: 9
   experencePoint: 0
