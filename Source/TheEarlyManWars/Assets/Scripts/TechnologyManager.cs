@@ -55,7 +55,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeMeatRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedMeatRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedMeatRateCost.Diamond, () =>
         {
             _technology.AddMeatRate();
             ++_technology.meatRateLevel;
@@ -84,7 +84,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeTowerDamageRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedTowerDamageRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedTowerDamageRateCost.Diamond, () =>
         {
             _technology.AddTowerDamageRate();
             ++_technology.towerDamageRateLevel;
@@ -113,7 +113,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeSuperPowerDamageRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedSuperPowerDamageRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedSuperPowerDamageRateCost.Diamond, () =>
         {
             _technology.AddSuperPowerDamageRate();
             ++_technology.superPowerDamageRateLevel;
@@ -142,7 +142,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeSuperPowerCooldownRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedSuperPowerCooldownRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedSuperPowerCooldownRateCost.Diamond, () =>
         {
             _technology.AddSuperPowerCooldownRate();
             ++_technology.superPowerCooldownRateLevel;
@@ -171,7 +171,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeMeleeDamagenRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedMeleeDamageRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedMeleeDamageRateCost.Diamond, () =>
         {
             _technology.AddMeleeDamageRate();
             ++_technology.meleeDamageRateLevel;
@@ -200,7 +200,7 @@ public class TechnologyManager : MonoBehaviour
 
     public void UpgradeRangeDamagenRateByDiamond ()
     {
-        _currency.PurchaseByGold (upgradedRangeDamageRateCost.Diamond, () =>
+        _currency.PurchaseByDiamond (upgradedRangeDamageRateCost.Diamond, () =>
         {
             _technology.AddRangeDamageRate();
             ++_technology.rangeDamageRateLevel;

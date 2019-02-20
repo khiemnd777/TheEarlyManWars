@@ -6,4 +6,9 @@ public static class FloatExtensions
     {
         return Mathf.Ceil (value);
     }
+
+    public static float ToRoundToInt (this float value)
+    {
+        return Mathf.RoundToInt (value);
+    }
 }

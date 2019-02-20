@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class ObjectDisplay : MonoBehaviour
+public abstract class ObjectDisplay : Display
 {
     public BaseObject baseObject;
     // Animation & Animator

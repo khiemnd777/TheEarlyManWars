@@ -12,16 +12,16 @@ public class BaseCharacter : BaseObject
 	public AttackType attackType;
 	public float cooldownPurchase;
 	public CharacterDisplay displayPrefab;
-	[Header("Upgrade")]
-    public float upgradedAttackRate;
-    public float upgradedHpRate;
-    public Cost upgradedCost;
+	[Header ("Upgrade")]
+	public float upgradedAttackRate;
+	public float upgradedHpRate;
+	public Cost upgradedCost;
 	public UpgradedAnimationLevel[] upgradedAnimationLevels;
 
-	public void AssignUpgradedAnimator ()
-    {
-        if (upgradedAnimationLevels.All (x => x.level != level)) return;
-        var mUpgradedAnimationLevel = upgradedAnimationLevels.FirstOrDefault (x => x.level == level);
-        displayPrefab = mUpgradedAnimationLevel.characterDisplay;
-    }
+	public void AssignUpgradedDisplay ()
+	{
+		if (upgradedAnimationLevels.All (x => x.level != level)) return;
+		var mUpgradedAnimationLevel = upgradedAnimationLevels.FirstOrDefault (x => x.level == level);
+		displayPrefab = (CharacterDisplay) mUpgradedAnimationLevel.characterDisplay;
+	}
 }

@@ -11,10 +11,10 @@ public class PlayerTowerObject : TowerObject
     public Cost upgradedCost;
     public UpgradedAnimationLevel[] upgradedAnimationLevels;
 
-    public void AssignUpgradedAnimator ()
+    public void AssignUpgradedDisplay ()
     {
         if (upgradedAnimationLevels.All (x => x.level != level)) return;
         var mUpgradedAnimationLevel = upgradedAnimationLevels.FirstOrDefault (x => x.level == level);
-        animator = mUpgradedAnimationLevel.animator;
+        displayPrefab = (TowerDisplay) mUpgradedAnimationLevel.characterDisplay;
     }
 }

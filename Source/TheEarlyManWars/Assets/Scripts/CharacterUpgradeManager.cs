@@ -32,7 +32,7 @@ public class CharacterUpgradeManager : MonoBehaviour
             _baseCharacter.attackPower *= (1 + upgradedAttackRate);
             _baseCharacter.hp *= (1 + upgradedHpRate);
             ++_baseCharacter.level;
-            _baseCharacter.AssignUpgradedAnimator();
+            _baseCharacter.AssignUpgradedDisplay();
             var upgradedGoldRate = GetUpgradedCostRate();
             _baseCharacter.upgradedCost.Gold *= (1 + upgradedGoldRate);
             upgradedCost = _baseCharacter.upgradedCost;
@@ -47,7 +47,7 @@ public class CharacterUpgradeManager : MonoBehaviour
             _baseCharacter.attackPower *= (1 + upgradedAttackRate);
             _baseCharacter.hp *= (1 + upgradedHpRate);
             ++_baseCharacter.level;
-            _baseCharacter.AssignUpgradedAnimator();
+            _baseCharacter.AssignUpgradedDisplay();
             var upgradedGoldRate = GetUpgradedCostRate();
             _baseCharacter.upgradedCost.Diamond *= (1 + upgradedGoldRate);
             upgradedCost = _baseCharacter.upgradedCost;

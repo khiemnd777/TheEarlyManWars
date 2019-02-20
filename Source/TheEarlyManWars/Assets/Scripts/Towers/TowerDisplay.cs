@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TowerDisplay : MonoBehaviour
+public class TowerDisplay : Display
 {
     public TowerObject towerObject;
     public float hp;
