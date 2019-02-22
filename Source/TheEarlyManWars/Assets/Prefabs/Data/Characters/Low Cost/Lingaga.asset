@@ -34,6 +34,6 @@ MonoBehaviour:
   upgradedHpRate: 0.1
   upgradedCost:
     Gold: 0
-    Diamond: 0
-    ExperencePoint: 0
+    Diamond: 5
+    ExperencePoint: 300
   upgradedAnimationLevels: []

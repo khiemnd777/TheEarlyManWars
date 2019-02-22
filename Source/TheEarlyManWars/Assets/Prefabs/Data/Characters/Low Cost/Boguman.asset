@@ -16,15 +16,15 @@ MonoBehaviour:
   speed: 3
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 5
-  hp: 60
+  attackPower: 8.639999
+  hp: 79.86
   moveType: 0
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
   knockBackRange: 0
   characterLevel: 0
-  level: 1
+  level: 4
   meat: 10
   attackType: 0
   cooldownPurchase: 2
@@ -34,6 +34,6 @@ MonoBehaviour:
   upgradedHpRate: 0.1
   upgradedCost:
     Gold: 0
-    Diamond: 0
-    ExperencePoint: 0
+    Diamond: 7.2
+    ExperencePoint: 250
   upgradedAnimationLevels: []
