@@ -16,7 +16,7 @@ public class TowerUpgradeManager : MonoBehaviour
     public float upgradedDefendRate;
     public Cost upgradedCost;
 
-    void Start ()
+    void Awake ()
     {
         SetTowerObjectAsDefault ();
     }

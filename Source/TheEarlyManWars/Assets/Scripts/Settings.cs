@@ -10,4 +10,15 @@ public class Settings : MonoBehaviour
     public bool debug = false;
     public float objectShakeDuration = .2f;
     public float objectShakeMagnitude = .08f;
+    [Header("Screen settings")]
+    public ScreenOrientation screenOrientation = ScreenOrientation.Landscape;
+    [System.NonSerialized]
+    public float defaultScreenSize = 7.44f;
+    public float screenSizeMin = 5f;
+    public float screenSizeMax = 7.44f;
+
+    void Awake ()
+    {
+        Screen.orientation = screenOrientation;
+    }
 }

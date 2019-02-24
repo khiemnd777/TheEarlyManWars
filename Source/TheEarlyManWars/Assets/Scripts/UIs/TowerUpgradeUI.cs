@@ -18,7 +18,6 @@ public class TowerUpgradeUI : MonoBehaviour
 	public Text upgradedGoldText;
 	public Text upgradedDiamondText;
 
-	string _formatValue = "{0}";
 	string _formatGold = "Upgrade ({0}G)";
 	string _formatDiamond = "Upgrade ({0}D)";
 

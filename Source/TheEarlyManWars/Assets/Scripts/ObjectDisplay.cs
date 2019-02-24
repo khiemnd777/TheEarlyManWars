@@ -14,7 +14,7 @@ public abstract class ObjectDisplay : Display
     public AnimationClip animationHurt;
     public AnimationClip animationWalk;
     public AnimationClip animationIdle;
-    [Header("Renderer")]
+    [Header ("Renderer")]
     public SpriteRenderer spriteRenderer;
     public Transform shadow;
     // List of object  display
@@ -74,7 +74,7 @@ public abstract class ObjectDisplay : Display
     {
         settings = FindObjectOfType<Settings> ();
         technologyManager = FindObjectOfType<TechnologyManager> ();
-        _shake = GetComponentInChildren<ObjectShake>();
+        _shake = GetComponentInChildren<ObjectShake> ();
     }
 
     public virtual void Start ()
@@ -99,7 +99,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void Update ()
     {
-        animator.speed = settings.deltaSpeed;
+        UpdateAnimatorSpeed();
     }
 
     public virtual void FixedUpdate ()
@@ -150,7 +150,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void TakeDamage (float damage)
     {
-        if(dead) return;
+        if (dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (hp <= 0)
@@ -164,7 +164,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void TakeDamage (float damage, ObjectDisplay damagedBy)
     {
-        if(dead) return;
+        if (dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (damagedBy.canKnockBack)
@@ -188,7 +188,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void TakeDamage (float damage, TowerDisplay damagedBy)
     {
-        if(dead) return;
+        if (dead) return;
         hp -= damage;
         StartCoroutine (_shake.Shake ());
         if (hp <= 0)
@@ -407,5 +407,11 @@ public abstract class ObjectDisplay : Display
             }
             animator.Play (animationIdle.name, 0);
         }
+    }
+
+    void UpdateAnimatorSpeed ()
+    {
+        if(animator == null || animator is Object && animator.Equals(null)) return;
+        animator.speed = settings.deltaSpeed;
     }
 }
