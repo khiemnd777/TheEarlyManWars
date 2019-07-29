@@ -18,24 +18,28 @@ public class PlayUI : MonoBehaviour
     public void Speedx2 ()
     {
         if (_stopped) return;
-        _settings.deltaSpeed = 2;
+        Time.timeScale = 2;
+        // _settings.deltaSpeed = 2;
     }
 
     public void Speedx3 ()
     {
         if (_stopped) return;
-        _settings.deltaSpeed = 3;
+        Time.timeScale = 3;
+        // _settings.deltaSpeed = 3;
     }
 
     public void Play ()
     {
         if (_stopped) return;
-        _settings.deltaSpeed = 1;
+        Time.timeScale = 1;
+        // _settings.deltaSpeed = 1;
     }
 
     public void Pause ()
     {
-        _settings.deltaSpeed = 0;
+        Time.timeScale = 0;
+        // _settings.deltaSpeed = 0;
     }
 
     public void Stop ()
