@@ -31,7 +31,7 @@ public class TowerDisplay : Display
         attackSpeed = towerObject.attackSpeed;
         maxHP = hp = towerObject.hp;
         // StartCoroutine (ScanEnemies ());
-        StartCoroutine (OnAlert ());
+        // StartCoroutine (OnAlert ());
     }
 
     public virtual void Update ()

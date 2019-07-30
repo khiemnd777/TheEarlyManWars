@@ -61,6 +61,6 @@ public class PlayUI : MonoBehaviour
 
     public void ResetScene ()
     {
-        SceneManager.LoadScene("Prototype I");
+        SceneManager.LoadScene("Gameplay/Prototype 1");
     }
 }
