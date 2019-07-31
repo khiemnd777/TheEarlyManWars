@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 14a6223887e4bf341abc695baa0caeb9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Pugga_Body_Sprite_0
+    21300002: Pugga_Body_Sprite_1
+    21300004: Pugga_Body_Sprite_2
+    21300006: Pugga_Body_Sprite_3
+    21300008: Pugga_Body_Sprite_4
+    21300010: Pugga_Body_Sprite_5
+    21300012: Pugga_Body_Sprite_6
+    21300014: Pugga_Body_Sprite_7
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1563
+        width: 413
+        height: 367
+      alignment: 9
+      pivot: {x: 0.82884604, y: 0.18039963}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9057bed8c740e1e4dac52955ad90bf5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1490
+        width: 603
+        height: 446
+      alignment: 9
+      pivot: {x: 0.45137098, y: 0.05707006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90c1a1b2c54f3b740abb2e3f729e0f3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 1684
+        width: 116
+        height: 167
+      alignment: 9
+      pivot: {x: 0.15408115, y: 0.8789033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd6a030fa5d0aa4d8abc9821829ed88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1688
+        width: 102
+        height: 156
+      alignment: 9
+      pivot: {x: 0.30330163, y: 0.856155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb24167230186b6468c2f61f93cf057d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 1251
+        width: 250
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2236d575647ce4a49895bce923399242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 936
+        width: 601
+        height: 477
+      alignment: 9
+      pivot: {x: 0.4358014, y: 0.08909137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22e749df457d654db9b28e6843563b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 866
+        width: 351
+        height: 331
+      alignment: 9
+      pivot: {x: 0.33731237, y: 0.50932604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2defb485e1f7bf4694a383a6d57c8f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pugga_Body_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 793
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33e7d414fb4f2645925a6afe80c30a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 54facfdd9249d064498b4c9225423540
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
