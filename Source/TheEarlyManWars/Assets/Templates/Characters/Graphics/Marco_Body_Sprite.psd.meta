@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: c9bf3cfa656934447acf91129fde1e6c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Marco_Body_Sprite_0
+    21300002: Marco_Body_Sprite_1
+    21300004: Marco_Body_Sprite_2
+    21300006: Marco_Body_Sprite_3
+    21300008: Marco_Body_Sprite_4
+    21300010: Marco_Body_Sprite_5
+    21300012: Marco_Body_Sprite_6
+    21300014: Marco_Body_Sprite_7
+    21300016: Marco_Body_Sprite_8
+    21300018: Marco_Body_Sprite_9
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1472
+        width: 442
+        height: 460
+      alignment: 9
+      pivot: {x: 0.5146927, y: 0.043524437}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a12e222d0e9455143af1e44252dfe7e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1512
+        width: 136
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28581768262c1b4c8213bc193a9e072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 1495
+        width: 121
+        height: 181
+      alignment: 9
+      pivot: {x: 0.2137547, y: 0.88271403}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de94bfda368a6a4bbf4eb68038189f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1156
+        width: 272
+        height: 220
+      alignment: 9
+      pivot: {x: 0.058299795, y: 0.17037076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b6f5a961c80fd469f795cf80e87627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 1270
+        width: 176
+        height: 155
+      alignment: 9
+      pivot: {x: 0.92433584, y: 0.8770815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e84a0b6c9c7b74aa09bd5d773c6b09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1222
+        width: 179
+        height: 194
+      alignment: 9
+      pivot: {x: 0.91722405, y: 0.8961232}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f299dcc494e20b54385c8dc6591ccc92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 1248
+        width: 78
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833ca4ffc8185a64594c3085d212bfb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1024
+        width: 115
+        height: 168
+      alignment: 9
+      pivot: {x: 0.848239, y: 0.8736732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bb9749211f68046ae3e469aa793765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1008
+        width: 87
+        height: 184
+      alignment: 9
+      pivot: {x: 0.43779466, y: 0.92353356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f4610df7a3f304986583b59c96619f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marco_Body_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 600
+        width: 442
+        height: 480
+      alignment: 9
+      pivot: {x: 0.508371, y: 0.079898074}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0578d3476d457439f4f7614c101a11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fbff8eb64f6409745bed71ea8b606fa3
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
