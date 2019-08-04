@@ -8,6 +8,7 @@ TextureImporter:
     21300006: Jackson_Body_Sprite_3
     21300008: Jackson_Body_Sprite_4
     21300010: Jackson_Body_Sprite_5
+    21300012: Jackson_Body_Sprite_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -158,7 +159,7 @@ TextureImporter:
         width: 280
         height: 268
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,6 +206,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a4c339b680774a442944f7eb4330d9b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jackson_Body_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 1454
+        width: 453
+        height: 522
+      alignment: 9
+      pivot: {x: 0.5676539, y: 0.26515472}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3a9dbc941bb1e429b3eabc0890e767
       vertices: []
       indices: 
       edges: []
