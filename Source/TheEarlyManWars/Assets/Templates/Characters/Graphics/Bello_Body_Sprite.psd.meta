@@ -7,6 +7,7 @@ TextureImporter:
     21300004: Bello_Body_Sprite_2
     21300006: Bello_Body_Sprite_3
     21300008: Bello_Body_Sprite_4
+    21300010: Bello_Body_Sprite_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -177,13 +178,33 @@ TextureImporter:
         width: 469
         height: 323
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: f0780804a725a2c42a503f5ac8c13bea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bello_Body_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 1541
+        width: 567
+        height: 471
+      alignment: 9
+      pivot: {x: 0.6359493, y: 0.05145484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908bd0bf488677c4e977fa35d4b7bba9
       vertices: []
       indices: 
       edges: []
