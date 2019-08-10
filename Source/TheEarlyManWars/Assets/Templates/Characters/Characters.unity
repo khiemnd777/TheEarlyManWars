@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rurr
       objectReference: {fileID: 0}
+    - target: {fileID: 9178571980974957360, guid: 3ffc6d5d366c6f340a74d823faae1693,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9178571980974957361, guid: 3ffc6d5d366c6f340a74d823faae1693,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1920,7 +1925,7 @@ PrefabInstance:
     - target: {fileID: 9178571980974957360, guid: 5d311a6afa66b6c48a22ee2d4fb7486d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9178571980974957361, guid: 5d311a6afa66b6c48a22ee2d4fb7486d,
         type: 3}
