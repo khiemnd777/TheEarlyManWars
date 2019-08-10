@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0b49a108d6543dc91a992e9aacfecc, type: 3}
-  m_Name: Pugga
+  m_Name: Marco
   m_EditorClassIdentifier: 
-  name: Pugga
-  animator: {fileID: 95662395187691410, guid: 66ced799ec873454e88e4c42667150e4, type: 2}
+  name: Marco
+  animator: {fileID: 0}
   speed: 3
   attackSpeed: 1
-  rangeAttack: 1
-  attackPower: 8.639999
-  hp: 79.86
+  rangeAttack: 2
+  attackPower: 5
+  hp: 30
   moveType: 0
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
   knockBackRange: 0
   characterLevel: 0
-  level: 4
-  meat: 10
-  attackType: 0
-  cooldownPurchase: 2
-  displayPrefab: {fileID: 4976168897020203404, guid: 24198375aa789451ba13f69579295b33,
+  level: 1
+  meat: 20
+  attackType: 1
+  cooldownPurchase: 5
+  displayPrefab: {fileID: 6862494657674869098, guid: 6294e36a8ca7a47829b605516cb480ad,
     type: 3}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1
   upgradedCost:
     Gold: 0
-    Diamond: 7.2
-    ExperencePoint: 250
+    Diamond: 5
+    ExperencePoint: 300
   upgradedAnimationLevels: []

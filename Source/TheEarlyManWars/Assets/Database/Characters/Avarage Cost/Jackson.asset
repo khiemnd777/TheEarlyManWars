@@ -10,31 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0b49a108d6543dc91a992e9aacfecc, type: 3}
-  m_Name: Pugga
+  m_Name: Jackson
   m_EditorClassIdentifier: 
-  name: Pugga
-  animator: {fileID: 95662395187691410, guid: 66ced799ec873454e88e4c42667150e4, type: 2}
-  speed: 3
+  name: Jackson
+  animator: {fileID: 0}
+  speed: 2
   attackSpeed: 1
   rangeAttack: 1
-  attackPower: 8.639999
-  hp: 79.86
+  attackPower: 10
+  hp: 500
   moveType: 0
   animationAttack: {fileID: 0}
   canKnockBack: 0
   knockBackProbability: 0
   knockBackRange: 0
-  characterLevel: 0
-  level: 4
-  meat: 10
-  attackType: 0
-  cooldownPurchase: 2
-  displayPrefab: {fileID: 4976168897020203404, guid: 24198375aa789451ba13f69579295b33,
+  characterLevel: 1
+  level: 1
+  meat: 60
+  attackType: 3
+  cooldownPurchase: 20
+  displayPrefab: {fileID: 128869662057354549, guid: 27374fc9c75ff4afe8a0d5bf35e9f0b2,
     type: 3}
-  upgradedAttackRate: 0.2
-  upgradedHpRate: 0.1
+  upgradedAttackRate: 0.25
+  upgradedHpRate: 0.15
   upgradedCost:
     Gold: 0
-    Diamond: 7.2
-    ExperencePoint: 250
+    Diamond: 0
+    ExperencePoint: 0
   upgradedAnimationLevels: []

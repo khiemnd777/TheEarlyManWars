@@ -29,7 +29,7 @@ MonoBehaviour:
   meat: 50
   attackType: 0
   cooldownPurchase: 10
-  displayPrefab: {fileID: 4271001281469867127, guid: 6ace4d96fe5a9eb41b71cea92f8bcf4d,
+  displayPrefab: {fileID: 5680414898487372727, guid: b275a24b8d8554d0c8cebfa69e0758b9,
     type: 3}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1
