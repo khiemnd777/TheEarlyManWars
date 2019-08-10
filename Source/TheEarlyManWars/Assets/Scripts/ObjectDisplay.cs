@@ -15,7 +15,7 @@ public abstract class ObjectDisplay : Display
     public AnimationClip animationWalk;
     public AnimationClip animationIdle;
     [Header ("Renderer")]
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer bodySpriteRenderer;
     public Transform shadow;
     // List of object  display
     [System.NonSerialized]
@@ -75,6 +75,28 @@ public abstract class ObjectDisplay : Display
         settings = FindObjectOfType<Settings> ();
         technologyManager = FindObjectOfType<TechnologyManager> ();
         _shake = GetComponentInChildren<ObjectShake> ();
+        // automatical assignment the body sprite renderer;
+        if (!bodySpriteRenderer)
+        {
+            var foundBody = transform.Find ("Body");
+            if (foundBody)
+            {
+                var foundBodySpriteRenderer = foundBody.GetComponent<SpriteRenderer> ();
+                if (foundBodySpriteRenderer)
+                {
+                    bodySpriteRenderer = foundBodySpriteRenderer;
+                }
+            }
+        }
+        // automatical assigment the shadow;
+        if (!shadow)
+        {
+            var foundShadow = transform.Find ("Shadow");
+            if (foundShadow)
+            {
+                shadow = foundShadow;
+            }
+        }
     }
 
     public virtual void Start ()
@@ -99,7 +121,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void Update ()
     {
-        UpdateAnimatorSpeed();
+        UpdateAnimatorSpeed ();
     }
 
     public virtual void FixedUpdate ()
@@ -411,7 +433,7 @@ public abstract class ObjectDisplay : Display
 
     void UpdateAnimatorSpeed ()
     {
-        if(animator == null || animator is Object && animator.Equals(null)) return;
+        if (animator == null || animator is Object && animator.Equals (null)) return;
         animator.speed = settings.deltaSpeed;
     }
 }

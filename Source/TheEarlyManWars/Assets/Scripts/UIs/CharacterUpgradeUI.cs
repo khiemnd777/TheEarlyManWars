@@ -55,6 +55,6 @@ public class CharacterUpgradeUI : MonoBehaviour
 		_buyExpText.text = string.Format (_buyExpFormat, manager.upgradedCost.ExperencePoint.ToRoundToInt ());
 		_buyDiamondText.text = string.Format (_buyDiamondFormat, manager.upgradedCost.Diamond.ToRoundToInt ());
 		// Assign Character Display
-		display.sprite = manager.display.spriteRenderer.sprite;
+		display.sprite = manager.display.bodySpriteRenderer.sprite;
 	}
 }

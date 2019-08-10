@@ -24,6 +24,41 @@ public class CharacterDisplay : ObjectDisplay
         allies = FindObjectOfType<CharacterDisplayList> ();
         enemies = FindObjectOfType<MonsterDisplayList> ();
         _rb = GetComponent<Rigidbody2D> ();
+        // automatical assignment the health bar UI;
+        if (!healthBar)
+        {
+            var foundHealthBar = transform.Find ("Health Bar");
+            if (foundHealthBar)
+            {
+                var foundImageHealthBar = foundHealthBar.GetComponent<Image> ();
+                if (foundImageHealthBar)
+                {
+                    healthBar = foundImageHealthBar;
+                }
+            }
+        }
+        // automatical assignment the name text UI;
+        if (!nameText)
+        {
+            var foundNameText = transform.Find ("Name Text");
+            if (foundNameText)
+            {
+                var foundTextNameText = foundNameText.GetComponent<Text> ();
+                if (foundTextNameText)
+                {
+                    nameText = foundTextNameText;
+                }
+            }
+        }
+        // automatical assignment the Death effect point;
+        if (!_onDeathPoint)
+        {
+            var foundOnDeathPoint = transform.Find ("On Death Effect Point");
+            if (foundOnDeathPoint)
+            {
+                _onDeathPoint = foundOnDeathPoint;
+            }
+        }
     }
 
     public override void Start ()
@@ -78,7 +113,7 @@ public class CharacterDisplay : ObjectDisplay
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         _rb.gravityScale *= settings.deltaSpeed * deltaGravityScale;
-        var spriteTransform = spriteRenderer.transform;
+        var spriteTransform = bodySpriteRenderer.transform;
         var positionAtDeath = new Vector3 (spriteTransform.position.x + distance, spriteTransform.position.y, spriteTransform.position.z);
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
         var jumpVel = JumpVelocityCalculator.Calculate (spriteTransform.position, positionAtDeath, Vector3.zero, positionAtDeath, gravity, height, true);
@@ -91,13 +126,13 @@ public class CharacterDisplay : ObjectDisplay
     IEnumerator Vanishing ()
     {
         var t = 0f;
-        var originColor = spriteRenderer.color;
+        var originColor = bodySpriteRenderer.color;
         while (t <= 1f)
         {
             t += Time.deltaTime / .5f;
 
             originColor.a = Mathf.Lerp (1f, 0f, t);
-            spriteRenderer.color = originColor;
+            bodySpriteRenderer.color = originColor;
             yield return null;
         }
     }

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0b49a108d6543dc91a992e9aacfecc, type: 3}
-  m_Name: Bello
+  m_Name: Marco
   m_EditorClassIdentifier: 
-  name: Bello
+  name: Marco
   animator: {fileID: 0}
   speed: 3
   attackSpeed: 1
-  rangeAttack: 1
-  attackPower: 10
-  hp: 250
+  rangeAttack: 2
+  attackPower: 5
+  hp: 30
   moveType: 0
   animationAttack: {fileID: 0}
   canKnockBack: 0
@@ -26,15 +26,15 @@ MonoBehaviour:
   knockBackRange: 0
   characterLevel: 0
   level: 1
-  meat: 50
-  attackType: 0
-  cooldownPurchase: 10
-  displayPrefab: {fileID: 5680414898487372727, guid: b275a24b8d8554d0c8cebfa69e0758b9,
+  meat: 20
+  attackType: 1
+  cooldownPurchase: 5
+  displayPrefab: {fileID: 6862494657674869098, guid: 6294e36a8ca7a47829b605516cb480ad,
     type: 3}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1
   upgradedCost:
     Gold: 0
-    Diamond: 7
-    ExperencePoint: 500
+    Diamond: 5
+    ExperencePoint: 300
   upgradedAnimationLevels: []

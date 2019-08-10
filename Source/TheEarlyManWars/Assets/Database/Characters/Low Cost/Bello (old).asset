@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb0b49a108d6543dc91a992e9aacfecc, type: 3}
-  m_Name: Bello
+  m_Name: Bello (old)
   m_EditorClassIdentifier: 
   name: Bello
   animator: {fileID: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
   meat: 50
   attackType: 0
   cooldownPurchase: 10
-  displayPrefab: {fileID: 5680414898487372727, guid: b275a24b8d8554d0c8cebfa69e0758b9,
+  displayPrefab: {fileID: 114432386176943524, guid: 1598c9a077ddd4f4a8d478187e7e8422,
     type: 3}
   upgradedAttackRate: 0.2
   upgradedHpRate: 0.1

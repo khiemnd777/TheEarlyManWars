@@ -476,9 +476,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178571980732211072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 0.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.23, y: 2.253, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 9178571980859756586}
   - {fileID: 6846117812578053753}
@@ -707,7 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9178571980974957361}
-  - component: {fileID: 1674532075}
+  - component: {fileID: 8676729512700480293}
   m_Layer: 0
   m_Name: Bello
   m_TagString: Untagged
@@ -731,7 +731,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1674532075
+--- !u!95 &8676729512700480293
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1092,8 +1092,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9178571982015586992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1.54, z: 0}
-  m_LocalScale: {x: 0.758561, y: 0.081, z: 1}
+  m_LocalPosition: {x: 0.5, y: 0.042999983, z: 0}
+  m_LocalScale: {x: -0.758561, y: 0.081, z: 1}
   m_Children: []
   m_Father: {fileID: 9178571980974957361}
   m_RootOrder: 0
