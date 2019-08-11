@@ -403,7 +403,7 @@ Transform:
   - {fileID: 9178571981847576537}
   m_Father: {fileID: 9178571980732211073}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.0295067}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -83.42154}
 --- !u!212 &9178571980394508666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ Transform:
   m_GameObject: {fileID: 9178571980732211072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.23, y: 2.253, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9178571980859756586}
   - {fileID: 6846117812578053753}
