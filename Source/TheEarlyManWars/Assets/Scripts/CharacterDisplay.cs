@@ -27,7 +27,7 @@ public class CharacterDisplay : ObjectDisplay
         // automatical assignment the health bar UI;
         if (!healthBar)
         {
-            var foundHealthBar = transform.Find ("Health Bar");
+            var foundHealthBar = transform.Find ("UI/Canvas Health Bar/Health Bar Bg/Health Bar");
             if (foundHealthBar)
             {
                 var foundImageHealthBar = foundHealthBar.GetComponent<Image> ();
@@ -40,7 +40,7 @@ public class CharacterDisplay : ObjectDisplay
         // automatical assignment the name text UI;
         if (!nameText)
         {
-            var foundNameText = transform.Find ("Name Text");
+            var foundNameText = transform.Find ("UI/Canvas Texts/Name Text");
             if (foundNameText)
             {
                 var foundTextNameText = foundNameText.GetComponent<Text> ();
@@ -53,7 +53,7 @@ public class CharacterDisplay : ObjectDisplay
         // automatical assignment the Death effect point;
         if (!_onDeathPoint)
         {
-            var foundOnDeathPoint = transform.Find ("On Death Effect Point");
+            var foundOnDeathPoint = transform.Find ("Display/On Death Effect Point");
             if (foundOnDeathPoint)
             {
                 _onDeathPoint = foundOnDeathPoint;

@@ -436,6 +436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5802290715702943375}
   - component: {fileID: 5680414898487372727}
+  - component: {fileID: 8973745601081374910}
   m_Layer: 0
   m_Name: Bello Display
   m_TagString: Untagged
@@ -494,6 +495,27 @@ MonoBehaviour:
   _onDeathPoint: {fileID: 1211870104553473302}
   _onDeathEffectPrefab: {fileID: 198601302953459880, guid: d88ab79575e72438f92b4872e46f89f6,
     type: 3}
+--- !u!50 &8973745601081374910
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5602561281908598611}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &7306293276444714617
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3057797993874883463}
   - component: {fileID: 3928166158797686691}
+  - component: {fileID: 7748652466537283839}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -541,6 +564,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0
   magnitude: 0
+--- !u!210 &7748652466537283839
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7306293276444714617}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &8292387913095382424
 GameObject:
   m_ObjectHideFlags: 0

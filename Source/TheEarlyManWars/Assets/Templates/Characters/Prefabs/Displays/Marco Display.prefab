@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7631499120497044195}
   - component: {fileID: 6862494657674869098}
+  - component: {fileID: 905134432746207657}
   m_Layer: 0
   m_Name: Marco Display
   m_TagString: Untagged
@@ -207,13 +208,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 11400000, guid: 96c6cc4b6775a42f7a5a302b8c80b2c3, type: 2}
-  animator: {fileID: 7626684184659898448}
+  animator: {fileID: 0}
   animationAttack: {fileID: 7400000, guid: 8e2298c583f28e1499586e81f6810496, type: 2}
   animationHurt: {fileID: 7400000, guid: 5d7b26199a9981d42a42af965a3b3ce4, type: 2}
   animationWalk: {fileID: 7400000, guid: 66cceb666c861fe4c9df957f20a2d734, type: 2}
   animationIdle: {fileID: 7400000, guid: f814865464b25924bb5b1141ad56aacf, type: 2}
-  bodySpriteRenderer: {fileID: 0}
-  shadow: {fileID: 0}
+  bodySpriteRenderer: {fileID: 8972756111839655831}
+  shadow: {fileID: 8972756110858193572}
   speed: 0
   attackSpeed: 0
   rangeAttack: 0
@@ -231,6 +232,27 @@ MonoBehaviour:
   projectileObjectPrefab: {fileID: 114516143310924412, guid: 919e34377314a48c6aea5ba476a5aa34,
     type: 3}
   _projectilePoint: {fileID: 2283410692422336122}
+--- !u!50 &905134432746207657
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3054584903697588500}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &4381440511960254431
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6174579366854064773}
   - component: {fileID: 3114188942673426221}
+  - component: {fileID: 6539669685490295789}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -487,6 +510,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0
   magnitude: 0
+--- !u!210 &6539669685490295789
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104100905840531684}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &5159233527441241848
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,9 +745,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 280758862964811797}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &7626684184659898448 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7652205557955254341, guid: 116fa05583b1f5f4da0b9d4700e31ac8,
+--- !u!4 &8972756110858193572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9178571982015586993, guid: 116fa05583b1f5f4da0b9d4700e31ac8,
+    type: 3}
+  m_PrefabInstance: {fileID: 280758862964811797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8972756111839655831 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9178571980732211074, guid: 116fa05583b1f5f4da0b9d4700e31ac8,
     type: 3}
   m_PrefabInstance: {fileID: 280758862964811797}
   m_PrefabAsset: {fileID: 0}

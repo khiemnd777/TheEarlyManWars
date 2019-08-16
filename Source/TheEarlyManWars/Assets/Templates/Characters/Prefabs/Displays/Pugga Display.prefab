@@ -399,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3934121956257221105}
   - component: {fileID: 4976168897020203404}
+  - component: {fileID: 8925478850680497284}
   m_Layer: 0
   m_Name: Pugga Display
   m_TagString: Untagged
@@ -440,8 +441,8 @@ MonoBehaviour:
   animationHurt: {fileID: 7400000, guid: d15d458780fe04443915ff2199a1e1bc, type: 2}
   animationWalk: {fileID: 7400000, guid: e567f17d785b98c40a5b275b01af76da, type: 2}
   animationIdle: {fileID: 7400000, guid: 6d3b1b455bc534040b12ded8c4f5048a, type: 2}
-  bodySpriteRenderer: {fileID: 0}
-  shadow: {fileID: 0}
+  bodySpriteRenderer: {fileID: 7345066319736381864}
+  shadow: {fileID: 7345066318436195483}
   speed: 0
   attackSpeed: 0
   rangeAttack: 0
@@ -457,6 +458,27 @@ MonoBehaviour:
   _onDeathPoint: {fileID: 0}
   _onDeathEffectPrefab: {fileID: 198601302953459880, guid: d88ab79575e72438f92b4872e46f89f6,
     type: 3}
+--- !u!50 &8925478850680497284
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970327994194403362}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &8194702935662369034
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032916020947156777}
   - component: {fileID: 17750432238476296}
+  - component: {fileID: 1456650965483565605}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -603,6 +626,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0
   magnitude: 0
+--- !u!210 &1456650965483565605
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247680696602394526}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &1913533347699047978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -681,6 +715,18 @@ Transform:
 --- !u!95 &6206806287765229715 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5525139525445054137, guid: 5d311a6afa66b6c48a22ee2d4fb7486d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1913533347699047978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7345066318436195483 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9178571982015586993, guid: 5d311a6afa66b6c48a22ee2d4fb7486d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1913533347699047978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7345066319736381864 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9178571980732211074, guid: 5d311a6afa66b6c48a22ee2d4fb7486d,
     type: 3}
   m_PrefabInstance: {fileID: 1913533347699047978}
   m_PrefabAsset: {fileID: 0}

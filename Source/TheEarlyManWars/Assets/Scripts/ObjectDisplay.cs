@@ -75,28 +75,28 @@ public abstract class ObjectDisplay : Display
         settings = FindObjectOfType<Settings> ();
         technologyManager = FindObjectOfType<TechnologyManager> ();
         _shake = GetComponentInChildren<ObjectShake> ();
-        // automatical assignment the body sprite renderer;
-        if (!bodySpriteRenderer)
-        {
-            var foundBody = transform.Find ("Body");
-            if (foundBody)
-            {
-                var foundBodySpriteRenderer = foundBody.GetComponent<SpriteRenderer> ();
-                if (foundBodySpriteRenderer)
-                {
-                    bodySpriteRenderer = foundBodySpriteRenderer;
-                }
-            }
-        }
-        // automatical assigment the shadow;
-        if (!shadow)
-        {
-            var foundShadow = transform.Find ("Shadow");
-            if (foundShadow)
-            {
-                shadow = foundShadow;
-            }
-        }
+        // // automatical assignment the body sprite renderer;
+        // if (!bodySpriteRenderer)
+        // {
+        //     var foundBody = transform.Find ("Body");
+        //     if (foundBody)
+        //     {
+        //         var foundBodySpriteRenderer = foundBody.GetComponent<SpriteRenderer> ();
+        //         if (foundBodySpriteRenderer)
+        //         {
+        //             bodySpriteRenderer = foundBodySpriteRenderer;
+        //         }
+        //     }
+        // }
+        // // automatical assigment the shadow;
+        // if (!shadow)
+        // {
+        //     var foundShadow = transform.Find ("Shadow");
+        //     if (foundShadow)
+        //     {
+        //         shadow = foundShadow;
+        //     }
+        // }
     }
 
     public virtual void Start ()
