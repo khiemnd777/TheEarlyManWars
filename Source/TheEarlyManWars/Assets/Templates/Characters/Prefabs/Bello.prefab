@@ -403,7 +403,7 @@ Transform:
   - {fileID: 9178571981847576537}
   m_Father: {fileID: 9178571980732211073}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -83.42154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 17.237001}
 --- !u!212 &9178571980394508666
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -708,6 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9178571980974957361}
   - component: {fileID: 8676729512700480293}
+  - component: {fileID: 9152270723753363982}
   m_Layer: 0
   m_Name: Bello
   m_TagString: Untagged
@@ -750,6 +751,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9152270723753363982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9178571980974957360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84acafc3f4b95489d8b38f3d9c91bbae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9178571981094486863
 GameObject:
   m_ObjectHideFlags: 0

@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 11400000, guid: 96c6cc4b6775a42f7a5a302b8c80b2c3, type: 2}
-  animator: {fileID: 0}
+  animator: {fileID: 280758861856784536}
   animationAttack: {fileID: 7400000, guid: 8e2298c583f28e1499586e81f6810496, type: 2}
   animationHurt: {fileID: 7400000, guid: 5d7b26199a9981d42a42af965a3b3ce4, type: 2}
   animationWalk: {fileID: 7400000, guid: 66cceb666c861fe4c9df957f20a2d734, type: 2}
@@ -742,6 +742,12 @@ PrefabInstance:
 --- !u!4 &8972756111896791844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9178571980974957361, guid: 116fa05583b1f5f4da0b9d4700e31ac8,
+    type: 3}
+  m_PrefabInstance: {fileID: 280758862964811797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &280758861856784536 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1108027533, guid: 116fa05583b1f5f4da0b9d4700e31ac8,
     type: 3}
   m_PrefabInstance: {fileID: 280758862964811797}
   m_PrefabAsset: {fileID: 0}

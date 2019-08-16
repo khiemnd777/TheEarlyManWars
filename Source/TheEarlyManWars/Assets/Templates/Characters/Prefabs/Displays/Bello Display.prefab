@@ -478,8 +478,8 @@ MonoBehaviour:
   animationHurt: {fileID: 7400000, guid: 25954e09f2bfcb941843bdbf0bea666e, type: 2}
   animationWalk: {fileID: 7400000, guid: e509f6b8fea45f24bbf09820a860f3e0, type: 2}
   animationIdle: {fileID: 7400000, guid: 12ec4503192edb847a044fc187783944, type: 2}
-  bodySpriteRenderer: {fileID: 0}
-  shadow: {fileID: 0}
+  bodySpriteRenderer: {fileID: 6230078960781092365}
+  shadow: {fileID: 6230078959078087486}
   speed: 0
   attackSpeed: 0
   rangeAttack: 0
@@ -760,6 +760,18 @@ Transform:
 --- !u!95 &5871733890849272490 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8676729512700480293, guid: 6ace4d96fe5a9eb41b71cea92f8bcf4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2960405750726818191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6230078959078087486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9178571982015586993, guid: 6ace4d96fe5a9eb41b71cea92f8bcf4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2960405750726818191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &6230078960781092365 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9178571980732211074, guid: 6ace4d96fe5a9eb41b71cea92f8bcf4d,
     type: 3}
   m_PrefabInstance: {fileID: 2960405750726818191}
   m_PrefabAsset: {fileID: 0}
