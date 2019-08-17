@@ -83,12 +83,11 @@ public class TowerDisplay : Display
 
     IEnumerator PrepareAttack ()
     {
-        if (settings.deltaSpeed <= 0) yield break;
         if (Time.time < _attackTime) yield break;
         var atkSpdVal = attackSpeed;
         while (_attackTime <= 1f)
         {
-            _attackTime += Time.deltaTime * (atkSpdVal * settings.deltaAttackTime) * settings.deltaSpeed;
+            _attackTime += Time.deltaTime * (atkSpdVal * settings.deltaAttackTime);
             yield return null;
         }
         _attackTime = 0f;

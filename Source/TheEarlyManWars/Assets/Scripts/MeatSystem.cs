@@ -42,7 +42,7 @@ public class MeatSystem : MonoBehaviour
 
     void IncreaseMeat ()
     {
-        var amount = Time.deltaTime * deltaCounter * _settings.deltaSpeed;
+        var amount = Time.deltaTime * deltaCounter;
         amount *= (1 + _technologyManager.meatRate);
         _meat += amount;
     }

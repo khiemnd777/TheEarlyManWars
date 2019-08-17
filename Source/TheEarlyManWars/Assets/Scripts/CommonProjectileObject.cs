@@ -12,14 +12,14 @@ public class CommonProjectileObject : ProjectileObject
         _rb = GetComponent<Rigidbody2D> ();
     }
 
-    public override void Launch (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    public override void Launch (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, System.Action reachedTargetAction = null)
     {
-        StartCoroutine (Lauching (targetPosition, deltaDistance, stopPosition, deltaSpeed, reachedTargetAction));
+        StartCoroutine (Lauching (targetPosition, deltaDistance, stopPosition, reachedTargetAction));
     }
 
-    IEnumerator Lauching (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, float deltaSpeed = 1, System.Action reachedTargetAction = null)
+    IEnumerator Lauching (Vector3 targetPosition, Vector3 deltaDistance, Vector3 stopPosition, System.Action reachedTargetAction = null)
     {
-        _rb.gravityScale *= deltaSpeed * initialVelocity;
+        _rb.gravityScale *= initialVelocity;
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
         var jumpVel = JumpVelocityCalculator.Calculate (transform.position, targetPosition, deltaDistance, stopPosition, gravity, height, true);
         _currentVel = jumpVel.velocity;

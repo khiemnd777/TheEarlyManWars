@@ -7,7 +7,6 @@ public class BuffCharacterDisplay : CharacterDisplay
 {
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
-        yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
         var instanceId = GetInstanceID ();
         var allyArray = enemies.Where (x => x.GetInstanceID () != instanceId)
@@ -17,7 +16,7 @@ public class BuffCharacterDisplay : CharacterDisplay
         CharacterDisplay minHpChar = null;
         foreach (var c in allyArray)
         {
-            var rateHp = (float) c.hp / (float) c.maxHP;
+            var rateHp = c.hp / c.maxHP;
             if (rateHp < minRateHp)
             {
                 minRateHp = rateHp;
@@ -43,8 +42,9 @@ public class BuffCharacterDisplay : CharacterDisplay
                 if (detectedEnemies.Any (x => x.hp < x.maxHP))
                 {
                     isStopMove = true;
+                    yield return StartCoroutine (PreAttack ());
                     yield return StartCoroutine (AnimateAttack (detectedEnemies));
-                    yield return StartCoroutine (PrepareAttack ());
+                    yield return StartCoroutine (PostAttack ());
                 }
                 else
                 {

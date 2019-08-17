@@ -22,7 +22,7 @@ public class ObjectShake : MonoBehaviour
         while (elapsed <= 1f)
         {
             transform.localPosition = _originalLocalPosition + Random.insideUnitSphere * magnitude;
-            elapsed += Time.fixedDeltaTime / duration * _settings.deltaSpeed;
+            elapsed += Time.fixedDeltaTime / duration;
             yield return new WaitForFixedUpdate ();
         }
         transform.localPosition = _originalLocalPosition;

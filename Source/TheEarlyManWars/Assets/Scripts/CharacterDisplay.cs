@@ -112,7 +112,7 @@ public class CharacterDisplay : ObjectDisplay
     IEnumerator JumpForDeath (float distance, float height, float deltaGravityScale)
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        _rb.gravityScale *= settings.deltaSpeed * deltaGravityScale;
+        _rb.gravityScale *= deltaGravityScale;
         var spriteTransform = bodySpriteRenderer.transform;
         var positionAtDeath = new Vector3 (spriteTransform.position.x + distance, spriteTransform.position.y, spriteTransform.position.z);
         var gravity = JumpVelocityCalculator.GetGravity2D (_rb);
@@ -139,7 +139,6 @@ public class CharacterDisplay : ObjectDisplay
 
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
-        yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
         atkPwrVal = atkPwrVal * (1 + technologyManager.meleeDamageRate);
         if (attackType == AttackType.AOEMelee)
@@ -163,15 +162,6 @@ public class CharacterDisplay : ObjectDisplay
             {
                 currentEnemy.TakeDamage (atkPwrVal, this);
             }
-        }
-        if (AnimationIdleIsNotNull () && !dead)
-        {
-            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
-            if (hitFn != null)
-            {
-                yield return new WaitForSeconds (animationAttack.length - hitFn.time);
-            }
-            animator.Play (animationIdle.name, 0);
         }
         yield break;
     }

@@ -40,7 +40,6 @@ public class MonsterSpawner : MonoBehaviour
 
     void NextWave ()
     {
-        if (_settings.deltaSpeed <= 0) return;
         if (_waveCount == 0)
         {
             _currentWave = ShiftWave ();
@@ -52,7 +51,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             if (_nextWaveTime <= 1f)
             {
-                _nextWaveTime += Time.deltaTime / delayNextWave * _settings.deltaSpeed;
+                _nextWaveTime += Time.deltaTime / delayNextWave;
                 return;
             }
             if (_currentWave != null) _currentWave = null;
@@ -73,12 +72,11 @@ public class MonsterSpawner : MonoBehaviour
 
     void Spawn ()
     {
-        if (_settings.deltaSpeed <= 0) return;
         if (_currentWave == null) return;
         if (_currentMonsterSpawningIndex == _currentWave.monsters.Count) return;
         if (_spawnTime <= 1f)
         {
-            _spawnTime += Time.deltaTime / delaySpawning * _settings.deltaSpeed;
+            _spawnTime += Time.deltaTime / delaySpawning;
             return;
         }
         var baseMonster = _currentWave.monsters[_currentMonsterSpawningIndex];
@@ -100,7 +98,7 @@ public class MonsterSpawner : MonoBehaviour
         var percent = 0f;
         while (percent <= 1f)
         {
-            var step = Time.deltaTime * _settings.deltaMoveStep * 12f * _settings.deltaSpeed;
+            var step = Time.deltaTime * _settings.deltaMoveStep * 12f;
             percent += step;
             for (var i = 0; i < charactersNearbyTower.Count; i++)
             {

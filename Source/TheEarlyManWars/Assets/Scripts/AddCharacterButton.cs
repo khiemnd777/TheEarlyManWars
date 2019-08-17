@@ -52,12 +52,11 @@ public class AddCharacterButton : MonoBehaviour
 
     void CalculateCooldownProgress ()
     {
-        if (_settings.deltaSpeed <= 0) return;
         if (!_inCooldownProgress) return;
         _button.interactable = false;
         if (_cooldownCounter < 1f)
         {
-            _cooldownCounter += Time.deltaTime / _cooldownPurchase * _settings.deltaSpeed;
+            _cooldownCounter += Time.deltaTime / _cooldownPurchase;
             return;
         }
         _inCooldownProgress = false;

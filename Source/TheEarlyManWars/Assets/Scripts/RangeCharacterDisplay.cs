@@ -36,9 +36,9 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
             projectileIns.direction = direction;
-            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
+            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaMoveStep;
             var stopPos = new Vector3 (transform.position.x + currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
-            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, settings.deltaSpeed, () =>
+            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, () =>
             {
                 if (currentEnemy != null && !currentEnemy.Equals (null))
                 {
@@ -88,9 +88,9 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
             projectileIns.direction = direction;
-            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaSpeed * settings.deltaMoveStep;
+            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaMoveStep;
             var stopPos = new Vector3 (transform.position.x + currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
-            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, settings.deltaSpeed, () =>
+            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, () =>
             {
                 if (currentEnemy != null && !currentEnemy.Equals (null))
                 {

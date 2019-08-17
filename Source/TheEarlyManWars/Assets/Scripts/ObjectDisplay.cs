@@ -75,28 +75,6 @@ public abstract class ObjectDisplay : Display
         settings = FindObjectOfType<Settings> ();
         technologyManager = FindObjectOfType<TechnologyManager> ();
         _shake = GetComponentInChildren<ObjectShake> ();
-        // // automatical assignment the body sprite renderer;
-        // if (!bodySpriteRenderer)
-        // {
-        //     var foundBody = transform.Find ("Body");
-        //     if (foundBody)
-        //     {
-        //         var foundBodySpriteRenderer = foundBody.GetComponent<SpriteRenderer> ();
-        //         if (foundBodySpriteRenderer)
-        //         {
-        //             bodySpriteRenderer = foundBodySpriteRenderer;
-        //         }
-        //     }
-        // }
-        // // automatical assigment the shadow;
-        // if (!shadow)
-        // {
-        //     var foundShadow = transform.Find ("Shadow");
-        //     if (foundShadow)
-        //     {
-        //         shadow = foundShadow;
-        //     }
-        // }
     }
 
     public virtual void Start ()
@@ -121,7 +99,7 @@ public abstract class ObjectDisplay : Display
 
     public virtual void Update ()
     {
-        UpdateAnimatorSpeed ();
+
     }
 
     public virtual void FixedUpdate ()
@@ -134,21 +112,70 @@ public abstract class ObjectDisplay : Display
 
     }
 
-    protected virtual IEnumerator PrepareAttack ()
+    protected virtual IEnumerator PreAttack ()
+    {
+        if (!AnimationAttackIsNotNull ()) yield break;
+        var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+        if (hitFn != null)
+        {
+            var atkSpdVal = attackSpeed.GetValue ();
+            var animTime = animationAttack.length;
+            var hitTime = hitFn.time;
+            if (atkSpdVal > 0f)
+            {
+                var atkTime = 1 / atkSpdVal;
+                var realTimeRate = animTime / atkTime;
+                animator.speed = realTimeRate;
+                animator.Play (animationAttack.name, 0, 0);
+                var realStartToAttackTime = hitTime / realTimeRate;
+                yield return new WaitForSeconds (realStartToAttackTime);
+            }
+            else
+            {
+                yield return new WaitForSeconds (hitTime);
+            }
+        }
+    }
+
+    protected virtual IEnumerator PostAttack ()
     {
         if (_firstAttack)
         {
             _firstAttack = false;
-            // yield break;
         }
-        if (settings.deltaSpeed <= 0) yield break;
         var atkSpdVal = attackSpeed.GetValue ();
-        if (atkSpdVal == 0) yield break;
-        var percent = 0f;
-        while (percent <= 1f)
+        var atkTime = 1 / atkSpdVal;
+        if (AnimationAttackIsNotNull ())
         {
-            percent += Time.deltaTime * (atkSpdVal * settings.deltaAttackTime) * settings.deltaSpeed;
-            yield return null;
+            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+            if (hitFn != null)
+            {
+                var animTime = animationAttack.length;
+                var hitTime = hitFn.time;
+                if (atkSpdVal > 0f)
+                {
+                    var realTimeRate = animTime / atkTime;
+                    animator.speed = realTimeRate;
+                    var realAttackToEndTime = (animTime - hitTime) / realTimeRate;
+                    yield return new WaitForSeconds (realAttackToEndTime);
+                }
+                else
+                {
+                    yield return new WaitForSeconds (animTime - hitTime);
+                }
+            }
+            else
+            {
+                yield return new WaitForSeconds (atkTime);
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds (atkTime);
+        }
+        if (animator)
+        {
+            animator.speed = 1;
         }
     }
 
@@ -159,11 +186,11 @@ public abstract class ObjectDisplay : Display
         switch (baseObject.moveType)
         {
             case MoveType.OnGround:
-                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
+                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaMoveStep * Time.fixedDeltaTime;
                 break;
             case MoveType.InAir:
                 // Temp
-                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaSpeed * settings.deltaMoveStep * Time.fixedDeltaTime;
+                transform.position += Vector3.right * (int) direction * spdVal * settings.deltaMoveStep * Time.fixedDeltaTime;
                 break;
             default:
                 break;
@@ -230,7 +257,7 @@ public abstract class ObjectDisplay : Display
         var targetPos = new Vector2 (transform.position.x - damageBy.knockBackRange, transform.position.y);
         while (percent <= 1f)
         {
-            var step = Time.deltaTime * settings.deltaMoveStep * 12f * settings.deltaSpeed;
+            var step = Time.deltaTime * settings.deltaMoveStep * 12f;
             percent += step;
             transform.position = Vector2.Lerp (originPos, targetPos, percent);
             yield return null;
@@ -342,8 +369,9 @@ public abstract class ObjectDisplay : Display
                     animator.Play (animationIdle.name, 0);
                 }
                 isStopMove = true;
+                yield return StartCoroutine (PreAttack ());
                 yield return StartCoroutine (AnimateAttack (detectedEnemies));
-                yield return StartCoroutine (PrepareAttack ());
+                yield return StartCoroutine (PostAttack ());
             }
             else
             {
@@ -355,8 +383,9 @@ public abstract class ObjectDisplay : Display
                         animator.Play (animationIdle.name, 0);
                     }
                     isStopMove = true;
+                    yield return StartCoroutine (PreAttack ());
                     yield return StartCoroutine (AnimateAttack (_detectedTower));
-                    yield return StartCoroutine (PrepareAttack ());
+                    yield return StartCoroutine (PostAttack ());
                 }
                 else
                 {
@@ -394,17 +423,33 @@ public abstract class ObjectDisplay : Display
 
     protected virtual IEnumerator AnimateAttack ()
     {
-        if (!AnimationAttackIsNotNull ()) yield break;
-        animator.Play (animationAttack.name, 0);
-        var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
-        if (hitFn != null)
-        {
-            yield return new WaitForSeconds (hitFn.time);
-        }
-        else
-        {
-            yield return new WaitForSeconds (animationAttack.length);
-        }
+        yield break;
+        // if (!AnimationAttackIsNotNull ()) yield break;
+        // animator.Play (animationAttack.name, 0);
+        // var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+        // if (hitFn != null)
+        // {
+        //     var atkSpdVal = attackSpeed.GetValue ();
+        //     if (atkSpdVal > 0f)
+        //     {
+        //         var animTime = animationAttack.length;
+        //         var hitTime = hitFn.time;
+        //         var atkTime = 1 / atkSpdVal;
+        //         var realTimeRate = animTime / atkTime;
+        //         animator.speed = realTimeRate;
+        //         var realStartToAttackTime = hitTime / realTimeRate;
+        //         yield return new WaitForSeconds (realStartToAttackTime);
+        //         animator.speed = 1;
+        //     }
+        //     else
+        //     {
+        //         yield return new WaitForSeconds (hitFn.time);
+        //     }
+        // }
+        // else
+        // {
+        //     yield return new WaitForSeconds (animationAttack.length);
+        // }
     }
 
     protected virtual IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
@@ -429,11 +474,5 @@ public abstract class ObjectDisplay : Display
             }
             animator.Play (animationIdle.name, 0);
         }
-    }
-
-    void UpdateAnimatorSpeed ()
-    {
-        if (animator == null || animator is Object && animator.Equals (null)) return;
-        animator.speed = settings.deltaSpeed;
     }
 }

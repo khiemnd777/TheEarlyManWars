@@ -49,7 +49,6 @@ public class MonsterDisplay : ObjectDisplay
     protected override IEnumerator AnimateAttack (IEnumerable<ObjectDisplay> enemies)
     {
         if (!enemies.Any ()) yield break;
-        yield return StartCoroutine (AnimateAttack ());
         var atkPwrVal = attackPower.GetValue ();
         if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
         {

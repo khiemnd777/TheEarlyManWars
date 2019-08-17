@@ -41,7 +41,7 @@ public class MeterorShower : MonoBehaviour
 
 	void Execute ()
 	{
-		StartCoroutine (_cameraShake.Shake (shakeDuration / _settings.deltaSpeed, shakeMagnitude));
+		StartCoroutine (_cameraShake.Shake (shakeDuration, shakeMagnitude));
 		var list = _monsterList.list.ToArray();
 		foreach (var monster in list)
 		{
@@ -53,13 +53,12 @@ public class MeterorShower : MonoBehaviour
 
 	void CalculateCooldownProgress ()
 	{
-		if (_settings.deltaSpeed <= 0) return;
 		if (!_inCooldownProgress) return;
 		_button.interactable = false;
 		if (_cooldownCounter <= 1f)
 		{
 			var operatedCooldown = cooldown * (1 - _technologyManager.superPowerCooldownRate);
-			_cooldownCounter += Time.deltaTime / operatedCooldown * _settings.deltaSpeed;
+			_cooldownCounter += Time.deltaTime / operatedCooldown;
 			return;
 		}
 		_inCooldownProgress = false;
