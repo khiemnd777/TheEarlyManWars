@@ -115,6 +115,7 @@ public abstract class ObjectDisplay : Display
     protected virtual IEnumerator PreAttack ()
     {
         if (!AnimationAttackIsNotNull ()) yield break;
+        animator.Play (animationAttack.name, 0, 0);
         var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
         if (hitFn != null)
         {
@@ -134,7 +135,6 @@ public abstract class ObjectDisplay : Display
             // {
             //     yield return new WaitForSeconds (hitTime);
             // }
-            animator.Play (animationAttack.name, 0, 0);
             yield return new WaitForSeconds (hitTime);
         }
     }

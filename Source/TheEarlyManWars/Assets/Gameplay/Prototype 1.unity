@@ -3036,10 +3036,10 @@ MonoBehaviour:
   bossSpawnKnockBackRange: 5
   waves:
   - monsters:
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
   - monsters:
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
   - monsters:
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
@@ -3282,7 +3282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40214e54bb1e76547a9aac048a97ee6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaSpeed: 1
   deltaMoveStep: 0.15
   deltaProjectileMoveStep: 3
   deltaAttackTime: 1
