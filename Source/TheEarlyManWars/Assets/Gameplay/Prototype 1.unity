@@ -3036,10 +3036,10 @@ MonoBehaviour:
   bossSpawnKnockBackRange: 5
   waves:
   - monsters:
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
   - monsters:
-    - {fileID: 11400000, guid: 63e152560a52d459793afe78fa8d750b, type: 2}
+    - {fileID: 11400000, guid: bb747f45ba64f41ec817dc3107891659, type: 2}
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}
   - monsters:
     - {fileID: 11400000, guid: bbeb990db3c014b60a216f637f9ba426, type: 2}

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62cdf1bb86ca4458814ba2b6e818912, type: 3}
+  m_Name: Rurr
+  m_EditorClassIdentifier: 
+  name: Rurr
+  animator: {fileID: 0}
+  speed: 3
+  attackSpeed: 1
+  rangeAttack: 1
+  attackPower: 5
+  hp: 40
+  moveType: 0
+  animationAttack: {fileID: 0}
+  canKnockBack: 0
+  knockBackProbability: 0
+  knockBackRange: 0
+  gainedMeat: 5
+  attackType: 0
+  displayPrefab: {fileID: 114649192040936934, guid: b1901c8786385495bb2af22d55e88d00,
+    type: 3}

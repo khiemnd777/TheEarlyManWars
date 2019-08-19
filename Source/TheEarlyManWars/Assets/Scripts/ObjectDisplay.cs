@@ -115,25 +115,27 @@ public abstract class ObjectDisplay : Display
     protected virtual IEnumerator PreAttack ()
     {
         if (!AnimationAttackIsNotNull ()) yield break;
+        animator.Play (animationAttack.name, 0, 0);
         var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
         if (hitFn != null)
         {
-            var atkSpdVal = attackSpeed.GetValue ();
-            var animTime = animationAttack.length;
             var hitTime = hitFn.time;
-            if (atkSpdVal > 0f)
-            {
-                var atkTime = 1 / atkSpdVal;
-                var realTimeRate = animTime / atkTime;
-                animator.speed = realTimeRate;
-                animator.Play (animationAttack.name, 0, 0);
-                var realStartToAttackTime = hitTime / realTimeRate;
-                yield return new WaitForSeconds (realStartToAttackTime);
-            }
-            else
-            {
-                yield return new WaitForSeconds (hitTime);
-            }
+            // var atkSpdVal = attackSpeed.GetValue ();
+            // var animTime = animationAttack.length;
+            // if (atkSpdVal > 0f)
+            // {
+            //     var atkTime = 1 / atkSpdVal;
+            //     var realTimeRate = animTime / atkTime;
+            //     animator.speed = realTimeRate;
+            //     animator.Play (animationAttack.name, 0, 0);
+            //     var realStartToAttackTime = hitTime / realTimeRate;
+            //     yield return new WaitForSeconds (realStartToAttackTime);
+            // }
+            // else
+            // {
+            //     yield return new WaitForSeconds (hitTime);
+            // }
+            yield return new WaitForSeconds (hitTime);
         }
     }
 
@@ -145,34 +147,35 @@ public abstract class ObjectDisplay : Display
         }
         var atkSpdVal = attackSpeed.GetValue ();
         var atkTime = 1 / atkSpdVal;
-        if (AnimationAttackIsNotNull ())
-        {
-            var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
-            if (hitFn != null)
-            {
-                var animTime = animationAttack.length;
-                var hitTime = hitFn.time;
-                if (atkSpdVal > 0f)
-                {
-                    var realTimeRate = animTime / atkTime;
-                    animator.speed = realTimeRate;
-                    var realAttackToEndTime = (animTime - hitTime) / realTimeRate;
-                    yield return new WaitForSeconds (realAttackToEndTime);
-                }
-                else
-                {
-                    yield return new WaitForSeconds (animTime - hitTime);
-                }
-            }
-            else
-            {
-                yield return new WaitForSeconds (atkTime);
-            }
-        }
-        else
-        {
-            yield return new WaitForSeconds (atkTime);
-        }
+        yield return new WaitForSeconds (atkTime);
+        // if (AnimationAttackIsNotNull ())
+        // {
+        //     var hitFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Hit");
+        //     if (hitFn != null)
+        //     {
+        //         var animTime = animationAttack.length;
+        //         var hitTime = hitFn.time;
+        //         if (atkSpdVal > 0f)
+        //         {
+        //             var realTimeRate = animTime / atkTime;
+        //             animator.speed = realTimeRate;
+        //             var realAttackToEndTime = (animTime - hitTime) / realTimeRate;
+        //             yield return new WaitForSeconds (realAttackToEndTime);
+        //         }
+        //         else
+        //         {
+        //             yield return new WaitForSeconds (animTime - hitTime);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         yield return new WaitForSeconds (atkTime);
+        //     }
+        // }
+        // else
+        // {
+        //     yield return new WaitForSeconds (atkTime);
+        // }
         if (animator)
         {
             animator.speed = 1;
