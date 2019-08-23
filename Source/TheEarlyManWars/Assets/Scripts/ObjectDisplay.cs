@@ -255,6 +255,7 @@ public abstract class ObjectDisplay : Display
     IEnumerator KnockBack (ObjectDisplay damageBy)
     {
         StopMove ();
+        animator.Play (animationHurt.name, 0, 0);
         var percent = 0f;
         var originPos = transform.position;
         var targetPos = new Vector2 (transform.position.x - damageBy.knockBackRange, transform.position.y);
@@ -265,6 +266,7 @@ public abstract class ObjectDisplay : Display
             transform.position = Vector2.Lerp (originPos, targetPos, percent);
             yield return null;
         }
+        animator.Play (animationIdle.name, 0, 0);
         CanMove ();
     }
 

@@ -50,7 +50,10 @@ public class MonsterDisplay : ObjectDisplay
     {
         if (!enemies.Any ()) yield break;
         var atkPwrVal = attackPower.GetValue ();
-        if (_currentEnemy == null || _currentEnemy is Object && _currentEnemy.Equals (null))
+        if (
+            (_currentEnemy && enemies.Any (x => x.GetInstanceID () != _currentEnemy.GetInstanceID ())) ||
+            _currentEnemy == null ||
+            _currentEnemy is Object && _currentEnemy.Equals (null))
         {
             var inx = Random.Range (0, enemies.Count ());
             _currentEnemy = enemies.ElementAtOrDefault (inx);
@@ -66,7 +69,7 @@ public class MonsterDisplay : ObjectDisplay
     {
         _meatSystem.Gain (_gainedMeat);
         StartCoroutine (InstantiateOnDeathEffect ());
-        base.OnDeath();
+        base.OnDeath ();
     }
 
     IEnumerator InstantiateOnDeathEffect ()

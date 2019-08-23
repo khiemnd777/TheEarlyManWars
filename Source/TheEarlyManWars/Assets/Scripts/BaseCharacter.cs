@@ -7,6 +7,7 @@ using UnityEngine;
 public class BaseCharacter : BaseObject
 {
 	public CharacterLevel characterLevel;
+	public LaneEnum lane;
 	public int level;
 	public int meat;
 	public AttackType attackType;

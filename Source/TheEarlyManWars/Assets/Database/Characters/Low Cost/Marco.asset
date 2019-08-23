@@ -25,6 +25,7 @@ MonoBehaviour:
   knockBackProbability: 0
   knockBackRange: 0
   characterLevel: 0
+  lane: 1
   level: 1
   meat: 20
   attackType: 1

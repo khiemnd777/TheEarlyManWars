@@ -88,26 +88,26 @@ public class RangeCharacterDisplay : CharacterDisplay
         {
             var projectileIns = Instantiate<ProjectileObject> (projectileObjectPrefab, _projectilePoint.position, Quaternion.identity);
             projectileIns.direction = direction;
-            var deltaDistance = currentEnemy.isStopMove ? Vector3.zero : Vector3.right * (int) direction * currentEnemy.speed.GetValue () * settings.deltaMoveStep;
-            var stopPos = new Vector3 (transform.position.x + currentEnemy.rangeAttack.GetValue (), transform.position.y, transform.position.z);
-            projectileIns.Launch (currentEnemy.transform.position, deltaDistance, stopPos, () =>
+            var deltaDistance = Vector3.zero;
+            var stopPos = new Vector3 (transform.position.x, transform.position.y, transform.position.z);
+            projectileIns.Launch (tower.transform.position, deltaDistance, stopPos, () =>
             {
-                if (currentEnemy != null && !currentEnemy.Equals (null))
+                if (tower)
                 {
                     var atkPwrVal = attackPower.GetValue () * (1 + technologyManager.rangeDamageRate);
                     tower.TakeDamage (atkPwrVal, this);
                 }
             });
         }
-        if (AnimationIdleIsNotNull () && !dead)
-        {
-            var launchFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Launch");
-            if (launchFn != null)
-            {
-                yield return new WaitForSeconds (animationAttack.length - launchFn.time);
-            }
-            animator.Play (animationIdle.name, 0);
-        }
+        // if (AnimationIdleIsNotNull () && !dead)
+        // {
+        //     var launchFn = animationAttack.events.FirstOrDefault (x => x.functionName == "Launch");
+        //     if (launchFn != null)
+        //     {
+        //         yield return new WaitForSeconds (animationAttack.length - launchFn.time);
+        //     }
+        //     animator.Play (animationIdle.name, 0);
+        // }
     }
 
     IEnumerator PrepareAnimateLaunch ()

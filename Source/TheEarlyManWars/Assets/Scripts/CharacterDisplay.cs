@@ -154,7 +154,10 @@ public class CharacterDisplay : ObjectDisplay
         else
         {
             var enemyArray = GetMonstersByAttackType (enemies);
-            if (currentEnemy == null || currentEnemy is Object && currentEnemy.Equals (null))
+            if (
+                (currentEnemy && enemyArray.Any (x => x.GetInstanceID () != currentEnemy.GetInstanceID ())) ||
+                currentEnemy == null ||
+                currentEnemy is Object && currentEnemy.Equals (null))
             {
                 currentEnemy = enemyArray.ElementAtOrDefault (Random.Range (0, enemyArray.Count ()));
             }
