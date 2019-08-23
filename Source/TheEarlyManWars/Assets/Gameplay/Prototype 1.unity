@@ -1846,7 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bde31113f61d344fa57a5ea4b3c4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaCounter: 1
+  deltaCounter: 100
   _meat: 0
 --- !u!4 &969801993
 Transform:

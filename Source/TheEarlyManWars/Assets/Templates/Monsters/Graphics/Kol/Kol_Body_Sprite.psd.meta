@@ -1,0 +1,207 @@
+fileFormatVersion: 2
+guid: a1ed01f2db233a14687a1c2b7fcf05a8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Kol_Body_Sprite_0
+    21300002: Kol_Body_Sprite_1
+    21300004: Kol_Body_Sprite_2
+    21300006: Kol_Body_Sprite_3
+    21300008: Kol_Body_Sprite_4
+    21300010: Kol_Body_Sprite_5
+    21300012: Kol_Body_Sprite_6
+    21300014: Kol_Body_Sprite_7
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kol_Body_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 507
+        width: 232
+        height: 509
+      alignment: 9
+      pivot: {x: 0.776932, y: 0.8934256}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a71d13a60303f4198eaaa763d14cf3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kol_Body_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 365
+        width: 570
+        height: 610
+      alignment: 9
+      pivot: {x: 0.5008772, y: 0.50163937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac39291412cc6f34b8d94c0d9e6e75ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kol_Body_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 0
+        width: 235
+        height: 508
+      alignment: 9
+      pivot: {x: 0.77055377, y: 0.8909163}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3770669d7d0085a42bf5b1c7ea7b1122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kol_Body_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 117
+        width: 253
+        height: 204
+      alignment: 9
+      pivot: {x: 0.14580545, y: 0.12534468}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bda56a20648e7f4b86979983883e1ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kol_Body_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 92
+        width: 159
+        height: 230
+      alignment: 9
+      pivot: {x: 0.68681574, y: 0.8983291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b6a2a24ae4f584e9cd8358dae06026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c9fe4ed692505c24e9e828be400018fa
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 0
+  userData: 637021998166200408
+  assetBundleName: 
+  assetBundleVariant: 
