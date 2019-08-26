@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99091f75dac5d4ede961d37f71798fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
   m_Record: 0
   m_TargetTransform: {fileID: 2143029709}
   m_NumBones: 2
@@ -164,16 +163,13 @@ MonoBehaviour:
   m_OrientChild: 1
   flip: 0
   m_Solver:
-    m_RootBone: {fileID: 0}
     m_RootBoneTransform: {fileID: 503787161}
     m_SolverPoses:
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 503787161}
+    - m_BoneTransform: {fileID: 503787161}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.9541516, w: 0.2993238}
       defaultLocalRotation: {x: 0, y: 0, z: 0.95846486, w: 0.2852107}
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 2143029709}
+    - m_BoneTransform: {fileID: 2143029709}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.4322235, w: 0.90176654}
       defaultLocalRotation: {x: 0, y: 0, z: 0.4825955, w: 0.87584335}
@@ -387,7 +383,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.8197327
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1529178358}
   m_AttachedIK: {fileID: 1915200162}
 --- !u!1 &253116880
@@ -433,7 +428,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99091f75dac5d4ede961d37f71798fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
   m_Record: 0
   m_TargetTransform: {fileID: 1227313248}
   m_NumBones: 2
@@ -442,16 +436,13 @@ MonoBehaviour:
   m_OrientChild: 0
   flip: 1
   m_Solver:
-    m_RootBone: {fileID: 0}
     m_RootBoneTransform: {fileID: 340110015}
     m_SolverPoses:
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 340110015}
+    - m_BoneTransform: {fileID: 340110015}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.86830306, w: 0.49603403}
       defaultLocalRotation: {x: 0, y: 0, z: 0.92992944, w: 0.36773816}
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 1227313248}
+    - m_BoneTransform: {fileID: 1227313248}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: -0.647257, w: 0.7622719}
       defaultLocalRotation: {x: 0, y: 0, z: -0.6117951, w: 0.79101634}
@@ -746,7 +737,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.9925896
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1227313248}
   m_AttachedIK: {fileID: 253116882}
 --- !u!1 &350651341
@@ -953,7 +943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 1
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &436510503
@@ -1084,7 +1073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 1.0658736
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 2143029709}
   m_AttachedIK: {fileID: 53274175}
 --- !u!1 &536949490
@@ -1808,7 +1796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 1.4700999
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 374121458}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &1017408072
@@ -1940,7 +1927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.9925892
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1183238293}
   m_AttachedIK: {fileID: 1719968352}
 --- !u!1 &1046429310
@@ -2069,7 +2055,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.63034576
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1878413154}
   m_AttachedIK: {fileID: 1719968352}
 --- !u!1 &1184193530
@@ -2121,7 +2106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 1.0744866
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 240950738}
   m_AttachedIK: {fileID: 1915200162}
 --- !u!1 &1227313247
@@ -2171,7 +2155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.63034576
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1705168819}
   m_AttachedIK: {fileID: 253116882}
 --- !u!1 &1277670635
@@ -2536,7 +2519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.49
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &1667515079
@@ -2664,7 +2646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.37
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &1717437197
@@ -2713,7 +2694,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.49
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &1719968350
@@ -2759,7 +2739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99091f75dac5d4ede961d37f71798fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
   m_Record: 0
   m_TargetTransform: {fileID: 1183238293}
   m_NumBones: 2
@@ -2768,16 +2747,13 @@ MonoBehaviour:
   m_OrientChild: 0
   flip: 1
   m_Solver:
-    m_RootBone: {fileID: 0}
     m_RootBoneTransform: {fileID: 1039834215}
     m_SolverPoses:
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 1039834215}
+    - m_BoneTransform: {fileID: 1039834215}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.9688962, w: -0.24746741}
       defaultLocalRotation: {x: 0, y: 0, z: 0.9596737, w: -0.2811164}
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 1183238293}
+    - m_BoneTransform: {fileID: 1183238293}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: -0.6941017, w: 0.71987695}
       defaultLocalRotation: {x: 0, y: 0, z: -0.7325955, w: 0.68066424}
@@ -2886,7 +2862,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.37000078
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
 --- !u!1 &1885671301
@@ -3011,7 +2986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99091f75dac5d4ede961d37f71798fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
   m_Record: 0
   m_TargetTransform: {fileID: 240950738}
   m_NumBones: 2
@@ -3020,16 +2994,13 @@ MonoBehaviour:
   m_OrientChild: 1
   flip: 0
   m_Solver:
-    m_RootBone: {fileID: 0}
     m_RootBoneTransform: {fileID: 1184193531}
     m_SolverPoses:
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 1184193531}
+    - m_BoneTransform: {fileID: 1184193531}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.94652677, w: 0.32262528}
       defaultLocalRotation: {x: 0, y: 0, z: 0.9405595, w: 0.33962888}
-    - m_Bone: {fileID: 0}
-      m_BoneTransform: {fileID: 240950738}
+    - m_BoneTransform: {fileID: 240950738}
       solverPosition: {x: 0, y: 0, z: 0}
       solverRotation: {x: 0, y: 0, z: 0.46334955, w: 0.8861756}
       defaultLocalRotation: {x: 0, y: 0, z: 0.5196942, w: 0.8543524}
@@ -3401,7 +3372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Length: 0.8195976
-  m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 1717437198}
   m_AttachedIK: {fileID: 53274175}
 --- !u!1 &2143222702
