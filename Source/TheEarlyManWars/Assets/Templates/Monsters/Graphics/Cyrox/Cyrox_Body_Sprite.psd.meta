@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: 7acb41c671f13b349872d3f391c77bbe
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cyrox_Body_Sprite_0
+    21300002: Cyrox_Body_Sprite_1
+    21300004: Cyrox_Body_Sprite_2
+    21300006: Cyrox_Body_Sprite_3
+    21300008: Cyrox_Body_Sprite_5
+    21300010: Cyrox_Body_Sprite_6
+    21300012: Cyrox_Body_Sprite_7
+    21300014: Cyrox_Body_Sprite_8
+    21300016: Cyrox_Body_Sprite_9
+    21300018: Cyrox_Body_Sprite_10
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1432
+        width: 402
+        height: 540
+      alignment: 9
+      pivot: {x: 0.7839292, y: 0.29975495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5abd1bbc8f601e4fb7cc0c5b0387fb3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1803
+        width: 101
+        height: 133
+      alignment: 9
+      pivot: {x: 0.72957677, y: 0.7974037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb230e267832eb442a48f347dd34ca6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1583
+        width: 280
+        height: 389
+      alignment: 9
+      pivot: {x: 0.20285317, y: 0.42286128}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097e25728cfd926449b4632a5f206834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1432
+        width: 402
+        height: 540
+      alignment: 9
+      pivot: {x: 0.79518425, y: 0.30551034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01dad18b856480b4f9b865bfb6169bb8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 1420
+        width: 203
+        height: 240
+      alignment: 9
+      pivot: {x: 0.8157926, y: 0.92055255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ef9b2b866c50a48825a041c79f6102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 1203
+        width: 212
+        height: 331
+      alignment: 9
+      pivot: {x: 0.75734985, y: 0.932674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b624e82007dce84398345f9af0019bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1012
+        width: 325
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a84183b8a8c049b4993ac8b9a1c6cf84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1212
+        width: 86
+        height: 128
+      alignment: 9
+      pivot: {x: 0.7061796, y: 0.8196764}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda4f3741ba1fe84da425aced079eee5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 1000
+        width: 97
+        height: 152
+      alignment: 9
+      pivot: {x: 0.3734483, y: 0.8320152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 100c99aafbc04a84db10c062fc39461c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cyrox_Body_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 1019
+        width: 173
+        height: 95
+      alignment: 9
+      pivot: {x: 0.7601763, y: 0.7584331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38664cdb24e8c174b9fb26b47a64bde6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ab40d8838b090814a9abe88e3df82c88
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
