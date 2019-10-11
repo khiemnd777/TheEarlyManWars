@@ -6,13 +6,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yos
+  m_Name: Bapp
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 1107061490495369030}
+    m_StateMachine: {fileID: 1107683239261236096}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,14 +22,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1102119572542536288
+--- !u!1102 &1102017237029139106
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yos Attack
+  m_Name: Bapp_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,20 +42,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f4649b6184cecce48bb6c55d63ea079a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 68007eb57b18e1d49bb12a4ac7257b05, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102691084991503320
+--- !u!1102 &1102787777784562112
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yos Idle
+  m_Name: Bapp_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -68,20 +68,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 03d0fbc8a0cfb4b47bc7fcbabb4c1317, type: 2}
+  m_Motion: {fileID: 7400000, guid: f9f37d09bb581da4d912611142c359bd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102911909918755396
+--- !u!1102 &1102875829405834800
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Yos Walk
+  m_Name: Bapp_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -94,13 +94,13 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8dd55b71f7428c648818f582d6e2faec, type: 2}
+  m_Motion: {fileID: 7400000, guid: 449d5263a59b9ae4792b6e8a475cec20, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &1107061490495369030
+--- !u!1107 &1107683239261236096
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -110,14 +110,14 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102691084991503320}
-    m_Position: {x: 822.1529, y: 298.04214, z: 0}
+    m_State: {fileID: 1102017237029139106}
+    m_Position: {x: 919.281, y: 332.5, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102911909918755396}
-    m_Position: {x: 768.79877, y: 412.16068, z: 0}
+    m_State: {fileID: 1102875829405834800}
+    m_Position: {x: 632.1078, y: 259.54248, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102119572542536288}
-    m_Position: {x: 826.59906, y: 247.65213, z: 0}
+    m_State: {fileID: 1102787777784562112}
+    m_Position: {x: 570.01636, y: 369.75488, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -127,4 +127,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102691084991503320}
+  m_DefaultState: {fileID: 1102875829405834800}

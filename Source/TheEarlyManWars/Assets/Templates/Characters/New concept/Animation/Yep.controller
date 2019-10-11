@@ -6,13 +6,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Otto
+  m_Name: Yep
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 1107038973009266620}
+    m_StateMachine: {fileID: 1107742669950489012}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,14 +22,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1102067579338312348
+--- !u!1102 &1102050529860156886
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Otto Walk 0
+  m_Name: Yep_Attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,20 +42,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3513fde7068f3d64cb9e28be327efb93, type: 2}
+  m_Motion: {fileID: 7400000, guid: 67925828bf8c15646806343329edfe51, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102120906159550692
+--- !u!1102 &1102335402912105068
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: attack
+  m_Name: Yep_Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -68,20 +68,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7a0e6453f24cd534783dd28f187ee8d9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 53e28599a5e094943a520da4e99a8b14, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102510687912186996
+--- !u!1102 &1102737458707375496
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Otto Idle
+  m_Name: Yep_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -94,13 +94,13 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6f701807224985b4694aefe60a5129e8, type: 2}
+  m_Motion: {fileID: 7400000, guid: df11ea077e63a6344833e5f010bcd791, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &1107038973009266620
+--- !u!1107 &1107742669950489012
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -110,14 +110,14 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102067579338312348}
-    m_Position: {x: 516, y: 312, z: 0}
+    m_State: {fileID: 1102737458707375496}
+    m_Position: {x: 754.7385, y: 257.99017, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102510687912186996}
-    m_Position: {x: 516, y: 228, z: 0}
+    m_State: {fileID: 1102050529860156886}
+    m_Position: {x: 723.69275, y: 366.65033, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102120906159550692}
-    m_Position: {x: 850.31195, y: 213.56473, z: 0}
+    m_State: {fileID: 1102335402912105068}
+    m_Position: {x: 735.69275, y: 378.65033, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -127,4 +127,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102067579338312348}
+  m_DefaultState: {fileID: 1102050529860156886}
